@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Главный',
             'description' => 'слайдер на главной странице',
             'identificator' => 'home_slider',
-            'tyoe' => 'slider',
+            'type' => 'slider',
             'data' => 'a:2:{i:0;a:2:{s:5:"image";s:44:"G4EEDzYhf1jJodbth2HnlIf0annzbPt3pguuPvmp.jpg";s:4:"link";s:29:"http://localhost:8000/catalog";}i:1;a:2:{s:5:"image";s:44:"cvQsN6yTeZlg2SsTfbZnJfAlGhGNlzLvNNnGG8tn.jpg";s:4:"link";s:29:"http://localhost:8000/catalog";}}',
         ]);
 
