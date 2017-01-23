@@ -16,7 +16,8 @@
             <ol class="breadcrumb">
                 <li><a href="{{url('/')}}">Home</a></li>
                 <li><a href="{{url('/catalog')}}">Catalog</a></li>
-                <li><a href="{{url('/catalog/'.$currentClass['urlhash'])}}">{{$currentClass->description->name}}</a></li>
+                <li><a href="{{url('/catalog/'.$currentClass['urlhash'])}}">{{$currentClass->description->name}}</a>
+                </li>
                 <li>
                     <a href="{{url('/catalog/'.$currentClass['urlhash'].'/'.$currentCat['urlhash'])}}">{{$currentCat->description->name}}</a>
                 </li>
@@ -112,8 +113,18 @@
                             <!-- buttons -->
                             <div class="pull-right">
                                 <!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
-                                <a class="btn btn-default add-wishlist" href="#" data-item-id="1" data-toggle="tooltip"
-                                   title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>
+                                <a class="btn btn-default add-wishlist" href="#" data-added="{{$favourite}}"
+                                   data-id="{{$currentProd->id}}" {{--data-toggle="tooltip"--}}
+                                   @if($favourite)
+                                   title="Remove from Wishlist"
+                                   @else
+                                   title="Add To Wishlist"
+                                        @endif
+                                ><i
+                                            @if($favourite)
+                                            style="color: darkred"
+                                            @endif
+                                            class="fa fa-heart nopadding"></i></a>
                                 {{--<a class="btn btn-default add-compare" href="#" data-item-id="1" data-toggle="tooltip"--}}
                                 {{--title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>--}}
                             </div>
@@ -127,9 +138,7 @@
                                 {{currency($currentProd->price)}}
                             </div>
                             <!-- /price -->
-
                             <hr/>
-
                             <div class="clearfix margin-bottom-30">
                                 @if($currentProd->isset)
                                     <span class="pull-right text-success"><i class="fa fa-check"></i> In Stock</span>
@@ -263,7 +272,9 @@
                                         <b>{{$group->name}}</b>
                                         <select style="width: 100%;" class="form-control option-id">
                                             @foreach($group->options as $option)
-                                                <option value="{{$option->id}}/{{currencyWithoutPrefix($option->price)}}/{{$option->value}}">{{$option->value}} (+ {{currency($option->price)}})</option>
+                                                <option value="{{$option->id}}/{{currencyWithoutPrefix($option->price)}}/{{$option->value}}">{{$option->value}}
+                                                    (+ {{currency($option->price)}})
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -558,16 +569,16 @@
 
                                     <!-- buttons -->
                                     {{--<div class="shop-item-buttons text-center products">--}}
-                                        {{--<a class="btn btn-default buy-btn"--}}
-                                           {{--id="{{$prod->id}}"--}}
-                                           {{--data-id="{{$prod->id}}"--}}
-                                           {{--data-title="{{$prod->name}}"--}}
-                                           {{--data-img="{{ asset('/files/products/img/'.$prod->cover) }}"--}}
-                                           {{--data-price="{{currencyWithoutPrefix($prod->price)}}"--}}
-                                           {{--data-currency="{{currencyPrefix()}}" href="#"><i class="fa fa-cart-plus"></i>--}}
-                                            {{--Add--}}
-                                            {{--to--}}
-                                            {{--Cart</a>--}}
+                                    {{--<a class="btn btn-default buy-btn"--}}
+                                    {{--id="{{$prod->id}}"--}}
+                                    {{--data-id="{{$prod->id}}"--}}
+                                    {{--data-title="{{$prod->name}}"--}}
+                                    {{--data-img="{{ asset('/files/products/img/'.$prod->cover) }}"--}}
+                                    {{--data-price="{{currencyWithoutPrefix($prod->price)}}"--}}
+                                    {{--data-currency="{{currencyPrefix()}}" href="#"><i class="fa fa-cart-plus"></i>--}}
+                                    {{--Add--}}
+                                    {{--to--}}
+                                    {{--Cart</a>--}}
                                     {{--</div>--}}
                                     <div class="text-center">
                                         <a class="btn btn-default" href='{{url('product/'.$prod->id)}}'><i
@@ -613,7 +624,8 @@
                                         <li><a href="{{ url('catalog/'.$class->urlhash) }}">ALL</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id == $class->id)
-                                                <li class="@if($cat->description->name == $currentCat->description->name)active @endif"><a
+                                                <li class="@if($cat->description->name == $currentCat->description->name)active @endif">
+                                                    <a
                                                             href="{{ url('catalog/'.$class->urlhash.'/'.$cat->urlhash) }}"><span
                                                                 class="size-11 text-muted pull-right">({{$cat->products->count()}}
                                                             )</span>{{$cat->description->name}}</a></li>
@@ -633,16 +645,14 @@
                     <!-- BANNER ROTATOR -->
                     <div class="owl-carousel buttons-autohide controlls-over margin-bottom-60 text-center"
                          data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": true, "pagination": false, "transitionStyle":"goDown"}'>
-                        <a href="#">
-                            <img class="img-responsive" src="{{asset('smarty/images/demo/shop/banners/off_1.png')}}"
-                                 width="270"
-                                 height="350" alt="">
-                        </a>
-                        <a href="#">
-                            <img class="img-responsive" src="{{asset('smarty/images/demo/shop/banners/off_2.png')}}"
-                                 width="270"
-                                 height="350" alt="">
-                        </a>
+                        @if(isset($sliders['left_column_banner']))
+                            @foreach($sliders['left_column_banner']->data as $slide)
+                                <a href="{{$slide['link']}}">
+                                    <img class="img-responsive" src="{{asset('files/sliders/'.$slide['image'])}}"
+                                         width="270" height="350" alt="">
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                     <!-- /BANNER ROTATOR -->
 
@@ -712,4 +722,44 @@
     <!-- / -->
 @endsection
 
+@section('scripts')
+    f
+    <script>
+        $('.add-wishlist').on('click', function () {
+            var product_id = $(this).data('id');
+            if ($(this).data('added') == 0) {
+                $.get('{{url('/profile/favourites/add')}}/' + product_id, function (response) {
+                    if (response) {
+                        $('.add-wishlist').children('.fa').css('color', 'darkred');
+                        $('.add-wishlist').data('added', 1);
+                        $('.add-wishlist').attr('title','Remove from Wishlist');
+//                        $('.add-wishlist').data('originalTitle','Remove from Wishlist');
+                        _toastr('Добавлено в избранное!', "bottom-right", "success", false);
+                        return false;
+                    }
+                    else {
+                        _toastr('Сначала нужно зарегистрироваться!', "bottom-right", "danger", false);
+                        return false;
+                    }
+                })
+            }
+            else {
+                $.get('{{url('/profile/favourites/delete')}}/' + product_id, function (response) {
+                    if (response) {
+                        $('.add-wishlist').children('.fa').css('color', 'black');
+                        $('.add-wishlist').data('added', 0);
+                        $('.add-wishlist').attr('title','Add to Wishlist');
+//                        $('.add-wishlist').data('originalTitle','Add to Wishlist');
+                        _toastr('Удаленно из избранного!', "bottom-right", "success", false);
+                        return false;
+                    }
+                    else {
+                        _toastr('Сначала нужно зарегистрироваться!', "bottom-right", "danger", false);
+                        return false;
+                    }
+                })
+            }
+        })
+    </script>
 
+@endsection

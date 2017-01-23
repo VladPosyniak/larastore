@@ -37,6 +37,8 @@
                         <div class="box-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#to_process" data-toggle="tab">Заказы к обработке</a></li>
+                                <li><a href="#in_process" data-toggle="tab">Обрабатываються</a></li>
+                                <li><a href="#end_process" data-toggle="tab">Обработыные</a></li>
                                 <li><a href="#all_orders" data-toggle="tab">Все заказы</a></li>
                             </ul>
 
@@ -44,45 +46,46 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="to_process">
                                     <br>
-                                    <table id="table1" class="table table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <center>Создан</center>
-                                            </th>
-                                            <th>
-                                                <center>Обновлено</center>
-                                            </th>
+                                    @if(isset($to_processing[0]))
+                                        <table id="table1" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <center>Создан</center>
+                                                </th>
+                                                <th>
+                                                    <center>Обновлено</center>
+                                                </th>
 
-                                            <th>
-                                                <center>Имя покупателя</center>
-                                            </th>
-                                            <th>
-                                                <center>Статус</center>
-                                            </th>
-                                            <th>
-                                                <center>Цена</center>
-                                            </th>
-                                            <th>
-                                                <center>Тип оплаты</center>
-                                            </th>
-                                            <th>
-                                                <center>Оплачено</center>
-                                            </th>
-                                            <th>
-                                                <center>Действие</center>
-                                            </th>
-                                            <th>
-                                                <center>Изменить статус</center>
-                                            </th>
-                                            <th>
-                                                <center>id</center>
-                                            </th>
+                                                <th>
+                                                    <center>Имя покупателя</center>
+                                                </th>
+                                                <th>
+                                                    <center>Статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>Цена</center>
+                                                </th>
+                                                <th>
+                                                    <center>Тип оплаты</center>
+                                                </th>
+                                                <th>
+                                                    <center>Оплачено</center>
+                                                </th>
+                                                <th>
+                                                    <center>Действие</center>
+                                                </th>
+                                                <th>
+                                                    <center>Изменить статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>id</center>
+                                                </th>
 
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @if(isset($to_processing[0]))
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
                                             @foreach ($to_processing as $order)
                                                 <tr>
                                                     <td>{{$order->created_at}}</td>
@@ -93,62 +96,232 @@
                                                     <td>{{$order->pay_type}}</td>
                                                     <td>{{$order->paid}}</td>
                                                     <td class="text-center">
-                                                        <a href="{{url('admin/orders/show/'.$order->id)}}" class="btn btn-info" title="Подробно"><i class="fa fa-info" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/show/'.$order->id)}}"
+                                                           class="btn btn-info" title="Подробно"><i class="fa fa-info"
+                                                                                                    aria-hidden="true"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}" title="Ожидает обработки" class="btn btn-warning"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}" title="Обрабатывается" class="btn btn-info"><i class="fa fa-circle-o-notch fa-spin"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}" title="Обработан" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
+                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                                    class="fa fa-clock-o" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
+                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                                    class="fa fa-circle-o-notch fa-spin"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
+                                                           title="Обработан" class="btn btn-success"><i
+                                                                    class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                        {{--{{dd($campaign)}}--}}
-                                        </tbody>
+                                            @else
+                                                Заказов к обработке нет.
+                                            @endif
+                                            {{--{{dd($campaign)}}--}}
+                                            </tbody>
 
-                                    </table>
+                                        </table>
                                 </div>
+
+                                <div class="tab-pane" id="in_process">
+                                    <br>
+                                    @if(isset($in_processing[0]))
+                                        <table id="table2" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <center>Создан</center>
+                                                </th>
+                                                <th>
+                                                    <center>Обновлено</center>
+                                                </th>
+
+                                                <th>
+                                                    <center>Имя покупателя</center>
+                                                </th>
+                                                <th>
+                                                    <center>Статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>Цена</center>
+                                                </th>
+                                                <th>
+                                                    <center>Тип оплаты</center>
+                                                </th>
+                                                <th>
+                                                    <center>Оплачено</center>
+                                                </th>
+                                                <th>
+                                                    <center>Действие</center>
+                                                </th>
+                                                <th>
+                                                    <center>Изменить статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>id</center>
+                                                </th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            @foreach ($in_processing as $order)
+                                                <tr>
+                                                    <td>{{$order->created_at}}</td>
+                                                    <td>{{$order->updated_at}}</td>
+                                                    <td>{{$order->user->name}}</td>
+                                                    <td><span class="label label-success">{{$order->status}}</span></td>
+                                                    <td>{{currency($order->to_pay,'UAH')}}</td>
+                                                    <td>{{$order->pay_type}}</td>
+                                                    <td>{{$order->paid}}</td>
+                                                    <td class="text-center">
+                                                        <a href="{{url('admin/orders/show/'.$order->id)}}"
+                                                           class="btn btn-info" title="Подробно"><i class="fa fa-info"
+                                                                                                    aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
+                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                                    class="fa fa-clock-o" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
+                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                                    class="fa fa-circle-o-notch fa-spin"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
+                                                           title="Обработан" class="btn btn-success"><i
+                                                                    class="fa fa-check" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>{{$order->id}}</td>
+                                                </tr>
+                                            @endforeach
+                                            @else
+                                                Заказов в обработке нет.
+                                            @endif
+                                            {{--{{dd($campaign)}}--}}
+                                            </tbody>
+
+                                        </table>
+                                </div>
+
+                                <div class="tab-pane" id="end_process">
+                                    <br>
+                                    @if(isset($end_processing[0]))
+                                        <table id="table3" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <center>Создан</center>
+                                                </th>
+                                                <th>
+                                                    <center>Обновлено</center>
+                                                </th>
+
+                                                <th>
+                                                    <center>Имя покупателя</center>
+                                                </th>
+                                                <th>
+                                                    <center>Статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>Цена</center>
+                                                </th>
+                                                <th>
+                                                    <center>Тип оплаты</center>
+                                                </th>
+                                                <th>
+                                                    <center>Оплачено</center>
+                                                </th>
+                                                <th>
+                                                    <center>Действие</center>
+                                                </th>
+                                                <th>
+                                                    <center>Изменить статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>id</center>
+                                                </th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            @foreach ($end_processing as $order)
+                                                <tr>
+                                                    <td>{{$order->created_at}}</td>
+                                                    <td>{{$order->updated_at}}</td>
+                                                    <td>{{$order->user->name}}</td>
+                                                    <td><span class="label label-success">{{$order->status}}</span></td>
+                                                    <td>{{currency($order->to_pay,'UAH')}}</td>
+                                                    <td>{{$order->pay_type}}</td>
+                                                    <td>{{$order->paid}}</td>
+                                                    <td class="text-center">
+                                                        <a href="{{url('admin/orders/show/'.$order->id)}}"
+                                                           class="btn btn-info" title="Подробно"><i class="fa fa-info"
+                                                                                                    aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
+                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                                    class="fa fa-clock-o" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
+                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                                    class="fa fa-circle-o-notch fa-spin"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
+                                                           title="Обработан" class="btn btn-success"><i
+                                                                    class="fa fa-check" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>{{$order->id}}</td>
+                                                </tr>
+                                            @endforeach
+                                            @else
+                                                Обработных заказов нет.
+                                            @endif
+                                            {{--{{dd($campaign)}}--}}
+                                            </tbody>
+
+                                        </table>
+                                </div>
+
                                 <div class="tab-pane" id="all_orders">
                                     <br>
-                                    <table id="table2" class="table table-bordered table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <center>Создан</center>
-                                            </th>
-                                            <th>
-                                                <center>Обновлено</center>
-                                            </th>
+                                    @if(isset($all_orders[0]))
+                                        <table id="table4" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <center>Создан</center>
+                                                </th>
+                                                <th>
+                                                    <center>Обновлено</center>
+                                                </th>
 
-                                            <th>
-                                                <center>Имя покупателя</center>
-                                            </th>
-                                            <th>
-                                                <center>Статус</center>
-                                            </th>
-                                            <th>
-                                                <center>Цена</center>
-                                            </th>
-                                            <th>
-                                                <center>Тип оплаты</center>
-                                            </th>
-                                            <th>
-                                                <center>Оплачено</center>
-                                            </th>
-                                            <th>
-                                                <center>Действие</center>
-                                            </th>
-                                            <th>
-                                                <center>Изменить статус</center>
-                                            </th>
-                                            <th>
-                                                <center>id</center>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @if(isset($all_orders[0]))
+                                                <th>
+                                                    <center>Имя покупателя</center>
+                                                </th>
+                                                <th>
+                                                    <center>Статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>Цена</center>
+                                                </th>
+                                                <th>
+                                                    <center>Тип оплаты</center>
+                                                </th>
+                                                <th>
+                                                    <center>Оплачено</center>
+                                                </th>
+                                                <th>
+                                                    <center>Действие</center>
+                                                </th>
+                                                <th>
+                                                    <center>Изменить статус</center>
+                                                </th>
+                                                <th>
+                                                    <center>id</center>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
                                             @foreach ($all_orders as $order)
                                                 <tr>
                                                     <td>{{$order->created_at}}</td>
@@ -159,22 +332,31 @@
                                                     <td>{{$order->pay_type}}</td>
                                                     <td>{{$order->paid}}</td>
                                                     <td class="text-center">
-                                                        <a href="{{url('admin/orders/show/'.$order->id)}}" class="btn btn-info" title="Подробно"><i class="fa fa-info" aria-hidden="true"></i></a>
-                                                        <a href="" class="btn btn-success" title="Распечатать"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/show/'.$order->id)}}"
+                                                           class="btn btn-info" title="Подробно"><i class="fa fa-info"
+                                                                                                    aria-hidden="true"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}" title="Ожидает обработки" class="btn btn-warning"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}" title="Обрабатывается" class="btn btn-info"><i class="fa fa-circle-o-notch fa-spin"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}" title="Обработан" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
+                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                                    class="fa fa-clock-o" aria-hidden="true"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
+                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                                    class="fa fa-circle-o-notch fa-spin"></i></a>
+                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
+                                                           title="Обработан" class="btn btn-success"><i
+                                                                    class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
                                                 </tr>
                                             @endforeach
-                                        @endif
-                                        {{--{{dd($campaign)}}--}}
-                                        </tbody>
+                                            @else
+                                                Нет ни одного заказа.
+                                            @endif
+                                            {{--{{dd($campaign)}}--}}
+                                            </tbody>
 
-                                    </table>
+                                        </table>
                                 </div>
                             </div>
 
@@ -222,6 +404,16 @@
                 }
             });
             $("#table2").DataTable({
+                "language": {
+                    "url": "{!! asset('plugins/datatables/lang/Russian.json') !!}",
+                }
+            });
+            $("#table3").DataTable({
+                "language": {
+                    "url": "{!! asset('plugins/datatables/lang/Russian.json') !!}",
+                }
+            });
+            $("#table4").DataTable({
                 "language": {
                     "url": "{!! asset('plugins/datatables/lang/Russian.json') !!}",
                 }

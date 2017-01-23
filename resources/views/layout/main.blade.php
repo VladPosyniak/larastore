@@ -115,31 +115,28 @@
             <!-- right -->
             <ul class="top-links list-inline pull-right">
                 @if(Auth::check())
-                    <li class="text-welcome hidden-xs">{{trans('navbar.welcome_to')}} Flowers.com,
+                    <li class="text-welcome hidden-xs">{{trans('layout.welcome_to')}} {{Setting::get('config.sitename', 'SiteName')}},
                         <strong>{{Auth::user()->name}}</strong>
                     </li>
                     <li>
                         <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i
-                                    class="fa fa-user hidden-xs"></i>{{mb_strtoupper(trans('navbar.my_account'))}}</a>
+                                    class="fa fa-user hidden-xs"></i>{{mb_strtoupper(trans('layout.my_account'))}}</a>
                         <ul class="dropdown-menu pull-right">
                             {{--<li><a tabindex="-1" href="{{url('/profile/history')}}"><i class="fa fa-history"></i> ORDER HISTORY</a></li>--}}
                             <li class="divider"></li>
                             {{--<li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i> MY WISHLIST</a></li>--}}
                             {{--<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> MY REVIEWS</a></li>--}}
-                            <li><a tabindex="-1" href="{{url('/profile/settings')}}"><i class="fa fa-cog"></i> MY
-                                    SETTINGS</a></li>
-                            <li><a tabindex="-1" href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i> MY
-                                    COUPONS</a></li>
-                            <li><a tabindex="-1" href="{{url('/profile/orders')}}"><i class="fa fa-archive"></i> MY
-                                    ORDERS</a></li>
+                            <li><a tabindex="-1" href="{{url('/profile/settings')}}"><i class="fa fa-cog"></i> {{mb_strtoupper(trans('layout.my_settings'))}}</a></li>
+                            <li><a tabindex="-1" href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i> {{mb_strtoupper(trans('layout.my_coupons'))}}</a></li>
+                            <li><a tabindex="-1" href="{{url('/profile/orders')}}"><i class="fa fa-archive"></i> {{mb_strtoupper(trans('layout.my_orders'))}}</a></li>
+                            <li><a tabindex="-1" href="{{url('/profile/favourites')}}"><i class="fa fa-star"></i> {{mb_strtoupper(trans('layout.my_favourites'))}}</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" href="{{url('/logout')}}"><i class="glyphicon glyphicon-off"></i>
-                                    LOGOUT</a></li>
+                            <li><a tabindex="-1" href="{{url('/logout')}}"><i class="glyphicon glyphicon-off"></i>{{mb_strtoupper(trans('layout.exit'))}}</a></li>
                         </ul>
                     </li>
                 @else
-                    <li class="hidden-xs"><a href="{{url('/login')}}">{{trans('navbar.login')}}</a></li>
-                    <li class="hidden-xs"><a href="{{url('/registration')}}">{{trans('navbar.registration')}}</a></li>
+                    <li class="hidden-xs"><a href="{{url('/login')}}">{{trans('layout.login')}}</a></li>
+                    <li class="hidden-xs"><a href="{{url('/registration')}}">{{trans('layout.registration')}}</a></li>
                 @endif
 
             </ul>
@@ -217,15 +214,7 @@
     -->
     <div id="header" class="sticky clearfix">
 
-        <!-- SEARCH HEADER -->
-        <div class="search-box over-header">
-            <a id="closeSearch" href="#" class="glyphicon glyphicon-remove"></a>
 
-            <form action="page-search-result-1.html" method="get">
-                <input type="text" class="form-control" placeholder="SEARCH"/>
-            </form>
-        </div>
-        <!-- /SEARCH HEADER -->
 
 
         <!-- TOP NAV -->
@@ -245,8 +234,19 @@
                         <a href="javascript:;">
                             <i class="fa fa-search"></i>
                         </a>
+                        <div class="search-box">
+                            <form action="{{url('/search')}}" method="get">
+                                <div class="input-group">
+                                    <input type="text" name="keyword" placeholder="Search" class="form-control" required/>
+                                    <span class="input-group-btn">
+												<button class="btn btn-primary" type="submit">Search</button>
+											</span>
+                                </div>
+                            </form>
+                        </div>
                     </li>
                     <!-- /SEARCH -->
+
 
 
                 @if(!Request::is('checkout'))
@@ -260,9 +260,9 @@
                             <div class="quick-cart-box">
                                 @if(Auth::check())
                                     <h5 style=" padding-top: 3px; padding-right:7px; position: absolute; right: -1px;">
-                                        Balance: {{currency(Auth::user()->balance)}}</h5>
+                                        {{trans('layout.balance')}}: {{currency(Auth::user()->balance)}}</h5>
                                 @endif
-                                <h4>Shop Cart</h4>
+                                <h4>{{trans('layout.cart')}}</h4>
 
 
                                 <div class="quick-cart-wrapper">
@@ -271,10 +271,9 @@
 
                                 <!-- quick cart footer -->
                                 <div class="quick-cart-footer">
-                                                                        <span style="width: 100%;margin-bottom: 5px; text-align: center" ><strong>TOTAL:</strong> <span
+                                                                        <span style="width: 100%;margin-bottom: 5px; text-align: center" ><strong>{{trans('layout.total')}}:</strong> <span
                                                                                     id="total-price"></span></span>
-                                    <a href="{{url('checkout')}}" class="btn btn-primary btn-xs"> PROCEED TO
-                                        CHECKOUT</a>
+                                    <a href="{{url('checkout')}}" class="btn btn-primary btn-xs">{{trans('layout.checkout')}}</a>
 
                                 </div>
                                 <!-- /quick cart footer -->
@@ -336,10 +335,10 @@
                             {{--</li>--}}
 
                             <li>
-                                <a href="{{url('/')}}">{{mb_strtoupper(trans('navbar.home'))}}</a>
+                                <a href="{{url('/')}}">{{mb_strtoupper(trans('layout.home'))}}</a>
                             </li>
                             <li>
-                                <a href="{{url('/catalog')}}">{{mb_strtoupper(trans('navbar.catalog'))}}</a>
+                                <a href="{{url('/catalog')}}">{{mb_strtoupper(trans('layout.catalog'))}}</a>
                             </li>
 
                             @foreach(\larashop\Classes::all() as $navbar_class)
@@ -497,7 +496,7 @@
                         {{--</div>--}}
 
                         <div class="col-md-3 hidden-sm hidden-xs">
-                            <h4 class="letter-spacing-1">EXPLORE US</h4>
+                            <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.explore_us'))}}</h4>
                             <ul class="list-unstyled footer-list half-paddings noborder">
                                 <li><a class="block" href="{{url('/')}}"><i class="fa fa-angle-right"></i> Главная страница</a></li>
                                 <li><a class="block" href="{{url('/catalog')}}"><i class="fa fa-angle-right"></i> Каталог</a></li>
@@ -508,8 +507,8 @@
                         </div>
 
                         <div class="col-md-4">
-                            <h4 class="letter-spacing-1">SECURE PAYMENT</h4>
-                            <p>Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit amet.</p>
+                            <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.secure_payment'))}}</h4>
+                            <p>{{trans('layout.secure_payment_content')}}</p>
                             <p>	<!-- see assets/images/cc/ for more icons -->
                                 <img src="{{asset('smarty/images/cc/Visa.png')}}" alt="" />
                                 <img src="{{asset('smarty/images/cc/Mastercard.png')}}" alt="" />
@@ -584,6 +583,8 @@
     });
 
 </script>
+
+@yield('scripts')
 <!-- PAGE LEVEL SCRIPTS -->
 {{--<script type="text/javascript" src="{{asset('smarty/js/view/demo.shop.js')}}"></script>--}}
 </body>

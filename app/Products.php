@@ -20,6 +20,10 @@ class Products extends Model
         return $this->hasOne('larashop\ProductDescription','product_id')->where('language_id','=',currentLanguageId());
     }
 
+    public function description_ru(){
+        return $this->hasOne('larashop\ProductDescription','product_id')->where('language_id','=',1);
+    }
+
     public function recommendProd()
     {
         return $this->hasMany('larashop\recommendsProducts', 'product_id');

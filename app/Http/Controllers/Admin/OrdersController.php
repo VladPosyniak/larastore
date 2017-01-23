@@ -17,7 +17,9 @@ class OrdersController extends Controller
 {
     public function index(){
         $all_orders = Order::all();
-        $to_processing = Order::where('to_processing','=',1)->orderBy('created_at','desk')->get();
+        $to_processing = Order::where('status','=','Ожидает обработки')->orderBy('created_at','desk')->get();
+        $in_processing = Order::where('status','=','Обрабатывается')->orderBy('created_at','desk')->get();
+        $end_processing = Order::where('status','=','Обработан')->orderBy('created_at','desk')->get();
         foreach ($to_processing as $key => $order) {
             $to_processing[$key]->user = User::find($order->user_id);
             if ($order->paid) {
@@ -66,10 +68,60 @@ class OrdersController extends Controller
                     break;
             }
         }
+        foreach ($in_processing as $key => $order) {
+            $in_processing[$key]->user = User::find($order->user_id);
+            if ($order->paid) {
+                $in_processing[$key]->paid = 'Да';
+            } else {
+                $in_processing[$key]->paid = 'Нет';
+            }
+
+            switch ($order->pay_type) {
+                case 'cash':
+                    $in_processing[$key]->pay_type = 'При получении';
+                    break;
+                case 'liqpay':
+                    break;
+                case 'balance':
+                    $in_processing[$key]->pay_type = 'С баланаса';
+                    break;
+                case 'webmoney':
+                    break;
+                default:
+                    $in_processing[$key]->pay_type = 'Неизвестно';
+                    break;
+            }
+        }
+        foreach ($end_processing as $key => $order) {
+            $end_processing[$key]->user = User::find($order->user_id);
+            if ($order->paid) {
+                $end_processing[$key]->paid = 'Да';
+            } else {
+                $end_processing[$key]->paid = 'Нет';
+            }
+
+            switch ($order->pay_type) {
+                case 'cash':
+                    $end_processing[$key]->pay_type = 'При получении';
+                    break;
+                case 'liqpay':
+                    break;
+                case 'balance':
+                    $end_processing[$key]->pay_type = 'С баланаса';
+                    break;
+                case 'webmoney':
+                    break;
+                default:
+                    $end_processing[$key]->pay_type = 'Неизвестно';
+                    break;
+            }
+        }
 
         $data = [
             'all_orders' => $all_orders,
-            'to_processing' => $to_processing
+            'to_processing' => $to_processing,
+            'in_processing' => $in_processing,
+            'end_processing' => $end_processing,
         ];
 
         return view('admin.orders.orders',$data);

@@ -50,7 +50,7 @@
                                                     src="{{ asset('dist/img/boxed-bg.png') }}"
                                                     @endif
                                                 ></td>
-                                                <td style="width: 300px;    vertical-align: inherit;">{{$product->description->name}}<br> <small>{{$product->category->name}}</small></td>
+                                                <td style="width: 300px;    vertical-align: inherit;">{{$product->description->name}}<br> <small>{{$product->category->description_ru->name}}</small></td>
                                                 <td>
 
                                                 </td>
@@ -58,7 +58,7 @@
                                                 <td style="vertical-align: inherit;"><span class="badge bg-default">{{$product->quantity}}</span></td>
                                                 <td style="vertical-align: inherit;" class="text-right">
                                                     <div class="btn-group ">
-                                                        <a href="{!! URL::to('admin/content/product/edit/'.$product->id); !!}" class="btn btn-sm btn-primary btn-flat"><i class=" fa fa-pencil"></i></a>
+                                                        <a href="{!! URL::to('admin/content/product/edit/'.$product->id) !!}" class="btn btn-sm btn-primary btn-flat"><i class=" fa fa-pencil"></i></a>
                                                         <a href="#" data-id="{{$product->id}}" class="btn btn-sm btn-danger btn-flat remove_prod"><i class=" fa fa-trash-o"></i></a>
                                                     </div>
                                                 </td>

@@ -41,9 +41,9 @@
                 <h2>{{$product['name']}}</h2>
 
                 <!-- rating -->
-                <div class="shop-item-rating-line">
-                    <div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>
-                </div>
+                {{--<div class="shop-item-rating-line">--}}
+                    {{--<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>--}}
+                {{--</div>--}}
                 <!-- /rating -->
 
                 <!-- price -->
@@ -79,6 +79,7 @@
                     {{--<h4>Характеристики:</h4>--}}
                 {{--</div>--}}
                 <ul class="list-unstyled list-icons" style="padding: 0">
+
                     @foreach($attr as $item)
                         @if($item->id == $product['id'])
                         <li><b>{{$item->title}}</b>: {{$item->value.' '.$item->unit}}</li>

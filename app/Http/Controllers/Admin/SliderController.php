@@ -31,7 +31,9 @@ class SliderController extends Controller
             'name' => 'required|min:2|max:255',
             'description' => 'required|min:2|max:255',
             'type' => 'required',
-            'identificator' => 'required'
+            'identificator' => 'required',
+            'height' => 'required|integer',
+            'width' => 'required|integer',
         ]);
         if ($validator->fails()) {
 
@@ -40,20 +42,22 @@ class SliderController extends Controller
 
 
             $data = [];
-            foreach ($request->file('images') as $image) {
-                $link = '';
-                foreach ($request->links as $item) {
-                    $link = $item;
+            if ($request->file('images')[0]) {
+                foreach ($request->file('images') as $image) {
+                    $link = '';
+                    foreach ($request->links as $item) {
+                        $link = $item;
+                    }
+                    $saveimage = Image::make($image)->fit($request->width, $request->height);
+                    $string = str_random(40);
+                    $extension = $image->getClientOriginalExtension();
+                    $saveimage->save('files/sliders/' . $string . '.' . $extension);
+                    $data[] =
+                        [
+                            'image' => $string . '.' . $extension,
+                            'link' => $link
+                        ];
                 }
-                $saveimage = Image::make($image)->fit(1250,521);
-                $string = str_random(40);
-                $extension = $image->getClientOriginalExtension();
-                $saveimage->save('files/sliders/' . $string . '.' . $extension);
-                $data[] =
-                    [
-                        'image' => $string . '.' . $extension,
-                        'link' => $link
-                    ];
             }
 
             $data = serialize($data);
@@ -64,6 +68,8 @@ class SliderController extends Controller
             $slider->identificator = $request->identificator;
             $slider->type = $request->type;
             $slider->data = $data;
+            $slider->height = $request->height;
+            $slider->width = $request->width;
             $slider->save();
 
             return redirect(url('admin/content/sliders'));
@@ -89,7 +95,9 @@ class SliderController extends Controller
             'name' => 'required|min:2|max:255',
             'description' => 'required|min:2|max:255',
             'type' => 'required',
-            'identificator' => 'required'
+            'identificator' => 'required',
+            'height' => 'required|integer',
+            'width' => 'required|integer',
         ]);
         if ($validator->fails()) {
 
@@ -99,16 +107,15 @@ class SliderController extends Controller
             $data = [];
 
 
-
-            if(isset($request->file('images')[0])){
+            if (isset($request->file('images')[0])) {
                 foreach ($request->file('images') as $image) {
                     $link = '';
-                    if(isset($request->links[0])){
+                    if (isset($request->links[0])) {
                         foreach ($request->links as $item) {
                             $link = $item;
                         }
                     }
-                    $saveimage = Image::make($image)->fit(1250,521);
+                    $saveimage = Image::make($image)->fit($request->width, $request->height);
                     $string = str_random(40);
                     $extension = $image->getClientOriginalExtension();
                     $saveimage->save('files/sliders/' . $string . '.' . $extension);
@@ -120,10 +127,10 @@ class SliderController extends Controller
                 }
             }
 
-            if(isset($request->images_old[0])){
+            if (isset($request->images_old[0])) {
                 foreach ($request->images_old as $image) {
                     $link = '';
-                    if(isset($request->links_old[0])){
+                    if (isset($request->links_old[0])) {
                         foreach ($request->links_old as $item) {
                             $link = $item;
                         }
@@ -137,7 +144,6 @@ class SliderController extends Controller
             }
 
 
-
             $data = serialize($data);
 
 
@@ -146,6 +152,8 @@ class SliderController extends Controller
             $slider->identificator = $request->identificator;
             $slider->type = $request->type;
             $slider->data = $data;
+            $slider->height = $request->height;
+            $slider->width = $request->width;
             $slider->save();
 
             return redirect(url('admin/content/sliders'));

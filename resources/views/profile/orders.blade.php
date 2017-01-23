@@ -43,7 +43,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th><i class="fa fa-building pull-right hidden-xs"></i>Номер заказа</th>
+                            <th><i class="fa fa-building pull-right hidden-xs"></i>Код заказа</th>
                             <th><i class="fa fa-calendar pull-right hidden-xs"></i> Цена</th>
                             <th><i class="glyphicon glyphicon-send pull-right hidden-xs"></i> Статус</th>
                         </tr>
@@ -51,7 +51,7 @@
                         <tbody>
                         @foreach($orders as $order)
                             <tr>
-                                <td>{{$order->id}}</td>
+                                <td>{{$order->code}}</td>
                                 <td>{{currency($order->to_pay)}}</td>
                                 <td><span class="label label-info">{{$order->status}}</span></td>
                             </tr>
@@ -78,6 +78,9 @@
                     <li class="list-group-item active"><a href="{{url('/profile/orders')}}"><i
                                     class="fa fa-archive"></i>
                             ORDERS</a></li>
+                    <li class="list-group-item"><a href="{{url('/profile/favourites')}}"><i
+                                    class="fa fa-star"></i>
+                            FAVOURITES</a></li>
                 </ul>
 
             </div>

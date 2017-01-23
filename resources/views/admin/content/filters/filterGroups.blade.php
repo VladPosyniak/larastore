@@ -40,7 +40,7 @@
                                         <table class="table table-condensed" style="margin-bottom: 0px;">
                                             <tbody>
                                             <td>
-                                                <h4>{{$group->name}}</h4>
+                                                <h4>{{$group->description_ru->name}}</h4>
                                             </td>
                                             <td style="vertical-align: inherit;" class="text-right">
                                                 <div class="btn-group ">
@@ -58,29 +58,6 @@
                                             </tbody>
                                         </table>
                                     </li>
-                                    {{-- <li id="item-{{$product->id}}">
-                                        <!-- drag handle -->
-                                        <span class="handle ui-sortable-handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        </span>
-                                        <!-- checkbox -->
-                                        <span class="text"><img style="max-height: 50px;" class="img responsive"
-                                        @if ($product->cover)
-                                        src="{{ asset('files/products/img/small/'.$product->cover) }}"
-                                        @else
-                                        src="{{ asset('dist/img/boxed-bg.png') }}"
-                                        @endif
-                                        ></span>
-                                        <!-- todo text -->
-                                        <span class="text">{{$product->name}}</span>
-                                        <span class="">{{$product->price}}</span>
-                                        <!-- General tools such as edit or delete-->
-                                        <div class="tools">
-                                            <a href='{!! URL::to('/content/cat/edit/'.$product->id); !!}' style="text-decoration:none; color:#000000 !important;" class="fa fa-edit"></a>
-                                            <a data-id="{{$product->id}}" href='#' style="text-decoration:none; color:#000000 !important;" class="fa fa-trash-o remove_prod"></a>
-                                        </div>
-                                    </li> --}}
                                 @endforeach
                             </ul>
                         </div>

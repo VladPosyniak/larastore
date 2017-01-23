@@ -5,13 +5,16 @@ use Cart;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use larashop\Categories;
 use larashop\Classes;
+use larashop\Favourite;
 use larashop\FilterGroup;
 use larashop\OptionGroups;
 use larashop\Options;
 use larashop\Products;
 use larashop\recommendsProducts;
+use larashop\Sliders;
 use Setting;
 use Visitor;
 
@@ -43,9 +46,9 @@ class CatalogController extends Controller
 
         $attr = DB::table('products')
             ->join('parameters_values', 'parameters_values.items_id', '=', 'products.id')
-            ->where('parameters_values.language_id','=',currentLanguageId())
-            ->join('parameters_description','parameters_description.parameter_id','=','parameters_values.parameters_id')
-            ->where('parameters_description.language_id','=',currentLanguageId())
+            ->where('parameters_values.language_id', '=', currentLanguageId())
+            ->join('parameters_description', 'parameters_description.parameter_id', '=', 'parameters_values.parameters_id')
+            ->where('parameters_description.language_id', '=', currentLanguageId())
             ->select('parameters_description.title', 'parameters_values.value', 'parameters_description.unit', 'products.id')->get();
 
         $filter_groups = FilterGroup::all();
@@ -55,59 +58,24 @@ class CatalogController extends Controller
         }
 
 
-        (Setting::get('config.mainprod', Null)) ? $mainProdImg = asset('/files/img/' . Setting::get('config.mainprod')) : $mainProdImg = asset('dist/img/photo4.jpg');
-
-        (Setting::get('config.logo', Null)) ? $logoMain = asset('/files/img/' . Setting::get('config.logo')) : $logoMain = asset('dist/img/logo.png');
-
-//        $topProds = DB::table('order_items')->select('product_id', DB::raw('count(*) as total'))->groupBy('product_id')->orderBy('total', 'desc')->take('3')
-//            //->lists('total','product_id')
-//            ->get();
-//        $topProdsArr = [];
-//        foreach ($topProds as $topprod) {
-//
-//            if (!in_array($topprod->product_id, ['fast', 'np', 'gift'])) {
-//
-//
-//                if (strpos($topprod->product_id, '0000')) {
-//                    //dd('consist');
-//                    $pID = explode('0000', $topprod->product_id);
-//                    //$topprod->product_id = $pID[0];
-//                    $prodID = $pID[0];
-//
-//                } else {
-//                    $prodID = $topprod->product_id;
-//                }
-//
-//
-//                $prodName = Products::findOrFail($prodID);
-//
-//                //echo $prodName->name;
-//
-//
-//                array_push($topProdsArr, ['name' => $prodName->name, 'cover' => $prodName->cover, 'link' => $prodName->urlhash, 'price' => $prodName->price]);
-//            }
-//            // code...
-//
-//        }
-
-        //dd(collect($topProdsArr));
-
+        $sliders_all = Sliders::all();
+        $sliders = [];
+        foreach ($sliders_all as $key => $slider) {
+            $sliders[$slider->identificator] = $slider;
+            $sliders[$slider->identificator]->data = unserialize($slider->data);
+        };
         $data =
             [
                 'cats' => $cats,
                 'products' => $products,
-                'PageDescr' => Setting::get('config.maindesc'),
-                'PageWords' => Setting::get('config.mainwords'),
-                'PageAuthor' => '',
-                'PageTitle' => Setting::get('config.maintitle'),
-                'mainProdImg' => $mainProdImg,
-                'logoMain' => $logoMain,
-//                'topProds' => $topProdsArr,
-            'totalNavLabel' => $this->totalNavLabel(),
-            'filtersGroups' => $filter_groups,
-            'filters' => $filters,
-            'classes' => $classes,
-            'attr' => $attr];
+                'totalNavLabel' => $this->totalNavLabel(),
+                'filtersGroups' => $filter_groups,
+                'filters' => $filters,
+                'classes' => $classes,
+                'attr' => $attr,
+                'sliders' => $sliders
+            ];
+
 
         if ($request->ajax()) {
             $template = $request->input('template');
@@ -128,6 +96,9 @@ class CatalogController extends Controller
                             ->where('products_description.language_id', '=', currentLanguageId())
                             ->get()), True);
                     }
+                    foreach ($filters as $key => $filter) {
+                        $filters[$key]['id'] = $filter['product_id'];
+                    }
 
 
                     $page = 1; // Get the current page or default to 1
@@ -141,7 +112,7 @@ class CatalogController extends Controller
                     return response()->json(view()->make('catalog.products_smarty' . $template, $result)->render());
 
                 } else {
-                    $filters[] = json_decode(json_encode(DB::table('product_filter')
+                    $filters = json_decode(json_encode(DB::table('product_filter')
                         ->where('filter_id', '=', $filtersId[0])
                         ->join('products', 'products.id', '=', 'product_filter.product_id')
                         ->where([
@@ -151,12 +122,16 @@ class CatalogController extends Controller
                         ->where('products_description.language_id', '=', currentLanguageId())
                         ->get()), True);
 
+                    foreach ($filters as $key => $filter) {
+                        $filters[$key]['id'] = $filter['product_id'];
+                    }
+
                     $page = 1; // Get the current page or default to 1
                     $perPage = 50;
                     $offset = ($page * $perPage) - $perPage;
 
                     $result = [
-                        'products' => new LengthAwarePaginator(array_slice($filters[0], $offset, $perPage, true), count($filters[0]), $perPage, $page, ['path' => $request->url(), 'query' => $request->query()]),
+                        'products' => new LengthAwarePaginator(array_slice($filters, $offset, $perPage, true), count($filters), $perPage, $page, ['path' => $request->url(), 'query' => $request->query()]),
                         'attr' => $attr
                     ];
                     return response()->json(view()->make('catalog.products_smarty' . $template, $result)->render());
@@ -187,9 +162,9 @@ class CatalogController extends Controller
 
         $attr = DB::table('products')
             ->join('parameters_values', 'parameters_values.items_id', '=', 'products.id')
-            ->where('parameters_values.language_id','=',currentLanguageId())
-            ->join('parameters_description','parameters_description.parameter_id','=','parameters_values.parameters_id')
-            ->where('parameters_description.language_id','=',currentLanguageId())
+            ->where('parameters_values.language_id', '=', currentLanguageId())
+            ->join('parameters_description', 'parameters_description.parameter_id', '=', 'parameters_values.parameters_id')
+            ->where('parameters_description.language_id', '=', currentLanguageId())
             ->select('parameters_description.title', 'parameters_values.value', 'parameters_description.unit', 'products.id')->get();
 
         $currentCategory = Categories::where('urlhash', $category)->first();
@@ -208,53 +183,22 @@ class CatalogController extends Controller
 
         (Setting::get('config.logo', Null)) ? $logoMain = asset('/files/img/' . Setting::get('config.logo')) : $logoMain = asset('dist/img/logo.png');
 
-//        $topProds = DB::table('order_items')->select('product_id', DB::raw('count(*) as total'))->groupBy('product_id')->orderBy('total', 'desc')->take('3')
-//            //->lists('total','product_id')
-//            ->get();
-//        $topProdsArr = [];
-//        foreach ($topProds as $topprod) {
-//
-//            if (!in_array($topprod->product_id, ['fast', 'np', 'gift'])) {
-//
-//
-//                if (strpos($topprod->product_id, '0000')) {
-//                    //dd('consist');
-//                    $pID = explode('0000', $topprod->product_id);
-//                    //$topprod->product_id = $pID[0];
-//                    $prodID = $pID[0];
-//
-//                } else {
-//                    $prodID = $topprod->product_id;
-//                }
-//
-//
-//                $prodName = Products::findOrFail($prodID);
-//
-//                //echo $prodName->name;
-//
-//
-//                array_push($topProdsArr, ['name' => $prodName->name, 'cover' => $prodName->cover, 'link' => $prodName->urlhash, 'price' => $prodName->price]);
-//            }
-//            // code...
-//
-//        }
-
-        //dd(collect($topProdsArr));
+        $sliders_all = Sliders::all();
+        $sliders = [];
+        foreach ($sliders_all as $key => $slider) {
+            $sliders[$slider->identificator] = $slider;
+            $sliders[$slider->identificator]->data = unserialize($slider->data);
+        };
 
         $data = [
             'cats' => $cats,
             'products' => $products,
-            'PageDescr' => Setting::get('config.maindesc'),
-            'PageWords' => Setting::get('config.mainwords'),
-            'PageAuthor' => '',
-            'PageTitle' => Setting::get('config.maintitle'),
-            'mainProdImg' => $mainProdImg,
-            'logoMain' => $logoMain,
-//            'topProds' => $topProdsArr,
             'totalNavLabel' => $this->totalNavLabel(),
             'currentClass' => $currentClass,
             'currentCat' => $currentCategory,
-            'attr' => $attr];
+            'attr' => $attr,
+            'sliders' => $sliders
+        ];
 
         if ($request->ajax()) {
             $template = $request->input('template');
@@ -306,65 +250,30 @@ class CatalogController extends Controller
 
         $attr = DB::table('products')
             ->join('parameters_values', 'parameters_values.items_id', '=', 'products.id')
-            ->where('parameters_values.language_id','=',currentLanguageId())
-            ->join('parameters_description','parameters_description.parameter_id','=','parameters_values.parameters_id')
-            ->where('parameters_description.language_id','=',currentLanguageId())
+            ->where('parameters_values.language_id', '=', currentLanguageId())
+            ->join('parameters_description', 'parameters_description.parameter_id', '=', 'parameters_values.parameters_id')
+            ->where('parameters_description.language_id', '=', currentLanguageId())
             ->select('parameters_description.title', 'parameters_values.value', 'parameters_description.unit', 'products.id')->get();
 
         $cats = Categories::orderBy('sort_id', 'asc')->get();
         $products = Products::orderBy('sort_id', 'asc')->where('class_id', $currentClass->id)->paginate(30);
 
-        (Setting::get('config.mainprod', Null)) ? $mainProdImg = asset('/files/img/' . Setting::get('config.mainprod')) : $mainProdImg = asset('dist/img/photo4.jpg');
+        $sliders_all = Sliders::all();
+        $sliders = [];
+        foreach ($sliders_all as $key => $slider) {
+            $sliders[$slider->identificator] = $slider;
+            $sliders[$slider->identificator]->data = unserialize($slider->data);
+        };
 
-        (Setting::get('config.logo', Null)) ? $logoMain = asset('/files/img/' . Setting::get('config.logo')) : $logoMain = asset('dist/img/logo.png');
-
-//        $topProds = DB::table('order_items')->select('product_id', DB::raw('count(*) as total'))->groupBy('product_id')->orderBy('total', 'desc')->take('3')
-//            //->lists('total','product_id')
-//            ->get();
-//        $topProdsArr = [];
-//        foreach ($topProds as $topprod) {
-//
-//            if (!in_array($topprod->product_id, ['fast', 'np', 'gift'])) {
-//
-//
-//                if (strpos($topprod->product_id, '0000')) {
-//                    //dd('consist');
-//                    $pID = explode('0000', $topprod->product_id);
-//                    //$topprod->product_id = $pID[0];
-//                    $prodID = $pID[0];
-//
-//                } else {
-//                    $prodID = $topprod->product_id;
-//                }
-//
-//
-//                $prodName = Products::findOrFail($prodID);
-//
-//                //echo $prodName->name;
-//
-//
-//                array_push($topProdsArr, ['name' => $prodName->name, 'cover' => $prodName->cover, 'link' => $prodName->urlhash, 'price' => $prodName->price]);
-//            }
-//            // code...
-//
-//        }
-
-        //dd(collect($topProdsArr));
-
-        $data = ['cats' => $cats,
+        $data = [
+            'cats' => $cats,
             'products' => $products,
-            'PageDescr' => Setting::get('config.maindesc'),
-            'PageWords' => Setting::get('config.mainwords'),
-            'PageAuthor' => '',
-            'PageTitle' => Setting::get('config.maintitle'),
-            'mainProdImg' => $mainProdImg,
-            'logoMain' => $logoMain,
-//            'topProds' => $topProdsArr,
-            'totalNavLabel' => $this->totalNavLabel(),
             'currentClass' => $currentClass,
             'filtersGroups' => $filter_groups,
             'filters' => $filters,
-            'attr' => $attr];
+            'attr' => $attr,
+            'sliders' => $sliders
+        ];
 
 
         if ($request->ajax()) {
@@ -386,6 +295,9 @@ class CatalogController extends Controller
                             ->where('products_description.language_id', '=', currentLanguageId())
                             ->get()), True);
                     }
+                    foreach ($filters as $key => $filter) {
+                        $filters[$key]['id'] = $filter['product_id'];
+                    }
 
 
                     $page = 1; // Get the current page or default to 1
@@ -399,7 +311,7 @@ class CatalogController extends Controller
                     return response()->json(view()->make('catalog.products_smarty' . $template, $result)->render());
 
                 } else {
-                    $filters[] = json_decode(json_encode(DB::table('product_filter')
+                    $filters = json_decode(json_encode(DB::table('product_filter')
                         ->where('filter_id', '=', $filtersId[0])
                         ->join('products', 'products.id', '=', 'product_filter.product_id')
                         ->where([
@@ -408,13 +320,16 @@ class CatalogController extends Controller
                         ->join('products_description', 'products_description.product_id', '=', 'products.id')
                         ->where('products_description.language_id', '=', currentLanguageId())
                         ->get()), True);
+                    foreach ($filters as $key => $filter) {
+                        $filters[$key]['id'] = $filter['product_id'];
+                    }
 
                     $page = 1; // Get the current page or default to 1
                     $perPage = 50;
                     $offset = ($page * $perPage) - $perPage;
 
                     $result = [
-                        'products' => new LengthAwarePaginator(array_slice($filters[0], $offset, $perPage, true), count($filters[0]), $perPage, $page, ['path' => $request->url(), 'query' => $request->query()]),
+                        'products' => new LengthAwarePaginator(array_slice($filters, $offset, $perPage, true), count($filters), $perPage, $page, ['path' => $request->url(), 'query' => $request->query()]),
                         'attr' => $attr
                     ];
                     return response()->json(view()->make('catalog.products_smarty' . $template, $result)->render());
@@ -450,9 +365,9 @@ class CatalogController extends Controller
 
         $attr = DB::table('products')->where('products.id', '=', $id)
             ->join('parameters_values', 'parameters_values.items_id', '=', 'products.id')
-            ->where('parameters_values.language_id','=',currentLanguageId())
-            ->join('parameters_description','parameters_description.parameter_id','=','parameters_values.parameters_id')
-            ->where('parameters_description.language_id','=',currentLanguageId())
+            ->where('parameters_values.language_id', '=', currentLanguageId())
+            ->join('parameters_description', 'parameters_description.parameter_id', '=', 'parameters_values.parameters_id')
+            ->where('parameters_description.language_id', '=', currentLanguageId())
             ->select('parameters_description.title', 'parameters_values.value', 'parameters_description.unit', 'products.id')->get();
 
         $opt_groups = OptionGroups::where('product_id', $id)->get();
@@ -486,97 +401,45 @@ class CatalogController extends Controller
             $relatedProducts[] = Products::find($prod->product_id_recommend);
         }
 
+        $sliders_all = Sliders::all();
+        $sliders = [];
+        foreach ($sliders_all as $key => $slider) {
+            $sliders[$slider->identificator] = $slider;
+            $sliders[$slider->identificator]->data = unserialize($slider->data);
+        };
+
+        $favourite = Favourite::where([
+            ['user_id', '=', Auth::user()->id],
+            ['product_id', '=', $id]
+        ])->get();
+
+        if (Auth::check()) {
+            if (isset($favourite[0])
+            ) {
+                $favourite = 1;
+            } else {
+                $favourite = 0;
+            }
+        } else {
+            $favourite = 0;
+        }
+
+
 
         $data = [
             'cats' => $cats,
-            'PageDescr' => Setting::get('config.maindesc'),
-            'PageWords' => Setting::get('config.mainwords'),
-            'PageAuthor' => '',
-            'PageTitle' => Setting::get('config.maintitle'),
-            'mainProdImg' => $mainProdImg,
-            'logoMain' => $logoMain,
-//            'topProds' => $topProdsArr,
             'relatedProducts' => $relatedProducts,
             'totalNavLabel' => $this->totalNavLabel(),
             'currentClass' => $currentClass,
             'currentCat' => $currentCategory,
             'currentProd' => $currentProduct,
             'attr' => $attr,
-            'opt_groups' => $opt_groups
+            'opt_groups' => $opt_groups,
+            'sliders' => $sliders,
+            'favourite' => $favourite
         ];
 
 
         return view('catalog.product_smarty')->with($data);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public
-    function store(Request $request)
-    {
-
-        //
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public
-    function show($id)
-    {
-
-        //
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public
-    function edit($id)
-    {
-
-        //
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public
-    function update(Request $request, $id)
-    {
-
-        //
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public
-    function destroy($id)
-    {
-
-        //
-
     }
 }

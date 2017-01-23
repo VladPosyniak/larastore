@@ -176,16 +176,14 @@
                     <!-- BANNER ROTATOR -->
                     <div class="owl-carousel buttons-autohide controlls-over margin-bottom-60 text-center"
                          data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": true, "pagination": false, "transitionStyle":"goDown"}'>
-                        <a href="#">
-                            <img class="img-responsive" src="{{asset('smarty/images/demo/shop/banners/off_1.png')}}"
-                                 width="270"
-                                 height="350" alt="">
-                        </a>
-                        <a href="#">
-                            <img class="img-responsive" src="{{asset('smarty/images/demo/shop/banners/off_2.png')}}"
-                                 width="270"
-                                 height="350" alt="">
-                        </a>
+                        @if(isset($sliders['left_column_banner']))
+                            @foreach($sliders['left_column_banner']->data as $slide)
+                                <a href="{{$slide['link']}}">
+                                    <img class="img-responsive" src="{{asset('files/sliders/'.$slide['image'])}}"
+                                         width="270" height="350" alt="">
+                                </a>
+                            @endforeach
+                        @endif
                     </div>
                     <!-- /BANNER ROTATOR -->
 
@@ -206,13 +204,13 @@
                             <span class="input-group-addon">{{currencyPrefix()}}</span>
                         </div>
                         @foreach($filtersGroups as $filtersGroup)
-                            <label class="size-12 margin-top-10"><b>{{$filtersGroup->name}}</b></label>
+                            <label class="size-12 margin-top-10"><b>{{$filtersGroup->description->name}}</b></label>
                             <select name="filter[]" class="form-control">
                                 <option value="">all</option>
                                 @foreach($filters as $filter)
                                     @foreach($filter as $value)
                                         @if($value->filter_group_id == $filtersGroup->id)
-                                            <option value="{{$value->id}}">{{$value->value}}</option>
+                                            <option value="{{$value->id}}">{{$value->description->value}}</option>
                                         @endif
                                     @endforeach
                                 @endforeach

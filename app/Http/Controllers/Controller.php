@@ -15,11 +15,5 @@ abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct()
-    {
-        View::share('DashBoardSiteName', Setting::get('config.sitename', 'SiteName') );
-
-    }
-
 
 }

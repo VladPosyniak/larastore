@@ -12,11 +12,6 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/seeding', function () {
-    $exitCode =  Artisan::call('db:seed');
-    
-});
-
 Route::get('/', ['uses' => 'HomeController@index']);
 
 Route::get('/test', ['uses' => 'PurchaseController@showMail']);
@@ -29,6 +24,7 @@ Route::get('/catalog', ['uses' => 'CatalogController@index']);
 Route::get('/catalog/{class_name}', ['uses' => 'CatalogController@classes']);
 Route::get('/catalog/{class_name}/{category}', ['uses' => 'CatalogController@category']);
 Route::get('/product/{id}', ['uses' => 'CatalogController@product']);
+Route::get('/search', ['uses' => 'SearchController@search']);
 
 Route::get('/liqpay', ['uses' => 'OrdersController@liqpay']);
 
@@ -55,6 +51,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/profile/coupons', ['uses' => 'ProfileController@coupons']);
     Route::get('/profile/orders', ['uses' => 'ProfileController@orders']);
+    Route::get('/profile/favourites', ['uses' => 'ProfileController@favourites']);
+    Route::get('/profile/favourites/delete/{product}', ['uses' => 'ProfileController@deleteFavourite']);
+    Route::get('/profile/favourites/add/{product}', ['uses' => 'ProfileController@addFavourite']);
 });
 
 // /profile
@@ -80,6 +79,7 @@ Route::get('setlocale/{locale}', ['uses' => 'LocaleController@setLocale']);
 //выбор валюты
 Route::get('setcurrency/{currency}', ['uses' => 'CurrencyController@setCurrency']);
 //конец выбора валюты
+
 
 Route::get('/admin', function () {
     return redirect('admin/dashboard');
@@ -172,7 +172,7 @@ Route::group(['middleware' => ['auth','manager']], function () {
 
 
 
-    Route::group(['middleware' => 'admin'], function () { //страницы доступные только адмнистрацие
+    Route::group(['middleware' => 'admin'], function () { //страницы доступные только адмнистратору
         Route::get('admin/settings/main', ['uses' => 'Admin\ConfigController@index']);
         Route::patch('admin/settings/main', ['uses' => 'Admin\ConfigController@update']);
         Route::get('admin/settings/payment', ['uses' => 'Admin\ConfigController@payment']);
@@ -183,25 +183,21 @@ Route::group(['middleware' => ['auth','manager']], function () {
         Route::get('admin/integration', ['uses' => 'Admin\IntegrationController@index']);
         Route::patch('admin/integration', ['uses' => 'Admin\IntegrationController@update']);
 
+
+        Route::get('admin/clients',['uses'=>'Admin\ClientsController@index']);
         Route::get('admin/clients/{id}',['uses'=>'Admin\ClientsController@edit']);
         Route::patch('admin/clients/{id}',['uses'=>'Admin\ClientsController@update']);
 
     });
 
 
-    Route::get('admin/clients', ['uses' => 'ClientsController@index']);
-    Route::get('admin/clients/{id}', ['uses' => 'ClientsController@edit']);
-    Route::patch('admin/clients/{id}', ['uses' => 'ClientsController@update']);
-    Route::delete('admin/clients/{id}', ['uses' => 'ClientsController@destroy']);
-
     Route::get('admin/orders', ['uses' => 'Admin\OrdersController@index']);
     Route::get('admin/orders/show/{id}', ['uses' => 'Admin\OrdersController@show']);
     Route::get('admin/orders/changestatus/{id}/wait', ['uses' => 'Admin\OrdersController@waitStatus']);
     Route::get('admin/orders/changestatus/{id}/processing', ['uses' => 'Admin\OrdersController@processingStatus']);
     Route::get('admin/orders/changestatus/{id}/complete', ['uses' => 'Admin\OrdersController@completeStatus']);
-
-    //updatePersonalMupdatePersonalMail
     Route::patch('admin/personalMail', ['uses' => 'Admin\DashboardController@updatePersonalMail']);
+
 });
 
 // Authentication routes...
@@ -223,7 +219,3 @@ Route::post('forgot', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-//short link for group or user
-Route::get('{id}.html', ['uses' => 'SearchController@ShortLinkHtml']);
-Route::get('{id}', ['uses' => 'SearchController@ShortLinkCategory']);

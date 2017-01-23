@@ -29,25 +29,56 @@
                         <div class="box-body">
                             <form enctype="multipart/form-data" action="{{url('admin/content/filter-groups/store')}}"
                                   method="post">
-
                                 {!! csrf_field() !!}
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#main" data-toggle="tab">Общее</a></li>
+
+                                    @foreach($languages as $language)
+                                        <li><a href="#{{$language->code}}" data-toggle="tab"><img
+                                                        class="flag-lang"
+                                                        src="{{asset($language->image)}}"
+                                                        width="16"
+                                                        height="11"
+                                                        alt="lang"/></a></li>
+                                    @endforeach
+
+                                </ul>
+
+
                                 <div class="container-fluid">
-                                    <div class="form-group">
-                                        <label for="description">Название</label>
-                                        <input type="text" class="form-control" name="name">
-                                        @if ($errors->has('name')) <p
-                                                class="help-block">{{ $errors->first('name') }}</p> @endif
+
+
+                                    <div class="tab-content">
+                                        <br>
+                                        <div class="tab-pane active" id="main">
+
+                                            <div class="form-group">
+                                                <label for="type">Класс товаров</label>
+                                                <select class="form-control input-sm select2 " name="class">
+                                                    @foreach($classes as $class)
+                                                        <option value="{{$class->id}}">{{$class->description->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if ($errors->has('class')) <p
+                                                        class="help-block">{{ $errors->first('class') }}</p> @endif
+                                            </div>
+
+                                        </div>
+                                        @foreach($languages as $language)
+                                            <div class="tab-pane" id="{{$language->code}}">
+                                                <div class="form-group">
+                                                    <label for="name_{{$language->code}}">Название</label>
+                                                    <input type="text" class="form-control" name="name_{{$language->code}}">
+                                                    @if ($errors->has('name_'.$language->code)) <p
+                                                            class="help-block">{{ $errors->first('name_'.$language->code) }}</p> @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
+
                                     </div>
-                                    <div class="form-group">
-                                        <label for="type">Класс товаров</label>
-                                        <select class="form-control input-sm select2 " name="class">
-                                            @foreach($classes as $class)
-                                                <option value="{{$class->id}}">{{$class->description->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('class')) <p
-                                                class="help-block">{{ $errors->first('class') }}</p> @endif
-                                    </div>
+
+
+
                                 </div>
 
                                 <hr>

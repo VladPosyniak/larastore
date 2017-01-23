@@ -32,9 +32,15 @@ class Locale
         # то в сессии будет значение выбранного им языка.
 
         if (in_array($raw_locale, Config::get('app.locales'))) {  # Проверяем, что у пользователя в сессии установлен доступный язык
-            $locale = $raw_locale;
-        }                                                         # И присваиваем значение переменной $locale.
-        else $locale = Config::get('app.locale');                 # В ином случае присваиваем ей язык по умолчанию
+            $locale = $raw_locale;      # И присваиваем значение переменной $locale.
+        }
+        elseif (in_array(mb_strtoupper(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)), Config::get('app.locales'))) { #пробуем узнать язык браузера
+            $locale = mb_strtoupper(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+        }
+        else{
+            $locale = Config::get('app.locale'); # В ином случае присваиваем ей язык по умолчанию
+        }
+
 
         App::setLocale($locale);                                  # Устанавливаем локаль приложения
 

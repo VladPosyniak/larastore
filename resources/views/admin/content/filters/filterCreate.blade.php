@@ -10,12 +10,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Создание группы фильтров
+                Добавление фильтра в группу фильтров
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{URL::to('/')}}">{{Setting::get('config.sitename')}}</a></li>
                 <li>Слайдера</li>
-                <li class="active">Создание группы фильтров</li>
+                <li class="active">Добавление фильтра в группу фильтров</li>
             </ol>
         </section>
         <!-- Main content -->
@@ -24,7 +24,7 @@
                 <div class="col-md-9">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Информация о группе</h3>
+                            <h3 class="box-title">Информация о фильтре</h3>
                         </div>
                         <div class="box-body">
                             <form enctype="multipart/form-data" action="{{url('admin/content/filters/store')}}"
@@ -32,28 +32,55 @@
 
                                 {!! csrf_field() !!}
                                 <div class="container-fluid">
-                                    <div class="form-group">
-                                        <label for="value">Значение</label>
-                                        <input type="text" class="form-control" name="value">
-                                        @if ($errors->has('value')) <p
-                                                class="help-block">{{ $errors->first('value') }}</p> @endif
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#main" data-toggle="tab">Общее</a></li>
+
+                                        @foreach($languages as $language)
+                                            <li><a href="#{{$language->code}}" data-toggle="tab"><img
+                                                            class="flag-lang"
+                                                            src="{{asset($language->image)}}"
+                                                            width="16"
+                                                            height="11"
+                                                            alt="lang"/></a></li>
+                                        @endforeach
+
+                                    </ul>
+
+
+                                    <div class="tab-content">
+                                        <hr>
+                                        <div class="tab-pane active" id="main">
+                                            <div class="form-group">
+                                                <label for="type">Группа фильтра</label>
+                                                <select class="form-control input-sm select2 " name="group">
+                                                    @foreach($groups as $group)
+                                                        <option value="{{$group->id}}">{{$group->description_ru->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @if ($errors->has('group')) <p
+                                                        class="help-block">{{ $errors->first('group') }}</p> @endif
+                                            </div>
+                                        </div>
+                                        @foreach($languages as $language)
+                                            <div class="tab-pane" id="{{$language->code}}">
+                                                <div class="form-group">
+                                                    <label for="value_{{$language->code}}">Значение</label>
+                                                    <input type="text" class="form-control" name="value_{{$language->code}}">
+                                                    @if ($errors->has('value_'.$language->code)) <p
+                                                            class="help-block">{{ $errors->first('value_'.$language->code) }}</p> @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="form-group">
-                                        <label for="type">Группа фильтра</label>
-                                        <select class="form-control input-sm select2 " name="group">
-                                            @foreach($groups as $group)
-                                                <option value="{{$group->id}}">{{$group->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('group')) <p
-                                                class="help-block">{{ $errors->first('group') }}</p> @endif
-                                    </div>
+
+
                                 </div>
 
                                 <hr>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success btn-md">
-                                        Создать группу
+                                        Добавить фильтр
                                     </button>
                                 </div>
                             </form>

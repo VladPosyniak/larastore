@@ -89,6 +89,16 @@
                                         @if ($errors->has('type')) <p
                                                 class="help-block">{{ $errors->first('type') }}</p> @endif
                                     </div>
+                                    <div class="form-group">
+                                        <label for="height">Высота изображения (пискели)</label>
+                                        <input type="text" value="{{$slider->height}}" class="form-control" name="height">
+                                        @if ($errors->has('height')) <p class="help-block">{{ $errors->first('height') }}</p> @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="width">Ширина изображения (пискели)</label>
+                                        <input type="text" value="{{$slider->width}}" class="form-control" name="width">
+                                        @if ($errors->has('width')) <p class="help-block">{{ $errors->first('width') }}</p> @endif
+                                    </div>
                                 </div>
 
                                 <hr>

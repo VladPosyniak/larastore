@@ -4,9 +4,12 @@ namespace larashop\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use larashop\Classes;
+use larashop\FilterDescription;
 use larashop\FilterGroup;
+use larashop\FilterGroupDescription;
 use larashop\Filters;
 use larashop\Http\Controllers\Controller;
+use larashop\Language;
 use Validator;
 
 class FilterController extends Controller
@@ -19,23 +22,28 @@ class FilterController extends Controller
 
     public function filterGroupsCreate()
     {
-        $classes = Classes::all();
-        return view('admin.content.filters.filterGroupCreate', ['classes' => $classes]);
+        return view('admin.content.filters.filterGroupCreate', ['classes' => Classes::all(),'languages' => Language::all()]);
     }
 
     public function filterGroupsStore(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255',
             'class' => 'required|integer'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
             $group = new FilterGroup();
-            $group->name = $request->name;
             $group->filter_class_id = $request->class;
             $group->save();
+
+            foreach (Language::all() as $language){
+                $group_description = new FilterGroupDescription();
+                $group_description->language_id = $language->id;
+                $group_description->name = $request->{'name_'.$language->code};
+                $group_description->filter_group_id = $group->id;
+                $group_description->save();
+            }
 
             $request->session()->flash('alert-success', 'Группа создана!');
             return redirect('admin/content/filter-groups');
@@ -74,6 +82,9 @@ class FilterController extends Controller
     public function filterGroupsDelete($id, Request $request){
         $group = FilterGroup::find($id);
         $group->delete();
+        foreach (FilterGroupDescription::where('filter_group_id','=',$id)->get() as $description){
+            $description->delete();
+        }
         $request->session()->flash('alert-success', 'Группа удалена!');
         return redirect('admin/content/filter-groups');
     }
@@ -86,21 +97,27 @@ class FilterController extends Controller
 
     public function filterCreate(){
         $groups = FilterGroup::all();
-        return view('admin.content.filters.filterCreate',['groups'=>$groups]);
+        return view('admin.content.filters.filterCreate',['groups'=>$groups,'languages'=>Language::all()]);
     }
 
     public function filterStore(Request $request){
         $validator = Validator::make($request->all(), [
-            'value' => 'required|min:1|max:255',
             'group' => 'required|integer'
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
             $filter = new Filters();
-            $filter->value = $request->value;
             $filter->filter_group_id = $request->group;
             $filter->save();
+
+            foreach (Language::all() as $language) {
+                $description = new FilterDescription();
+                $description->language_id = $language->id;
+                $description->value = $request->{'value_'.$language->code};
+                $description->filter_id = $filter->id;
+                $description->save();
+            }
 
             $request->session()->flash('alert-success', 'Фильтер создан!');
             return redirect('admin/content/filters');
@@ -136,6 +153,11 @@ class FilterController extends Controller
     public function filterDelete($id, Request $request){
         $filter = Filters::find($id);
         $filter->delete();
+
+        foreach (FilterDescription::where('filter_id','=',$id)->get() as $description) {
+            $description->delete();
+        }
+
         $request->session()->flash('alert-success', 'Фильтер удален!');
         return redirect('admin/content/filters');
     }

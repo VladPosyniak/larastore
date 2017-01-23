@@ -14,4 +14,12 @@ class FilterGroup extends Model
     {
         return $this->hasMany('larashop\Filters', 'filter_group_id');
     }
+
+    public function description(){
+        return $this->hasOne('larashop\FilterGroupDescription','filter_group_id')->where('language_id','=',currentLanguageId());
+    }
+
+    public function description_ru(){
+        return $this->hasOne('larashop\FilterGroupDescription','filter_group_id')->where('language_id','=',1);
+    }
 }

@@ -42,4 +42,9 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany(UserAddress::class, 'user_id','id');
     }
 
+    public function coupons(){
+        return $this->hasMany(Coupons::class,'user_id','id');
+    }
+
+
 }

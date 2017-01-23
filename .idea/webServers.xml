@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ff6d37ca-b5f8-4aee-9491-9d224a8da15a" name="flowers_remote (project level)" url="http://185.143.175.51">
+        <fileTransfer host="185.143.175.51" port="21" rootFolder="/public_html" password="dfe7df93df9adfdadff0dfd3dfc8df99dfdedf99" username="ezcodewo">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

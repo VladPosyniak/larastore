@@ -12,25 +12,6 @@ class InstallStruct extends Migration
      */
     public function up()
     {
-        //
-
-
-
-
-//        Schema::create('user_address', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('address_name');
-//            $table->integer('user_id');
-//            $table->string('city');
-//            $table->string('country');
-//            $table->text('address');
-//            $table->integer('postal_code');
-//            $table->string('company')->nullable();
-//            $table->text('comment')->nullable();
-//            $table->timestamp('created_at');
-//
-//        });
-
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token')->index();
@@ -94,17 +75,24 @@ class InstallStruct extends Migration
             $table->timestamps();
         });
 
-//        Schema::create('clients', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('name');
-//            $table->string('email');
-//            $table->string('tel');
-//            $table->timestamps();
-//        });
+        Schema::create('clients', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('tel');
+            $table->timestamps();
+        });
 
         Schema::create('filter', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('filter_group_id');
+            $table->timestamps();
+        });
+
+        Schema::create('filter_description', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('filter_id');
+            $table->integer('language_id');
             $table->string('value');
             $table->timestamps();
         });
@@ -113,6 +101,13 @@ class InstallStruct extends Migration
         Schema::create('filter_group', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('filter_class_id');
+            $table->timestamps();
+        });
+
+        Schema::create('filter_group_description', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('filter_group_id');
+            $table->integer('language_id');
             $table->string('name');
             $table->timestamps();
         });
@@ -192,15 +187,11 @@ class InstallStruct extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cover')->nullable();
-//            $table->string('sku')->nullable();
-            $table->integer('price')->nullable();
+            $table->float('price')->nullable();
             $table->string('price_old')->nullable();
             $table->string('quantity')->nullable();
-//            $table->string('label')->nullable();
             $table->enum('isset', ['true', 'false'])->default('true');
             $table->enum('visible', ['true', 'false'])->default('true');
-//            $table->string('urlhash'); // add index
-            //$table->integer('parent_id');
             $table->integer('sort_id');
             $table->integer('categories_id');
             $table->integer('class_id');
@@ -209,6 +200,7 @@ class InstallStruct extends Migration
 
 
         Schema::create('products_description', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('product_id');
             $table->integer('language_id');
             $table->string('name')->nullable();
@@ -249,6 +241,8 @@ class InstallStruct extends Migration
             $table->string('identificator');
             $table->text('data');
             $table->string('type');
+            $table->integer('height');
+            $table->integer('width');
             $table->timestamps();
 
         });
@@ -299,138 +293,17 @@ class InstallStruct extends Migration
             $table->timestamps();
         });
 
-
-
-
-
-
-
-
-//        Schema::create('attribute', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('name');
-//            $table->integer('attribute_group_id');
-//        });
-//
-//        Schema::create('attribute_group', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('name');
-//        });
-//
-//        Schema::create('product_attribute', function (Blueprint $table) {
-//            $table->integer('product_id');
-//            $table->integer('attribute_id');
-//            $table->text('value');
-//        });
-
-//        Schema::create('additional', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('name');
-//            $table->string('description');
-//            $table->string('price')->nullable();
-//            $table->timestamps();
-//        });
-
-
-
-//        Schema::create('comments', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->integer('product_id');
-//            $table->string('name');
-//            $table->string('email');
-//            $table->longText('msg');
-//            $table->enum('approve', ['true', 'false'])->default('false');
-//            $table->timestamps();
-//        });
-
-
-
-
-
-
-
-
-//        Schema::create('orders', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('client_id');
-//            $table->string('delivery_city');
-//            $table->string('delivery_adr')->nullable();
-//            $table->string('delivery_np')->nullable();
-//            $table->enum('delivery_type', ['adr', 'np'])->default('np');
-//            $table->enum('pay_type', ['nal', 'privat24', 'privat_terminal', 'liqpay'])->default('privat24');
-//            $table->string('code'); // add index
-//            $table->string('ttn')->nullable();
-//
-//            $table->longText('comment')->nullable();
-//            $table->enum('status', ['new', 'paid', 'sent'])->default('new');
-//
-//            $table->timestamps();
-//        });
-
-
-//        Schema::create('order_items', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('order_id');
-//            $table->string('product_id');
-//            $table->integer('qty');
-//            $table->timestamps();
-//        });
-//
-//        Schema::create('order_files', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('order_id');
-//            $table->string('name')->nullable();
-//            $table->string('hash')->nullable();
-//            $table->string('mime')->nullable();
-//            $table->string('extension')->nullable();
-//            $table->enum('status', ['tmp', 'success'])->default('tmp');
-//            $table->enum('image', ['true', 'false'])->default('false');
-//            $table->timestamps();
-//        });
-//
-//
-//        Schema::create('order_add', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('order_id');
-//            $table->string('additional_id');
-//            $table->timestamps();
-//        });
-//
-//
-//        Schema::create('NPCity', function (Blueprint $table) {
-//            $table->string('name');
-//            $table->string('ref');
-//        });
-//
-//        Schema::create('NPUnit', function (Blueprint $table) {
-//            $table->string('name');
-//            $table->string('ref');
-//        });
-//
-//        Schema::create('info', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->longText('text');
-//            $table->timestamps();
-//        });
-//
-//        Schema::create('gallery', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('filename');
-//            $table->integer('sort_id');
-//            $table->timestamps();
-//        });
-//
-//        Schema::create('jobs', function (Blueprint $table) {
-//            $table->bigIncrements('id');
-//            $table->string('queue');
-//            $table->longText('payload');
-//            $table->tinyInteger('attempts')->unsigned();
-//            $table->tinyInteger('reserved')->unsigned();
-//            $table->unsignedInteger('reserved_at')->nullable();
-//            $table->unsignedInteger('available_at');
-//            $table->unsignedInteger('created_at');
-//            $table->index(['queue', 'reserved', 'reserved_at']);
-//        });
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('queue');
+            $table->longText('payload');
+            $table->tinyInteger('attempts')->unsigned();
+            $table->tinyInteger('reserved')->unsigned();
+            $table->unsignedInteger('reserved_at')->nullable();
+            $table->unsignedInteger('available_at');
+            $table->unsignedInteger('created_at');
+            $table->index(['queue', 'reserved', 'reserved_at']);
+        });
 
     }
 
@@ -441,19 +314,12 @@ class InstallStruct extends Migration
      */
     public function down()
     {
-//        Schema::drop('jobs');
-//        Schema::drop('gallery');
-//        Schema::drop('info');
+        Schema::drop('jobs');
         Schema::drop('NPUnit');
         Schema::drop('NPCity');
-//        Schema::drop('order_add');
-//     php
-//        Schema::drop('order_items');
         Schema::drop('orders');
         Schema::drop('clients');
-//        Schema::drop('comments');
         Schema::drop('recommendsProducts');
-//        Schema::drop('additional');
         Schema::drop('products');
         Schema::drop('product_filter');
         Schema::drop('filter');

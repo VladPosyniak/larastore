@@ -34,7 +34,7 @@
                             </div>
                             <div class="box-body">
 
-                                {!! Form::model($user, array('action' => array('Admin\ClientsController@update', $client->id), 'method'=> 'PATCH', 'class'=>'form-horizontal')) !!}
+                                {!! Form::model($user, array('action' => array('Admin\ClientsController@update', $user->id), 'method'=> 'PATCH', 'class'=>'form-horizontal')) !!}
                                 <div class="form-group @if ($errors->has('name')) has-error @endif">
                                     {!! Form::label('name', 'Имя', array('class'=>'col-sm-3 control-label')) !!}
                                     <div class="col-sm-9">
@@ -46,7 +46,7 @@
                                     {!! Form::label('phone', 'Телефон', array('class'=>'col-sm-3 control-label')) !!}
                                     <div class="col-sm-9">
                                         {!! Form::text('phone', null, array('class'=>'form-control')) !!}
-                                        @if ($errors->has('tel')) <p class="help-block">{{ $errors->first('tel') }}</p> @endif
+                                        @if ($errors->has('phone')) <p class="help-block">{{ $errors->first('phone') }}</p> @endif
                                     </div>
                                 </div>
                                 <div class="form-group @if ($errors->has('email')) has-error @endif">
@@ -56,12 +56,23 @@
                                         @if ($errors->has('email')) <p class="help-block">{{ $errors->first('email') }}</p> @endif
                                     </div>
                                 </div>
+                                <div class="form-group @if ($errors->has('email')) has-error @endif">
+                                    {!! Form::label('role', 'Роль', array('class'=>'col-sm-3 control-label')) !!}
+                                    <div class="col-sm-9">
+                                        <select name="role" class="form-control" >
+                                            <option value="customer" @if($user->role === 'customer') selected @endif>Покупатель</option>
+                                            <option value="manager" @if($user->role === 'manager') selected @endif>Менеджер</option>
+                                            <option value="admin" @if($user->role === 'admin') selected @endif>Администратор</option>
+                                        </select>
+                                        @if ($errors->has('role')) <p class="help-block">{{ $errors->first('role') }}</p> @endif
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-8">
                                         {!! HTML::decode(Form::button('Сохранить', array('type' => 'submit', 'class'=>'btn btn-success'))) !!}
                                     </div>
                                 </div>
-                                {!! Form::close(); !!}
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

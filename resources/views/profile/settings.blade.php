@@ -259,6 +259,9 @@
                             COUPONS</a></li>
                     <li class="list-group-item"><a href="{{url('/profile/orders')}}"><i class="fa fa-archive"></i>
                             ORDERS</a></li>
+                    <li class="list-group-item"><a href="{{url('/profile/favourites')}}"><i
+                                    class="fa fa-star"></i>
+                            FAVOURITES</a></li>
                 </ul>
 
             </div>

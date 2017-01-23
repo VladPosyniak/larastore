@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-
+    <title>Checkout</title>
 @endsection
 
 @section('page')
@@ -27,22 +27,6 @@
     <section>
         <div class="container">
 
-
-        @if(!Auth::check())
-            <!-- NOT LOGGED IN -->
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <strong>You are not logged in!</strong>
-                        Please, <a href="{{url('/login')}}">login.</a>
-                        {{--or <a href="javascript:;"--}}
-                        {{--onclick="jQuery('#accountswitch').trigger('click'); _scrollTo('#newaccount', 200);">create--}}
-                        {{--an account</a> for later use.--}}
-                    </div>
-                </div>
-                <!-- /NOT LOGGED IN -->
-        @endif
-
-
         <!-- CHECKOUT -->
             <form class="row clearfix" method="post" action="{{url('/checkout')}}">
                 {{csrf_field()}}
@@ -59,7 +43,7 @@
                                 <label for="billing_name">Your name *</label>
                                 <input id="billing_name" name="name"
                                        value="@if(isset(Auth::user()->name)) {{Auth::user()->name}} @endif" type="text"
-                                       class="form-control required @if($errors->has('name')) error @endif"/>
+                                       class="form-control  @if($errors->has('name')) error @endif" required/>
                                 <span>{{$errors->first('name')}}</span>
                             </div>
                         </div>
@@ -70,7 +54,7 @@
                                 <input id="billing_email" name="email"
                                        value="@if(isset(Auth::user()->email)) {{Auth::user()->email}} @endif"
                                        type="email"
-                                       class="form-control required @if($errors->has('email')) error @endif"/>
+                                       class="form-control  @if($errors->has('email')) error @endif" required/>
                                 <span>{{$errors->first('email')}}</span>
                             </div>
 
@@ -79,7 +63,7 @@
                                 <input id="billing_phone" name="phone"
                                        value="@if(isset(Auth::user()->phone)) {{Auth::user()->phone}} @endif"
                                        type="text"
-                                       class="form-control required @if($errors->has('phone')) error @endif"/>
+                                       class="form-control  @if($errors->has('phone')) error @endif" required/>
                                 <span>{{$errors->first('phone')}}</span>
                             </div>
                         </div>
@@ -109,8 +93,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="address">Address *</label>
-                                <input id="address" name="address" type="text"
-                                       class="form-control required @if($errors->has('address')) error @endif"/>
+                                <input value="{{old('address')}}" id="address" name="address" type="text"
+                                       class="form-control  @if($errors->has('address')) error @endif" required/>
                                 <span>{{$errors->first('address')}}</span>
                             </div>
                         </div>
@@ -118,13 +102,13 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <label for="city">City *</label>
-                                <input id="city" name="city"
-                                       class="form-control required @if($errors->has('city')) error @endif"/>
+                                <input value="{{old('city')}}" id="city" name="city"
+                                       class="form-control  @if($errors->has('city')) error @endif" required/>
                                 <span>{{$errors->first('city')}}</span>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <label for="company">Company</label>
-                                <input id="company" name="company"
+                                <input value="{{old('company')}}" id="company" name="company"
                                        type="text" class="form-control @if($errors->has('company')) error @endif"/>
                                 <span>{{$errors->first('company')}}</span>
                             </div>
@@ -134,31 +118,31 @@
 
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <label for="zipcode">Zip/Postal Code *</label>
-                                <input id="zipcode" name="zipcode"
+                                <label for="zipcode">Zip/Postal Code </label>
+                                <input value="{{old('zipcode')}}" id="zipcode" name="zipcode"
                                        type="text"
-                                       class="form-control required @if($errors->has('zipcode')) error @endif"/>
+                                       class="form-control  @if($errors->has('zipcode')) error @endif"/>
                                 <span>{{$errors->first('zipcode')}}</span>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <label for="country">Country *</label>
+                                <label for="country">Country </label>
                                 {{--<select id="billing_country" name="billing[country]" class="form-control pointer required">--}}
                                 {{--<option value="">Select...</option>--}}
                                 {{--<option value="1">united States</option>--}}
                                 {{--<option value="2">united Kingdom</option>--}}
                                 {{--<option value="">..............</option>--}}
                                 {{--</select>--}}
-                                <input id="country" name="country"
+                                <input value="{{old('country')}}" id="country" name="country"
                                        type="text"
-                                       class="form-control required @if($errors->has('country')) error @endif"/>
+                                       class="form-control  @if($errors->has('country')) error @endif"/>
                                 <span>{{$errors->first('country')}}</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="comment">Comment</label>
-                                <input id="comment" name="comment" type="text"
-                                       class="form-control required @if($errors->has('comment')) error @endif"/>
+                                <input value="{{old('comment')}}" id="comment" name="comment" type="text"
+                                       class="form-control  @if($errors->has('comment')) error @endif"/>
                                 <span>{{$errors->first('comment')}}</span>
                             </div>
                         </div>
@@ -299,12 +283,12 @@
                                                 <i></i> <span class="weight-300">Pay from balance</span>
                                             </label>
                                         </div>
-                                        <div class="col-lg-12 nomargin clearfix">
-                                            <label class="radio pull-left">
-                                                <input id="payment_card" name="payment_method" type="radio" value="4"/>
-                                                <i></i> <span class="weight-300">Webmoney</span>
-                                            </label>
-                                        </div>
+                                        {{--<div class="col-lg-12 nomargin clearfix">--}}
+                                            {{--<label class="radio pull-left">--}}
+                                                {{--<input id="payment_card" name="payment_method" type="radio" value="4"/>--}}
+                                                {{--<i></i> <span class="weight-300">Webmoney</span>--}}
+                                            {{--</label>--}}
+                                        {{--</div>--}}
                                     </div>
                                 </div>
                             </div>

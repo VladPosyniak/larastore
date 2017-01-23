@@ -36,9 +36,9 @@ class ConfigController extends Controller
             'mainprod' => 'mimes:jpeg,bmp,png',
             'sitename' => 'required',
             'email' => 'required|email',
-            'maintitle' => 'required',
-            'mainwords' => 'required',
-            'maindesc' => 'required',
+//            'maintitle' => 'required',
+//            'mainwords' => 'required',
+//            'maindesc' => 'required',
 //            'galtitle' => 'required',
 //            'galwords' => 'required',
 //            'galdesc' => 'required',
@@ -51,7 +51,7 @@ class ConfigController extends Controller
         ]);
 
         if ($validator->fails()) {
-            $request->session()->flash('alert-danger', 'Что-то пошло не так!');
+            $request->session()->flash('alert-danger', $validator->errors()->first());
             return back()->withErrors($validator)->withInput();
         } else {
             $logoName = Setting::get('config.logo');

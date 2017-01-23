@@ -80,7 +80,7 @@
                     </div>
 
                 @else
-                    <h2>У вас нет купонов:С</h2>
+                    <h5>У вас нет купонов.</h5>
                 @endif
             </div>
 
@@ -100,6 +100,9 @@
                             COUPONS</a></li>
                     <li class="list-group-item "><a href="{{url('/profile/orders')}}"><i class="fa fa-archive"></i>
                             ORDERS</a></li>
+                    <li class="list-group-item"><a href="{{url('/profile/favourites')}}"><i
+                                    class="fa fa-star"></i>
+                            FAVOURITES</a></li>
                 </ul>
 
             </div>

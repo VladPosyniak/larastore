@@ -350,7 +350,7 @@ class ContentController extends Controller
 
         $filters_arr = [];
         foreach ($filters as $key => $value) {
-            $filters_arr[$value->id] = $value->value;
+            $filters_arr[$value->id] = $value->description_ru->value;
         }
 
         $cats_arr = [];
@@ -734,6 +734,12 @@ class ContentController extends Controller
             File::delete('files/cats/img/small/' . $prod->cover);
         }
 
+        $product_description = ProductDescription::where('product_id','=',$prod->id)->get();
+        foreach ($product_description as $item){
+            $desc = ProductDescription::find($item->id);
+            $desc->delete();
+        }
+
         $prod->delete();
 
         //$request->session()->flash('alert-success', 'Категория успешно удалена!');
@@ -742,219 +748,4 @@ class ContentController extends Controller
 
     }
 
-    public function indexGallery()
-    {
-
-        //
-
-        $images = Gallery::orderBy('sort_id', 'asc')->get();
-
-        $data = ['images' => $images, 'NewOrderCounter' => Purchase::Neworders()->count()];
-        return view('admin.content.gallery')->with($data);
-    }
-
-    //sortImage
-    public function sortImage(Request $request)
-    {
-        $i = 0;
-        $tap = $request->item;
-        foreach ($tap as $value) {
-
-            // Execute statement:
-            // UPDATE [Table] SET [Position] = $i WHERE [EntityId] = $value
-            DB::table('gallery')->where('id', $value)->update(['sort_id' => $i]);
-            $i++;
-        }
-
-        //dd($tap);
-
-
-    }
-
-    //storeImage
-    public function storeImage(Request $request)
-    {
-
-        $validator = Validator::make($request->all(), ['imagefile' => 'required|mimes:jpeg,bmp,png',]);
-
-        if ($validator->fails()) {
-
-            return back()->withErrors($validator)->withInput();
-        } else {
-
-            $imagefile = $request->file('imagefile');
-            $extension = $imagefile->getClientOriginalExtension();
-            $string = str_random(40);
-            $filename = $string . '.' . $extension;
-
-            $file = Image::make($imagefile)->fit(1200, 1000, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-
-            // save image
-            $file->save('files/gallery/' . $filename);
-
-            $filesmall = Image::make($imagefile)->fit(220, 220, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            $filesmall->save('files/gallery/small/' . $filename);
-
-            $image = new Gallery;
-            $image->filename = $filename;
-            $image->save();
-
-            $request->session()->flash('alert-success', 'Файл загружен!');
-            return redirect('content/gallery');
-        }
-    }
-
-    //indexComments
-    public function indexComments()
-    {
-
-        $comments = Comments::orderby('created_at', 'desc')->orderby('approve')->get();
-        $data = ['comments' => $comments, 'NewOrderCounter' => Purchase::Neworders()->count()];
-
-        return view('admin.content.comments')->with($data);
-    }
-
-    //updateCommentsApprove
-    public function updateCommentsApprove(Request $request, $id)
-    {
-        $comment = Comments::find($id);
-
-        //dd($id);
-        $comment->update(['approve' => 'true']);
-        $request->session()->flash('alert-success', 'Комментарий активен!');
-        return redirect('content/comments');
-    }
-
-    //destroyComments
-    public function destroyComments(Request $request, $id)
-    {
-
-        $comment = Comments::find($id);
-        $comment->delete();
-        $request->session()->flash('alert-success', 'Комментарий удалён!');
-        return redirect('content/comments');
-    }
-
-    public function indexInfo()
-    {
-
-        //
-        $info = Info::find('1');
-        $data = ['info' => $info, 'NewOrderCounter' => Purchase::Neworders()->count()];
-        return view('admin.content.info')->with($data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-        //
-
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-
-    public function updateInfo(Request $request)
-    {
-
-        $info = Info::find('1');
-
-        $info->update(['text' => $request->text]);
-        $request->session()->flash('alert-success', 'Информация обновлена!');
-        return redirect('content/info');
-    }
-
-    public function store(Request $request)
-    {
-
-        //
-
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-        //
-
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-
-        //
-
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-
-        //
-
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-
-    public function destroyImage($id)
-    {
-
-        //
-        $image = Gallery::find($id);
-
-        File::delete('files/gellery/' . $image->filename);
-        File::delete('files/gellery/small/' . $image->filename);
-
-        $image->delete();
-    }
-
-    public function destroy($id)
-    {
-
-        //
-
-
-    }
 }

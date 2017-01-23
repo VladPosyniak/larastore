@@ -65,7 +65,7 @@
                                         {!! Form::label('urlhash', 'URL-имя', array('class'=>'col-sm-3 control-label')) !!}
                                         <div class="col-sm-9">
                                             <div class="input-group">
-                                                <span class="input-group-addon">{!! URL::to('/category') !!}/</span>
+                                                <span class="input-group-addon">{!! URL::to('/catalog/{class}/') !!}/</span>
                                                 {!! Form::text('urlhash', null, array('class'=>'form-control')) !!}
 
                                             </div>

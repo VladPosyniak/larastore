@@ -50,7 +50,7 @@
                                                                style="margin-bottom: 0px;">
                                                             <tbody>
                                                             <td>
-                                                                <h4>{{$filter1->value}}</h4>
+                                                                <h4>{{$filter1->description_ru->value}}</h4>
                                                             </td>
                                                             <td style="vertical-align: inherit;" class="text-right">
                                                                 <div class="btn-group ">
@@ -84,7 +84,7 @@
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
                         @foreach($groups as $group)
-                            <li><a href="#{{$group->id}}-group" data-toggle="tab">{{$group->name}}</a></li>
+                            <li><a href="#{{$group->id}}-group" data-toggle="tab">{{$group->description_ru->name}}</a></li>
                         @endforeach
                     </ul>
 

@@ -13,10 +13,10 @@
                 {{--<small class="label pull-right bg-green">{{$NewOrderCounter}}</small>--}}
                 {{--@endif--}}
             </a></li>
-            <li {!! Request::is('admin/clients') ? ' class="active"' : null !!} ><a href="{!! URL::to('/admin/clients') !!}"><i class="fa fa-users"></i> <span>Клиенты</span></a></li>
+
             <li class="treeview {!! Request::is('content') ? ' active' : null !!} {!! Request::is('content/*') ? ' active' : null !!}">
                 <a href="#">
-                <i class="fa fa-star"></i> <span>Контент</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-star"></i> <span>Контент</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li {!! Request::is('admin/content/classes') ? ' class="active"' : null !!} ><a href="{!! URL::to('admin/content/classes') !!}"><i class="fa fa-circle-o"></i> <span>Классы товаров</span></a></li>
@@ -33,20 +33,22 @@
                 </ul>
             </li>
 
-
-            <li class="treeview {!! Request::is('delivery') ? ' active' : null !!} {!! Request::is('delivery/*') ? ' active' : null !!}">
-                <a href="#">
-                    <i class="fa fa-bullhorn"></i> <span>Рассылка</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li {!! Request::is('delivery/message') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/message') !!}"><i class="fa fa-plus" aria-hidden="true"></i> <span>Добавить письмо</span> </a></li>
-                    <li {!! Request::is('delivery/campaigns') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/campaigns') !!}"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Компании</span> </a></li>
-                    <li {!! Request::is('delivery/subscribers') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/subscribers') !!}"><i class="fa fa-users" aria-hidden="true"></i> <span>Подписчики</span> </a></li>
-                    <li {!! Request::is('delivery/author') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/author') !!}"><i class="fa fa-user" aria-hidden="true"></i> <span>Информация об авторе</span> </a></li>
-                </ul>
-            </li>
-
             @if(Auth::user()->role === 'admin')
+                <li {!! Request::is('admin/clients') ? ' class="active"' : null !!} ><a href="{!! URL::to('/admin/clients') !!}"><i class="fa fa-users"></i> <span>Клиенты</span></a></li>
+
+
+
+                <li class="treeview {!! Request::is('delivery') ? ' active' : null !!} {!! Request::is('delivery/*') ? ' active' : null !!}">
+                    <a href="#">
+                        <i class="fa fa-bullhorn"></i> <span>Рассылка</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li {!! Request::is('delivery/message') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/message') !!}"><i class="fa fa-plus" aria-hidden="true"></i> <span>Добавить письмо</span> </a></li>
+                        <li {!! Request::is('delivery/campaigns') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/campaigns') !!}"><i class="fa fa-envelope" aria-hidden="true"></i> <span>Компании</span> </a></li>
+                        <li {!! Request::is('delivery/subscribers') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/subscribers') !!}"><i class="fa fa-users" aria-hidden="true"></i> <span>Подписчики</span> </a></li>
+                        <li {!! Request::is('delivery/author') ? ' class="active"' : null !!} ><a href="{!! URL::to('delivery/author') !!}"><i class="fa fa-user" aria-hidden="true"></i> <span>Информация об авторе</span> </a></li>
+                    </ul>
+                </li>
                 <li class="treeview {!! Request::is('admin/settings') ? ' active' : null !!} {!! Request::is('admin/settings/*') ? ' active' : null !!}">
                     <a href="#">
                         <i class="fa fa-cog"></i> <span>Настройки</span> <i class="fa fa-angle-left pull-right"></i>

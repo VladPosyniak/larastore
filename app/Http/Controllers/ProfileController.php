@@ -5,6 +5,7 @@ namespace larashop\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use larashop\Coupons;
+use larashop\Favourite;
 use larashop\Order;
 use larashop\User;
 use Validator;
@@ -180,5 +181,58 @@ class ProfileController extends Controller
         $orders = Order::where('user_id','=',Auth::user()->id)->get();
 
         return view('profile.orders',['orders'=>$orders]);
+    }
+
+    public function favourites(){
+        $products = Favourite::where('user_id','=',Auth::user()->id)
+            ->join('products_description','products_description.product_id','=','favourite.product_id')
+            ->where('language_id','=',currentLanguageId())
+            ->join('products','products_description.product_id','=','products.id')
+            ->get();
+
+
+        return view('profile.favourites',['products' => $products]);
+    }
+
+    public function deleteFavourite($product){
+        if (Auth::check()){
+            $product = Favourite::where([
+                ['product_id','=',$product],
+                ['user_id','=',Auth::user()->id]
+            ])->first();
+            if ($product != null){
+                $product->delete();
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        else{
+            return 0;
+        }
+
+    }
+
+    public function addFavourite($product){
+        if (Auth::check()){
+            $favourite = Favourite::where([
+                ['product_id','=',$product],
+                ['user_id','=',Auth::user()->id]
+            ])->first();
+            if ($favourite == null){
+                $favourite = new Favourite();
+                $favourite->product_id = $product;
+                $favourite->user_id = Auth::user()->id;
+                $favourite->save();
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        else{
+            return 0;
+        }
     }
 }
