@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-    <title>{{Setting::get('seo.home_title')}}</title>
+    <title>{{Setting::get('config.sitename', 'SiteName')}}</title>
     <meta name="keywords" content="{{Setting::get('seo.home_keywords')}}"/>
     <meta name="description" content="{{Setting::get('seo.home_description')}}"/>
 @endsection
@@ -35,20 +35,18 @@
 
                         <div class="col-sm-4">
                             <i class="glyphicon glyphicon-globe"></i>
-                            <h3>FREE SHIPPING &amp; RETURN</h3>
-                            <p>Lorem ipsum dolor sit amet</p>
+                            <h3 style="padding-top: 8px">{{trans('home_page.free_shipping')}}</h3>
+                            {{--<p>lorem</p>--}}
                         </div>
 
                         <div class="col-sm-4">
                             <i class="glyphicon glyphicon-usd"></i>
-                            <h3>MONEY BACK GUARANTEE</h3>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <h3 style="padding-top: 8px">{{trans('home_page.money_back')}}</h3>
                         </div>
 
                         <div class="col-sm-4">
-                            <i class="glyphicon glyphicon-flag"></i>
-                            <h3>ONLINE SUPPORT 24/7</h3>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <i class="glyphicon glyphicon-heart"></i>
+                            <h3 style="padding-top: 8px">{{trans('home_page.quality_guarantee')}}</h3>
                         </div>
 
                     </div>
@@ -70,7 +68,7 @@
 
                 <div class="col-sm-9 col-sm-push-3">
 
-                    <h1 class="size-17 margin-bottom-20">FEATURED PRODUCTS</h1>
+                    <h1 class="size-17 margin-bottom-20">{{trans('home_page.featured_products')}}</h1>
 
                     <ul class="shop-item-list products row list-inline nomargin">
                         @include('catalog.products_smarty')
@@ -86,7 +84,7 @@
 
                         <div class="side-nav-head">
                             <button class="fa fa-bars"></button>
-                            <h4>CATEGORIES</h4>
+                            <h4>{{trans('home_page.categories')}}</h4>
                         </div>
 
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
@@ -100,7 +98,7 @@
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
-                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">ALL</a></li>
+                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">{{trans('home_page.all')}}</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id == $class->id)
                                                 <li>
@@ -136,12 +134,12 @@
 
 
                     <!-- FREE RETURNS -->
-                    <div class="margin-bottom-60">
-                        <h4>FREE RETURNS</h4>
-                        <p class="nomargin">We stand behind our goods and services and want you to be satisfied with
-                            them.</p>
-                        <a href="#">Returns Policy &raquo;</a>
-                    </div>
+                    {{--<div class="margin-bottom-60">--}}
+                        {{--<h4>FREE RETURNS</h4>--}}
+                        {{--<p class="nomargin">We stand behind our goods and services and want you to be satisfied with--}}
+                            {{--them.</p>--}}
+                        {{--<a href="#">Returns Policy &raquo;</a>--}}
+                    {{--</div>--}}
                     <!-- /FREE RETURNS -->
 
                 </div>
@@ -157,7 +155,7 @@
     <section class="nopadding-bottom">
         <div class="container">
 
-            <h2 class="owl-featured noborder"><strong>NEW</strong> PRODUCTS</h2>
+            <h2 class="owl-featured noborder">{!! trans('home_page.new_products')!!}</h2>
 
             <div class="owl-carousel featured nomargin owl-padding-10"
                  data-plugin-options='{"singleItem": false, "items": "6", "stopOnHover":false, "autoPlay":4000, "autoHeight": false, "navigation": true, "pagination": false}'>

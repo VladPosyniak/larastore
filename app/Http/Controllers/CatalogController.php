@@ -407,13 +407,13 @@ class CatalogController extends Controller
             $sliders[$slider->identificator] = $slider;
             $sliders[$slider->identificator]->data = unserialize($slider->data);
         };
-
+        if (Auth::check()) {
         $favourite = Favourite::where([
             ['user_id', '=', Auth::user()->id],
             ['product_id', '=', $id]
         ])->get();
 
-        if (Auth::check()) {
+
             if (isset($favourite[0])
             ) {
                 $favourite = 1;

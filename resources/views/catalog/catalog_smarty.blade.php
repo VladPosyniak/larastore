@@ -14,8 +14,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Catalog</li>
+                <li><a href="{{url('/')}}">{{trans('catalog_page.home')}}</a></li>
+                <li class="active">{{trans('catalog_page.catalog')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -133,7 +133,7 @@
 
                         <div class="side-nav-head">
                             <button class="fa fa-bars"></button>
-                            <h4>CATEGORIES</h4>
+                            <h4>{{trans('catalog_page.categories')}}</h4>
                         </div>
 
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
@@ -150,7 +150,7 @@
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
-                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">ALL</a></li>
+                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">{{trans('catalog_page.all')}}</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id == $class->id)
                                                 <li>
@@ -188,15 +188,15 @@
 
                     <h4>FILTERS</h4>
                     <form id="filter" action="">
-                        <label class="size-12 margin-top-10"><b>Диапозон цены</b></label>
+                        <label class="size-12 margin-top-10"><b>{{trans('catalog_page.price_range')}}</b></label>
                         <div class="input-group">
-                            <span class="input-group-addon">ОТ</span>
+                            <span class="input-group-addon">{{trans('catalog_page.from')}}</span>
                             <input type="text" name="min-price" class="form-control" value="1" placeholder="min">
                             <span class="input-group-addon">{{currencyPrefix()}}</span>
                         </div>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon">ДО</span>
+                            <span class="input-group-addon">{{trans('catalog_page.to')}}</span>
                             <input type="text" name="max-price" class="form-control" value="9999" placeholder="max">
                             <span class="input-group-addon">{{currencyPrefix()}}</span>
                         </div>
@@ -222,7 +222,7 @@
                         @endforeach
                         <p></p>
                         <button type="submit"
-                                class="btn btn-default btn-md btn-block btn-primary btn-hvr hvr-icon-spin">Search
+                                class="btn btn-default btn-md btn-block btn-primary btn-hvr hvr-icon-spin">{{trans('catalog_page.search')}}
                         </button>
                     </form>
                     <hr/>
@@ -265,16 +265,14 @@
 
                     <!-- HTML BLOCK -->
                     <div class="margin-bottom-60">
-                        <h4>HTML BLOCK</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non
-                            tellus
-                            eunit.</p>
+                        <h4>{{trans('catalog_page.newsletter_header')}}</h4>
+                        <p>{{trans('catalog_page.newsletter_body')}}</p>
 
                         <form action="#" role="form" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" name="email" class="form-control required"
-                                       placeholder="Enter your Email">
+                                       placeholder="{{trans('catalog_page.enter_email')}}">
                                 <span class="input-group-btn">
 											<button class="btn btn-success" type="submit"><i
                                                         class="glyphicon glyphicon-send"></i></button>
@@ -292,7 +290,11 @@
         </div>
     </section>
     <!-- / -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+@endsection
+
+@section('scripts')
     <script>
         $(window).on('hashchange', function () {
             if (window.location.hash) {
@@ -376,5 +378,4 @@
             return false
         })
     </script>
-
 @endsection

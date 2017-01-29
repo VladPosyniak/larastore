@@ -237,9 +237,9 @@
                         <div class="search-box">
                             <form action="{{url('/search')}}" method="get">
                                 <div class="input-group">
-                                    <input type="text" name="keyword" placeholder="Search" class="form-control" required/>
+                                    <input type="text" name="keyword" placeholder="{{trans('search')}}" class="form-control" required/>
                                     <span class="input-group-btn">
-												<button class="btn btn-primary" type="submit">Search</button>
+												<button class="btn btn-primary" type="submit">{{trans('search')}}</button>
 											</span>
                                 </div>
                             </form>
@@ -350,7 +350,7 @@
                                         <li class="navbar_products"
                                             style="display: inline-block; width: 120px; height: 140px;"><a
                                                     style="text-align: center;height: 140px;"
-                                                    href="{{ url('catalog/'.$navbar_class->urlhash) }}">ALL
+                                                    href="{{ url('catalog/'.$navbar_class->urlhash) }}">{{trans('layout.all')}}
                                                 <br>
                                                 <img src="{{asset('files/classes/img/'.$navbar_class->cover)}}"
                                                      style="max-width: 100px;height: 100px" alt=""></a></li>
@@ -498,11 +498,11 @@
                         <div class="col-md-3 hidden-sm hidden-xs">
                             <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.explore_us'))}}</h4>
                             <ul class="list-unstyled footer-list half-paddings noborder">
-                                <li><a class="block" href="{{url('/')}}"><i class="fa fa-angle-right"></i> Главная страница</a></li>
-                                <li><a class="block" href="{{url('/catalog')}}"><i class="fa fa-angle-right"></i> Каталог</a></li>
-                                <li><a class="block" href="{{url('/profile/settings')}}"><i class="fa fa-angle-right"></i> Настройки профиля</a></li>
-                                <li><a class="block" href="{{url('/profile/orders')}}"><i class="fa fa-angle-right"></i> Мои заказы</a></li>
-                                <li><a class="block" href="{{url('/profile/coupons')}}"><i class="fa fa-angle-right"></i> Купоны</a></li>
+                                <li><a class="block" href="{{url('/')}}"><i class="fa fa-angle-right"></i> {{trans('layout.home_page')}}</a></li>
+                                <li><a class="block" href="{{url('/catalog')}}"><i class="fa fa-angle-right"></i> {{trans('layout.catalog_page')}}</a></li>
+                                <li><a class="block" href="{{url('/profile/settings')}}"><i class="fa fa-angle-right"></i> {{trans('layout.my_settings')}}</a></li>
+                                <li><a class="block" href="{{url('/profile/orders')}}"><i class="fa fa-angle-right"></i> {{trans('layout.my_orders')}}</a></li>
+                                <li><a class="block" href="{{url('/profile/coupons')}}"><i class="fa fa-angle-right"></i> {{trans('layout.my_coupons')}}</a></li>
                             </ul>
                         </div>
 
@@ -513,7 +513,7 @@
                                 <img src="{{asset('smarty/images/cc/Visa.png')}}" alt="" />
                                 <img src="{{asset('smarty/images/cc/Mastercard.png')}}" alt="" />
                                 <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />
-                                <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />
+                                {{--<img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />--}}
                             </p>
                         </div>
 

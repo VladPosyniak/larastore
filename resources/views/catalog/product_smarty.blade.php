@@ -759,6 +759,7 @@
                     }
                 })
             }
+            return false;
         })
     </script>
 

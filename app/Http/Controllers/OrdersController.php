@@ -19,7 +19,6 @@ use larashop\UserEvent;
 use LiqPay;
 use Mail;
 use Input;
-//use Pusha\LaravelWebMoney\WMX2;
 use Setting;
 use Validator;
 
@@ -82,7 +81,6 @@ class OrdersController extends Controller
     public function processing(Request $request)
     {
 
-//        return dd($request->all());
 
         if (!Auth::check()) {
             return view('orders.message', ['message' => 'Вы должны <a href="' . url('/login') . '">войти в свой профиль</a> для того, чтоб совершить покупку.']);
