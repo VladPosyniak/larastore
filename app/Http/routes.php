@@ -12,6 +12,14 @@
 */
 use Illuminate\Http\Request;
 
+Route::get('/mail',function(){
+    Mail::send('mail', array('key' => 'value'), function($message)
+    {
+        $message->to('vladposynyak@gmail.com', 'Влад Посыняк');
+        $message->to('raa07@mail.ru', 'Лох ебанный');
+    });
+});
+
 Route::get('/', ['uses' => 'HomeController@index']);
 
 Route::get('/test', ['uses' => 'PurchaseController@showMail']);

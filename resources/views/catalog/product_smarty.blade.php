@@ -79,30 +79,22 @@
                             </div>
 
                             <!-- Thumbnails (required height:100px) -->
-                        {{--<div data-for="zoom-primary" class="zoom-more owl-carousel owl-padding-3 featured" data-plugin-options='{"singleItem": false, "autoPlay": false, "navigation": true, "pagination": false}'>--}}
-                        {{--<a class="thumbnail active" href="assets/images/demo/shop/products/1000x1500/p5.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p5.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p6.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p6.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p7.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p7.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p8.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p8.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p9.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p9.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p10.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p10.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--<a class="thumbnail" href="assets/images/demo/shop/products/1000x1500/p11.jpg">--}}
-                        {{--<img src="assets/images/demo/shop/products/100x100/p11.jpg" height="100" alt="" />--}}
-                        {{--</a>--}}
-                        {{--</div>--}}
-                        <!-- /Thumbnails -->
+                            <div data-for="zoom-primary" class="zoom-more owl-carousel owl-padding-3 featured"
+                                 data-plugin-options='{"singleItem": false, "autoPlay": false, "navigation": true, "pagination": false}'>
+                                <a class="thumbnail active"
+                                   href="{{ asset('/files/products/img/'.$currentProd->cover) }}">
+                                    <img src="{{ asset('/files/products/img/small/'.$currentProd->cover) }}"
+                                         height="100" alt=""/>
+                                </a>
+                                @foreach($currentProd->images as $image)
+                                    <a class="thumbnail"
+                                       href="{{ asset('/files/products/img/'.$image->url) }}">
+                                        <img src="{{ asset('/files/products/img/small/'.$image->url) }}"
+                                             height="100" alt=""/>
+                                    </a>
+                                @endforeach
+                            </div>
+                            <!-- /Thumbnails -->
 
                         </div>
                         <!-- /IMAGE -->
@@ -389,7 +381,7 @@
                             </div>
                         </div>
 
-                        <!-- REVIEWS -->
+                        {{--           <!-- REVIEWS -->--}}
                         {{--<div role="tabpanel" class="tab-pane fade" id="reviews">--}}
                         {{--<!-- REVIEW ITEM -->--}}
                         {{--<div class="block margin-bottom-60">--}}
@@ -723,7 +715,6 @@
 @endsection
 
 @section('scripts')
-    f
     <script>
         $('.add-wishlist').on('click', function () {
             var product_id = $(this).data('id');
@@ -732,7 +723,7 @@
                     if (response) {
                         $('.add-wishlist').children('.fa').css('color', 'darkred');
                         $('.add-wishlist').data('added', 1);
-                        $('.add-wishlist').attr('title','Remove from Wishlist');
+                        $('.add-wishlist').attr('title', 'Remove from Wishlist');
 //                        $('.add-wishlist').data('originalTitle','Remove from Wishlist');
                         _toastr('Добавлено в избранное!', "bottom-right", "success", false);
                         return false;
@@ -748,7 +739,7 @@
                     if (response) {
                         $('.add-wishlist').children('.fa').css('color', 'black');
                         $('.add-wishlist').data('added', 0);
-                        $('.add-wishlist').attr('title','Add to Wishlist');
+                        $('.add-wishlist').attr('title', 'Add to Wishlist');
 //                        $('.add-wishlist').data('originalTitle','Add to Wishlist');
                         _toastr('Удаленно из избранного!', "bottom-right", "success", false);
                         return false;

@@ -90,6 +90,7 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'Images' => $baseDir . '/database/migrations/2017_02_02_163858_Images.php',
     'InstallStruct' => $baseDir . '/database/migrations/2015_11_23_143714_InstallStruct.php',
     'LanguageTableSeeder' => $baseDir . '/database/seeds/LanguageTableSeeder.php',
     'LiqPay' => $vendorDir . '/liqpay/liqpay/LiqPay.php',

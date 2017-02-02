@@ -32,6 +32,8 @@ class CatalogController extends Controller
         return Cart::count();
     }
 
+
+
     public function index(Request $request)
     {
 
@@ -178,6 +180,10 @@ class CatalogController extends Controller
 
         $cats = Categories::orderBy('sort_id', 'asc')->get();
         $products = Products::orderBy('sort_id', 'asc')->where('categories_id', $currentCategory->id)->paginate(30);
+
+        foreach($products as $key => $product){
+            $products[$key]['description'] = $product->description->description;
+        }
 
         (Setting::get('config.mainprod', Null)) ? $mainProdImg = asset('/files/img/' . Setting::get('config.mainprod')) : $mainProdImg = asset('dist/img/photo4.jpg');
 

@@ -184,12 +184,6 @@
                         <div class="shop-item-summary text-center">
                             <h2 class="size-14">{{$newProd->name}}</h2>
 
-                            <!-- rating -->
-                            <div class="shop-item-rating-line">
-                                <div class="rating rating-4 size-11"><!-- rating-0 ... rating-5 --></div>
-                            </div>
-                            <!-- /rating -->
-
                             <!-- price -->
                             <div class="shop-item-price">
                                 @if($newProd->price_old !== null)

@@ -24,6 +24,10 @@ class Products extends Model
         return $this->hasOne('larashop\ProductDescription','product_id')->where('language_id','=',1);
     }
 
+    public function images(){
+        return $this->hasMany('larashop\ProductImage','product_id');
+    }
+
     public function recommendProd()
     {
         return $this->hasMany('larashop\recommendsProducts', 'product_id');

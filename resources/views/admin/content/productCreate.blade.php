@@ -1,6 +1,6 @@
 @include("admin.layout.header")
 <!-- iCheck -->
-{!! Html::style('plugins/iCheck/square/blue.css'); !!}
+{!! Html::style('plugins/iCheck/square/blue.css') !!}
 <title>Панель приборов</title>
 </head>
 <body class="hold-transition sidebar-mini skin-red-light">
@@ -20,11 +20,29 @@
                 <li class="active">Создание продукта</li>
             </ol>
         </section>
+
         <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-md-9">
+                    @if($errors->has())
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h4>Данные товара не прошли валидацию!</h4>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-md-9">
                     <div class="box">
+
                         <div class="box-header">
                             <h3 class="box-title">Информация о продукте</h3>
                         </div>
@@ -98,7 +116,7 @@
                                     {{--</div>--}}
                                     {{--</div>--}}
                                     <div class="form-group @if ($errors->has('cover')) has-error @endif">
-                                        {!! Form::label('cover', 'Изображение', array('class'=>'col-sm-3 control-label')) !!}
+                                        {!! Form::label('cover', 'Обложка', array('class'=>'col-sm-3 control-label')) !!}
                                         <div class="col-sm-5">
                                             {!! Form::file('cover', null, array('class'=>'form-control')) !!}
                                             @if ($errors->has('cover')) <p
@@ -295,22 +313,22 @@
 
             button = $(this); // объект кнопка
             var lang = $(button).data('lang');
-                    $.ajax({
-                        url: SYS_URL + '/admin/content/product/getParameters',
-                        type: "POST",
-                        data: {
-                            lang:lang
-                        },
-                        headers: {
-                            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function ($list) {
-                            button.after($list);
-                        },
-                        error: function (msg) {
-                            console.log(msg);
-                        }
-                    });
+            $.ajax({
+                url: SYS_URL + '/admin/content/product/getParameters',
+                type: "POST",
+                data: {
+                    lang: lang
+                },
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function ($list) {
+                    button.after($list);
+                },
+                error: function (msg) {
+                    console.log(msg);
+                }
+            });
         })
 
 

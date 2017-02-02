@@ -2,7 +2,7 @@ $('.products').on('click', '.buy-btn', function (e) {
     e.preventDefault();
     item_id = parseInt($(this).attr('id')) + ':'; //получаем id товара
     // price = parseInt($(this).parent().parent().children('.shop-item-summary').children('.shop-item-price').children('.price-js').html()); //получаем цену товара и преобразуем значение в число parseInt
-    price = parseInt($(this).data('price')); //получаем цену товара и преобразуем значение в число parseInt
+    price = parseFloat($(this).data('price')); //получаем цену товара и преобразуем значение в число parseInt
     // img = $(this).parent().parent().children('.thumbnail').children('.shop-item-image').children('img').attr('src'); //получаем ссылку на изображение, что бы отразить в корзине
     img = $(this).data('img'); //получаем ссылку на изображение, что бы отразить в корзине
     // title = $(this).parent().parent().children('.shop-item-summary').children('h2').html(); //название товара

@@ -277,18 +277,6 @@
                                                 <i></i> <span class="weight-300">Credit Card</span>
                                             </label>
                                         </div>
-                                        <div class="col-lg-12 nomargin clearfix">
-                                            <label class="radio pull-left">
-                                                <input id="payment_card" name="payment_method" type="radio" value="3"/>
-                                                <i></i> <span class="weight-300">Pay from balance</span>
-                                            </label>
-                                        </div>
-                                        {{--<div class="col-lg-12 nomargin clearfix">--}}
-                                            {{--<label class="radio pull-left">--}}
-                                                {{--<input id="payment_card" name="payment_method" type="radio" value="4"/>--}}
-                                                {{--<i></i> <span class="weight-300">Webmoney</span>--}}
-                                            {{--</label>--}}
-                                        {{--</div>--}}
                                     </div>
                                 </div>
                             </div>

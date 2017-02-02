@@ -98,14 +98,14 @@
                             {{--</ul>--}}
                             {{--</li>--}}
                             @foreach(\larashop\Classes::all() as $class)
-                                <li class="list-group-item @if($class->description->name == $currentClass->description->name)active @endif">
+                                <li class="list-group-item @if($class->id === $currentClass->id)active @endif">
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
                                         <li><a href="{{ url('catalog/'.$class->urlhash) }}">ALL</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
-                                            @if($cat->class_id == $class->id)
-                                                <li class="@if($cat->name == $currentCat['name'])active @endif"><a
+                                            @if($cat->class_id === $class->id)
+                                                <li class="@if($cat->id== $currentCat['id'])active @endif"><a
                                                             href="{{ url('catalog/'.$class->urlhash.'/'.$cat->urlhash) }}"><span
                                                                 class="size-11 text-muted pull-right">({{$cat->products->count()}}
                                                             )</span>{{$cat->description->name}}</a></li>

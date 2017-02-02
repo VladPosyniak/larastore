@@ -381,7 +381,7 @@ class ContentController extends Controller
 
     public function storeProduct(Request $request)
     {
-//        return dd($request->all());
+
         //
         $cover = $request->file('cover');
         $languages = Language::all();
@@ -392,18 +392,37 @@ class ContentController extends Controller
 
         //$extension = $cover->getClientOriginalExtension();
 
-        $validator = Validator::make($request->all(), [
-//            'name' => 'required|min:2|max:255',
-//            'description' => 'required|min:2',
-//            'urlhash' => 'required|min:2|max:255',
-            'cover' => 'mimes:jpeg,bmp,png',
-            'quantity' => 'integer'
-        ]);
+        $rules = [
+            'cover' => 'mimes:jpeg,bmp,png|required',
+            'quantity' => 'integer',
+            'price' => 'required|integer',
+            'price_old' => 'integer',
+            'category' => 'integer',
+            'filters' => 'array',
+            'related' => 'array',
+//            'isset' => 'boolean|required',
+
+        ];
+        foreach (Language::all() as $language){
+            $rules['parameter_id_'.$language->code] = 'array';
+            $rules['parameter_value_'.$language->code] = 'array';
+            $rules['title_'.$language->code] = 'required';
+            $rules['keywords_'.$language->code] = 'required';
+            $rules['name_'.$language->code] = 'required';
+            $rules['description_'.$language->code] = 'required';
+            $rules['description_full_'.$language->code] = 'required';
+        }
+
+
+        $validator = Validator::make($request->all(), $rules);
+
+
 
         if ($validator->fails()) {
 
             return back()->withErrors($validator)->withInput();
         } else {
+            return var_dump($request->all());
             $coverdb = Null;
             if (isset($cover)) {
 
@@ -420,7 +439,7 @@ class ContentController extends Controller
                 $img->save('files/products/img/' . $string . '.' . $extension);
 
                 // resize image
-                $img_small = Image::make($cover)->fit(50, 50, function ($constraint) {
+                $img_small = Image::make($cover)->fit(100, 100, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
