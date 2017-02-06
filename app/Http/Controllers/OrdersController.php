@@ -229,6 +229,19 @@ class OrdersController extends Controller
                     $product->quantity = $product->quantity - $ordered_product->amount;
                     $product->save();
                 }
+
+                //todo
+                $order_string = var_export($order['attributes'], true);
+                $products_string = var_export($ordered_products, true);
+
+                $order_data = $order['attributes'];
+
+                Mail::send('mail', ['order'=>$order_string, 'products'=>$products_string], function($message)
+                {
+                    $message->to('teyn.k@mail.ru', 'Тест Тест');
+                });
+                //todo
+
                 return view('orders.ordered', ['message' => 'Заказ успешно оформлен! Данные о заказе отправлены вам на почту.', 'payment' => 'Ожидайте звонка!']);
                 break;
             case 2:
@@ -242,6 +255,7 @@ class OrdersController extends Controller
                     $product->quantity = $product->quantity - $ordered_product->amount;
                     $product->save();
                 }
+                //todo
                 return view('orders.ordered', ['message' => 'Заказ успешно оформлен! Данные о заказе отправлены вам на почту.', 'payment' => 'Ожидайте звонка!']);
                 break;
             default:

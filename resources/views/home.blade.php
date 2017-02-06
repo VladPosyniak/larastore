@@ -8,7 +8,7 @@
 
 @section('page')
     <!-- SLIDER -->
-    <section class="padding-top-40">
+    <section>
         <div class="container">
 
             <!-- OWL SLIDER -->
@@ -25,36 +25,6 @@
                 @endif
             </div>
             <!-- /OWL SLIDER -->
-
-
-            <!-- INFO BAR -->
-            <div class="info-bar info-bar-clean info-bar-bordered nomargin-bottom">
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col-sm-4">
-                            <i class="glyphicon glyphicon-globe"></i>
-                            <h3 style="padding-top: 8px">{{trans('home_page.free_shipping')}}</h3>
-                            {{--<p>lorem</p>--}}
-                        </div>
-
-                        <div class="col-sm-4">
-                            <i class="glyphicon glyphicon-usd"></i>
-                            <h3 style="padding-top: 8px">{{trans('home_page.money_back')}}</h3>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <i class="glyphicon glyphicon-heart"></i>
-                            <h3 style="padding-top: 8px">{{trans('home_page.quality_guarantee')}}</h3>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-            <!-- /INFO BAR -->
-
         </div>
     </section>
     <!-- /SLIDER -->

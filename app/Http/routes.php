@@ -13,10 +13,28 @@
 use Illuminate\Http\Request;
 
 Route::get('/mail',function(){
-    Mail::send('mail', array('key' => 'value'), function($message)
+    $data = 
+    [
+        'appURL'=>'asdf',
+        'orderCode'=>'asdfasdf',
+        'order'=>
+        [
+            'delivery_city' => 'Kiev',
+            'delivery_np' => 'hz shto',
+            'delivery_adr' => 'Улица Хрещатика'
+        ],
+        'client' =>
+        [
+            'name' => 'test',
+            'tel' => '124124124sa'
+        ],
+        'delivery_type' => 'post',
+        'pay_type' => 'post',
+
+    ];
+    Mail::send('mail', ['dump'=>var_export($data, true)], function($message)
     {
-        $message->to('vladposynyak@gmail.com', 'Влад Посыняк');
-        $message->to('raa07@mail.ru', 'Лох ебанный');
+        $message->to('teyn.k@mail.ru', 'Тест Тест');
     });
 });
 
