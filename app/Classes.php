@@ -3,6 +3,7 @@
 namespace larashop;
 
 use Illuminate\Database\Eloquent\Model;
+use larashop\Language;
 
 class Classes extends Model
 {
@@ -13,7 +14,13 @@ class Classes extends Model
         return $this->hasOne('larashop\ClassDescription','class_id')->where('language_id','=',currentLanguageId());
     }
 
+    public function all_descriptions(){
+        return $this->hasMany('larashop\ClassDescription','class_id');
+    }
+
     public function description_ru(){
         return $this->hasOne('larashop\ClassDescription','class_id')->where('language_id','=',1);
     }
+
+
 }

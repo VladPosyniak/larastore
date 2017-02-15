@@ -17,6 +17,9 @@ class Categories extends Model
         return $this->hasMany('larashop\Products', 'categories_id');
 
     }
+    public function all_descriptions(){
+        return $this->hasMany('larashop\CategoryDescription','category_id');
+    }
 
     public function description(){
         return $this->hasOne('larashop\CategoryDescription','category_id')->where('language_id','=',currentLanguageId());

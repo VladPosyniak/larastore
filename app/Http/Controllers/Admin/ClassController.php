@@ -43,7 +43,21 @@ class ClassController extends Controller
 
         //
         $class = Classes::findOrFail($id);
-        $data = ['class' => $class, 'NewOrderCounter' => Purchase::Neworders()->count()];
+        $descriptions = [];
+        foreach (Language::all() as $language){
+            foreach ($class->all_descriptions as $description){
+                if ($language->id === $description->language_id){
+                    $descriptions[$language->code] = $description;
+                }
+            }
+        }
+
+        $data = [
+            'class' => $class,
+            'NewOrderCounter' => Purchase::Neworders()->count(),
+            'languages' => Language::all(),
+            'descriptions' => $descriptions
+        ];
         return view('admin.content.classEdit')->with($data);
     }
 
@@ -52,24 +66,27 @@ class ClassController extends Controller
 
         $class = Classes::findOrFail($id);
 
-//        if (isset($cat->cover)) {
-//            File::delete('files/cats/img/' . $cat->cover);
-//        }
+        if (isset($class->cover)) {
+            File::delete('files/classes/img/' . $class->cover);
+        }
 
         $cover = $request->file('cover');
 
         //dd(Input::file());
         isset($cover) ? $extension = $cover->getClientOriginalExtension() : null;
 
-        //$extension = $cover->getClientOriginalExtension();
-
-        $validator = Validator::make($request->all(), ['name' => 'required|min:2|max:255',
-            'description' => 'required|min:2|max:255',
+        $rules = [
             'urlhash' => 'required|min:2|max:255',
             'cover' => 'mimes:jpeg,bmp,png',
-            'title' => 'required',
-            'keywords' => 'required'
-        ]);
+        ];
+        foreach (Language::all() as $language){
+            $rules['description_'.$language->code] = 'required|min:3';
+            $rules['title_'.$language->code] = 'required';
+            $rules['keywords_'.$language->code] = 'required';
+            $rules['name_'.$language->code] = 'required';
+        }
+
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
 
@@ -89,14 +106,24 @@ class ClassController extends Controller
                 $coverdb = $string . '.' . $extension;
             }
             $arr = array(
-                'name' => $request->name,
-                'description' => $request->description,
                 'cover' => $coverdb,
                 'urlhash' => $request->urlhash,
-                'title' => $request->title,
-                'keywords' => $request->keywords
             );
+
+
             $class->update($arr);
+
+            foreach (Language::all() as $language){
+                $class_description = ClassDescription::where([
+                    ['language_id','=',$language->id],
+                    ['class_id','=',$class->id]
+                ])->first();
+                $class_description->name = $request->{'name_'.$language->code};
+                $class_description->title = $request->{'title_'.$language->code};
+                $class_description->description = $request->{'description_'.$language->code};
+                $class_description->keywords = $request->{'keywords_'.$language->code};
+                $class_description->update();
+            }
 
             $request->session()->flash('alert-success', 'Категория успешно обновлена!');
             return redirect('admin/content/classes');
@@ -115,14 +142,18 @@ class ClassController extends Controller
 
         //$extension = $cover->getClientOriginalExtension();
 
-        $validator = Validator::make($request->all(), [
-//            'name' => 'required|min:2|max:255',
-//            'description' => 'required|min:2|max:255',
+        $rules = [
             'urlhash' => 'required|min:2|max:255',
             'cover' => 'mimes:jpeg,bmp,png',
-//            'title' => 'required',
-//            'keywords' => 'required'
-        ]);
+        ];
+        foreach (Language::all() as $language){
+            $rules['description_'.$language->code] = 'required|min:3';
+            $rules['title_'.$language->code] = 'required';
+            $rules['keywords_'.$language->code] = 'required';
+            $rules['name_'.$language->code] = 'required';
+        }
+
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
 
@@ -185,17 +216,11 @@ class ClassController extends Controller
     public function destroyClass(Request $request, $id)
     {
 
-        $cat = Classes::findOrFail($id);
-
-        if (isset($cat->cover)) {
-            File::delete('files/cats/img/' . $cat->cover);
+        $class = Classes::findOrFail($id);
+        if (isset($class->cover)) {
+            File::delete('files/cats/img/' . $class->cover);
         }
-
-        $cat->delete();
-
-        //$request->session()->flash('alert-success', 'Категория успешно удалена!');
-        //return redirect('content/cat');
-
-
+        $class->delete();
+        ClassDescription::where('class_id','=',$id)->delete();
     }
 }

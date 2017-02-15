@@ -100,8 +100,6 @@ section {
 	   -moz-box-sizing: border-box !important;
 	   background-size: cover !important;
 			box-sizing: border-box !important;
-	padding-bottom:20px;
-	padding-top:20px;
 }
 section:after,
 section:before {

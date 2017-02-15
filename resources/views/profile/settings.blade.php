@@ -187,7 +187,7 @@
                                         </div>
                                     @endforeach
 
-                                    <div id="new_address" class="tab-pane active">
+                                    <div id="new_address" class="tab-pane">
                                         <h4>The creation of a new address</h4>
                                         <form role="form" action="{{url('/profile/createaddress')}}" method="post">
                                             {{csrf_field()}}

@@ -189,9 +189,9 @@ class InstallStruct extends Migration
             $table->string('cover')->nullable();
             $table->float('price')->nullable();
             $table->string('price_old')->nullable();
-            $table->string('quantity')->nullable();
-            $table->enum('isset', ['true', 'false'])->default('true');
-            $table->enum('visible', ['true', 'false'])->default('true');
+            $table->integer('quantity')->default(0);
+            $table->boolean('isset')->default(0);
+            $table->boolean('visible')->default(1);
             $table->integer('sort_id');
             $table->integer('categories_id');
             $table->integer('class_id');

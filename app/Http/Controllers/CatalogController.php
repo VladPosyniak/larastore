@@ -366,6 +366,9 @@ class CatalogController extends Controller
 
         Visitor::log();
         $currentProduct = Products::find($id);
+        if ($currentProduct === null){
+            abort(404);
+        }
         $currentCategory = Categories::find($currentProduct->categories_id);
         $currentClass = Classes::find($currentProduct->class_id);
 
@@ -383,6 +386,9 @@ class CatalogController extends Controller
         }
 
         if ($currentCategory === null) {
+            return redirect(url('/catalog'));
+        }
+        if ($currentClass === null) {
             return redirect(url('/catalog'));
         }
         if ($currentCategory->class_id !== $currentClass->id) {

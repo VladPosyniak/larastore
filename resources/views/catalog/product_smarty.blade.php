@@ -355,8 +355,15 @@
 
                     <div class="tab-content padding-top-20">
                         <!-- DESCRIPTION -->
-                        <div role="tabpanel" class="tab-pane fade in active" id="description">
-                            {{$currentProd->description->description_full}}
+                        <style>
+                            #description img{
+                                max-width: 100%;
+                                display: block;
+                                margin: auto;
+                            }
+                        </style>
+                        <div role="tabpanel"  class="tab-pane fade in active" id="description">
+                            {!! $currentProd->description->description_full!!}
                         </div>
 
                         <!-- SPECIFICATIONS -->

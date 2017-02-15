@@ -53,6 +53,7 @@
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#main" data-toggle="tab">Общее</a></li>
+                                <li><a href="#images" data-toggle="tab">Изображения</a></li>
                                 @foreach($languages as $language)
                                     <li><a href="#{{$language->code}}" data-toggle="tab"><img class="flag-lang"
                                                                                               src="{{asset($language->image)}}"
@@ -168,6 +169,17 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="tab-pane " id="images">
+                                    <br>
+                                    <button class="btn btn-success image-add">
+                                        Добавить изображение
+                                    </button>
+                                    <hr>
+                                    <div class="row product-images">
+                                    </div>
+
+                                </div>
                                 @foreach($languages as $language)
                                     <div class="tab-pane " id="{{$language->code}}">
                                         <ul class="nav nav-tabs">
@@ -270,8 +282,8 @@
                                                 <div class="form-group @if ($errors->has('description_full_'.$language->code)) has-error @endif">
                                                     {!! Form::label('description_full_'.$language->code, 'Детальное описание', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
-                                                        {!! Form::textarea('description_full_'.$language->code, null, array('class'=>'form-control', 'rows'=>'2')) !!}
-                                                        @if ($errors->has('description_full+'.$language->code)) <p
+                                                        <textarea name="description_full_{{$language->code}}"></textarea>
+                                                        @if ($errors->has('description_full_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('description_full_'.$language->code) }}</p> @endif
                                                     </div>
                                                 </div>
@@ -376,11 +388,26 @@
             });
         });
 
+        $('.image-add').on('click', function () {
+            $('.product-images').append('<div class="col-md-4"><a href="#" style="position: absolute; right: 20px" class="product-image-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a><input class="form-control" type="file" name="product_images[]"></div>')
+            return false;
+        });
+
         $('.add_option').on('click', function () {
             $(this).after('<input class="form-control" type="text">')
+        });
+        $('.product-images').on('click', '.product-image-remove', function () {
+            $(this).parent().remove();
+            return false;
         })
 
     });
+</script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    @foreach($languages as $language)
+        CKEDITOR.replace('description_full_{{$language->code}}');
+    @endforeach
 </script>
 <!-- page script -->
 <script type="text/javascript">

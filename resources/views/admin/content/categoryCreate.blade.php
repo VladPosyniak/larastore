@@ -83,8 +83,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
                                 @foreach($languages as $language)
-                                    <br>
                                     <div class="tab-pane" id="{{$language->code}}">
                                         <div class="form-group @if ($errors->has('name_'.$language->code)) has-error @endif">
                                             {!! Form::label('name_'.$language->code, 'Название', array('class'=>'col-sm-3 control-label')) !!}

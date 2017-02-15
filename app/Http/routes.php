@@ -160,7 +160,7 @@ Route::group(['middleware' => ['auth','manager']], function () {
     Route::patch('admin/content/classes/edit/{id}', ['uses' => 'Admin\ClassController@updateClass']);
     Route::delete('admin/content/classes/delete/{id}', ['uses' => 'Admin\ClassController@destroyClass']);
     Route::get('admin/content/classes/delete', function (Request $request) {
-        $request->session()->flash('alert-success', 'Категория успешно удалена!');
+        $request->session()->flash('alert-success', 'Класс успешно удален!');
         return redirect('admin/content/classes');
     });
 

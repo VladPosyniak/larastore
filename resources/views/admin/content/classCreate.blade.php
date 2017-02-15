@@ -22,6 +22,22 @@
         <section class="content">
             <div class="row">
                 <div class="col-md-9">
+                    @if($errors->has())
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h4>Данные класса не прошли валидацию!</h4>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{$error}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-md-9">
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Информация о классе</h3>
@@ -120,7 +136,7 @@
                             {!! HTML::decode(Form::button('Создать', array('type' => 'submit', 'class'=>'btn btn-success'))) !!}
                         </div>
                     </div>
-                    {!! Form::close(); !!}
+                    {!! Form::close() !!}
                 </div>
                 <div class="col-md-3">
 

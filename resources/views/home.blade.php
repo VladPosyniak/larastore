@@ -8,8 +8,8 @@
 
 @section('page')
     <!-- SLIDER -->
-    <section>
-        <div class="container">
+    <section style="padding:20px 0;">
+        <div class="container" >
 
             <!-- OWL SLIDER -->
             <div class="owl-carousel buttons-autohide controlls-over nomargin"

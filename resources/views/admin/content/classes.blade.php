@@ -85,7 +85,7 @@
             $('body').on('click', '.remove_cat', function(event) {
                 event.preventDefault();
                 var id=$(this).attr('data-id');
-                bootbox.confirm("Действительно хотите удалить категорию?", function(result) {
+                bootbox.confirm("Действительно хотите удалить этот класс?", function(result) {
                     if (result == true) {
                         var data={ _token : CSRF_TOKEN, _method: 'DELETE', id : id };
                         //console.log(id);
