@@ -482,26 +482,36 @@ class ContentController extends Controller
             $product = Products::create($arr);
             $product->recommendProds()->attach($request->related);
 
-            foreach ($request->product_images as $image){
-                $image = Image::make($image);
-                $image->fit(700, 700, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $string = str_random(40);
-                $image->save('files/products/img/' . $string . '.' . $extension);
+            if (isset($request->product_images)){
+                if (is_array($request->product_images)){
+                    $product_images = $request->product_images;
+                }
+                else{
+                    $product_images = [];
+                    $product_images[0] = $request->product_images;
+                }
 
-                $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                });
-                $image_small->save('files/products/img/small/' . $string . '.' . $extension);
+                foreach ($product_images as $image){
+                    $image = Image::make($image);
+                    $image->fit(700, 700, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $string = str_random(40);
+                    $image->save('files/products/img/' . $string . '.' . $extension);
 
-                $product_image = new ProductImage();
-                $product_image->url = $string . '.' . $extension;
-                $product_image->product_id = $product->id;
-                $product_image->save();
+                    $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $image_small->save('files/products/img/small/' . $string . '.' . $extension);
 
+                    $product_image = new ProductImage();
+                    $product_image->url = $string . '.' . $extension;
+                    $product_image->product_id = $product->id;
+                    $product_image->save();
+
+                }
             }
 
             foreach ($languages as $language){

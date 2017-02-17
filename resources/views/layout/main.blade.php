@@ -158,18 +158,20 @@
                 <li>
                     <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><img class="flag-lang"
                                                                                                       src="
-@if(Auth::check() && Auth::user()->locale !== null){{asset('smarty/images/flags/'.Auth::user()->locale.'.png')}}@elseif(Session::get('locale') != ''){{asset('smarty/images/flags/'.Session::get('locale').'.png')}}@else{{asset('smarty/images/flags/en.png')}}@endif"
+@if(Auth::check() && Auth::user()->locale !== null){{asset('smarty/images/flags/'.Auth::user()->locale.'.png')}}@elseif(Session::get('locale') != ''){{asset('smarty/images/flags/'.Session::get('locale').'.png')}}@else{{asset('smarty/images/flags/'.Config::get('app.locale').'.png')}}@endif"
                                                                                                       width="16"
                                                                                                       height="11"
                                                                                                       alt="lang"/>
                         @if(Auth::check() && Auth::user()->locale !== ''){{mb_strtoupper(Auth::user()->locale)}}@elseif(Session::get('locale') != ''){{mb_strtoupper(Session::get('locale'))}} @else
-                            EN @endif</a>
+                            {{Config::get('app.locale')}} @endif</a>
                     <ul class="dropdown-langs dropdown-menu">
                         @foreach(\larashop\Language::all() as $language)
                             <li><a tabindex="-1" href="{{url('/setlocale/'.$language->code)}}"><img class="flag-lang"
-                                                                                      src="{{asset('smarty/images/flags/'.$language->code.'.png')}}"
-                                                                                      width="16"
-                                                                                      height="11" alt="lang"/> {{$language->name}}</a>
+                                                                                                    src="{{asset('smarty/images/flags/'.$language->code.'.png')}}"
+                                                                                                    width="16"
+                                                                                                    height="11"
+                                                                                                    alt="lang"/> {{$language->name}}
+                                </a>
                             </li>
                         @endforeach
                     </ul>
@@ -346,7 +348,7 @@
                                 <a href="{{url('/catalog')}}">{{mb_strtoupper(trans('layout.catalog'))}}</a>
                             </li>
 
-                            @foreach(\larashop\Classes::all() as $navbar_class)
+                            @foreach(\larashop\Classes::orderBy('sort_id')->get() as $navbar_class)
                                 <li class="dropdown"><!-- HOME -->
                                     <a class="dropdown-toggle" href="{{url('/'.$navbar_class->urlhash)}}">
                                         {{mb_strtoupper($navbar_class->description->name)}}
@@ -359,7 +361,7 @@
                                                 <br>
                                                 <img src="{{asset('files/classes/img/'.$navbar_class->cover)}}"
                                                      style="max-width: 100px;height: 100px" alt=""></a></li>
-                                        @foreach(\larashop\Categories::all() as $cat)
+                                        @foreach(\larashop\Categories::orderBy('sort_id')->get() as $cat)
                                             @if($cat->class_id == $navbar_class->id)
                                                 <li style="display: inline-block;width: 120px;height: 140px;"
                                                     class="dropdown navbar_products">

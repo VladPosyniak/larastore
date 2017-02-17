@@ -22,9 +22,7 @@
         </div>
     </section>
     <!-- /PAGE HEADER -->
-    <div style="max-width: 728px;height: 90px;line-height: 90px;text-align: center;border: 1px groove; margin: auto;margin-bottom: -70px; margin-top: 10px;">
-        <h2>место для рекламы</h2>
-    </div>
+
     <!-- -->
     <section>
         <div class="container">

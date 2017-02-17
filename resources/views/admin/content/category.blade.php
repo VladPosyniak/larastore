@@ -113,7 +113,7 @@
         var def_data={ _token : CSRF_TOKEN, _method: 'PATCH' };
         var data = $(this).sortable('serialize');
         var data_res = data + '&' + $.param(def_data);
-        console.log(data);
+//        console.log(data);
                 // POST to server using $.post or $.ajax
                                         $.ajax({
                                             type: 'POST',
