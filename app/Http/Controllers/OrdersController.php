@@ -232,13 +232,13 @@ class OrdersController extends Controller
 
                 //todo
                 $order_string = var_export($order['attributes'], true);
-                $products_string = var_export($ordered_products, true);
+                $products_string = var_export($ordered_products[0], true);
 
                 $order_data = $order['attributes'];
 
-                Mail::send('mail', ['order'=>$order_string, 'products'=>$products_string], function($message)
+                Mail::send('mail/order_in_process', [], function($message) use($request)
                 {
-                    $message->to('teyn.k@mail.ru', 'Тест Тест');
+                    $message->to($request->input('email'), $request->input('name'))->subject('Ваш заказ в обработке!');
                 });
                 //todo
 

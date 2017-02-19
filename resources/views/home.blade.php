@@ -8,7 +8,7 @@
 
 @section('page')
     <!-- SLIDER -->
-    <section style="padding:20px 0;">
+    <section class="padding-top-40">
         <div class="container" >
 
             <!-- OWL SLIDER -->
