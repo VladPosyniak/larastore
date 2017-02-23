@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387ac2bd-ff6a-4c47-955c-ae65bccc9bb9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" />
     </list>
     <ignored path="larashop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="240" column="67" selection-start-line="240" selection-start-column="67" selection-end-line="240" selection-end-column="67" />
+            <state relative-caret-position="74">
+              <caret line="218" column="35" selection-start-line="218" selection-start-column="35" selection-end-line="218" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="341" column="41" selection-start-line="341" selection-start-column="41" selection-end-line="341" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -107,8 +117,8 @@
         <option value="$PROJECT_DIR$/app/Products.php" />
         <option value="$PROJECT_DIR$/app/ParametersValues.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/main.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/main.blade.php" />
       </list>
     </option>
   </component>
@@ -249,7 +259,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/flowers/public/dist/js/cart.js&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php&#10;install&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php&#10;sliderc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/sliders/slidersCreate.blade.php&#10;categ&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/categoryCreate.blade.php&#10;coup&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/coupons.blade.php&#10;Orders&#9;null&#9;null&#10;checko&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;checkoi&#9;null&#9;null&#10;topmenu&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/layout/topmenu.blade.php&#10;rou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/routes.php&#10;settings&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/settings.blade.php&#10;productCon&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/Admin/ProductController.php" />
+    <property name="SearchEverywhereHistoryKey" value="ma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/flowers/public/dist/js/cart.js&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php&#10;install&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php&#10;sliderc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/sliders/slidersCreate.blade.php&#10;categ&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/categoryCreate.blade.php&#10;coup&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/coupons.blade.php&#10;Orders&#9;null&#9;null&#10;checko&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;checkoi&#9;null&#9;null&#10;topmenu&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/layout/topmenu.blade.php&#10;rou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/routes.php&#10;settings&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/settings.blade.php" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -823,18 +833,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5644">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="74">
+          <caret line="218" column="35" selection-start-line="218" selection-start-column="35" selection-end-line="218" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="240" column="67" selection-start-line="240" selection-start-column="67" selection-end-line="240" selection-end-column="67" />
+        <state relative-caret-position="218">
+          <caret line="341" column="41" selection-start-line="341" selection-start-column="41" selection-end-line="341" selection-end-column="41" />
           <folding />
         </state>
       </provider>
