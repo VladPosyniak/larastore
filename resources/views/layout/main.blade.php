@@ -316,7 +316,30 @@
                             </li>
                         -->
                         <ul id="topMain" class="nav nav-pills nav-main">
-
+                            {{--<li class="dropdown"><!-- HOME -->--}}
+                            {{--<a class="dropdown-toggle" href="#">--}}
+                            {{--HOME--}}
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                            {{--<li class="dropdown">--}}
+                            {{--<a class="dropdown-toggle" href="#">--}}
+                            {{--HOME CORPORATE--}}
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                            {{--<li><a href="index-corporate-1.html">CORPORATE LAYOUT 1</a></li>--}}
+                            {{--<li><a href="index-corporate-2.html">CORPORATE LAYOUT 2</a></li>--}}
+                            {{--<li><a href="index-corporate-3.html">CORPORATE LAYOUT 3</a></li>--}}
+                            {{--<li><a href="index-corporate-4.html">CORPORATE LAYOUT 4</a></li>--}}
+                            {{--<li><a href="index-corporate-5.html">CORPORATE LAYOUT 5</a></li>--}}
+                            {{--<li><a href="index-corporate-6.html">CORPORATE LAYOUT 6</a></li>--}}
+                            {{--<li><a href="index-corporate-7.html">CORPORATE LAYOUT 7</a></li>--}}
+                            {{--</ul>--}}
+                            {{--</li>--}}
+                            {{--</ul>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<a href="">CATEGORIES</a>--}}
+                            {{--</li>--}}
 
                             <li>
                                 <a href="{{url('/')}}">{{mb_strtoupper(trans('layout.home'))}}</a>
