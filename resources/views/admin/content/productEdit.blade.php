@@ -126,7 +126,8 @@
                                         @if($product->cover)
                                             <div class="col-sm-5">
                                                 <img style=" max-height: 50px; "
-                                                     src="{!! asset('files/products/img/small/'.$product->cover) !!}" alt="4"
+                                                     src="{!! asset('files/products/img/small/'.$product->cover) !!}"
+                                                     alt="4"
                                                      class="img-responsive">
                                             </div>
                                         @endif
@@ -158,7 +159,8 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label" for="quantity">Количество</label>
                                         <div class="col-md-9">
-                                            <input name="quantity" class="form-control input-sm" value="{{$product->quantity}}" type="number">
+                                            <input name="quantity" class="form-control input-sm"
+                                                   value="{{$product->quantity}}" type="number">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -174,6 +176,23 @@
 
                                 <div class="tab-pane " id="images">
                                     <br>
+                                    <h4>Уже добавленные изображения</h4>
+                                    <div style="margin-top: 20px" class="row">
+                                        @foreach($product->images as $image)
+                                            <div style="margin-bottom: 10px" class="col-md-3">
+                                                <button style="position: absolute; right: -1px; margin-top: 10px; margin-right: 20px"
+                                                        class="delete_old_image btn btn-danger"><i class="fa fa-trash"
+                                                                                                   aria-hidden="true"></i>
+                                                </button>
+                                                <img style="width: 100%;height: 300px"
+                                                     src="{{asset('files/products/img/'.$image->url)}}"
+                                                     class="img img-responsive" alt="">
+                                                <input type="hidden" name="images_old[]" value="{{$image->id}}">
+                                                <label class="control-label" for="links[]">Ссылка:</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
                                     <button class="btn btn-success image-add">
                                         Добавить изображение
                                     </button>
@@ -202,6 +221,44 @@
                                                             data-lang="{{$language->id}}" type="button">
                                                         Добавить +
                                                     </button>
+                                                    @foreach($parameters_description as $parameter)
+                                                        <div class="form-inline" role="form">
+                                                            <br>
+                                                            <div class="form-group">
+                                                                <label for="parameter" class="sr-only">Параметр</label>
+                                                                <div class="input-group">
+                                                                            <span class="input-group-btn">
+                                                                            <button class="btn btn-default add_parameter" type="button"><i class="glyphicon glyphicon-plus"></i></button>
+                                                                            </span>
+                                                                              <select class="form-control select-opt"
+                                                                            name="parameter_id_{{$language->code}}[]">
+                                                                        @foreach($parameters as $parameter)
+                                                                            <option value="{{$parameter->id}}">{{$parameter->title}} @if($parameter->unit !='undefind')
+                                                                                    ({{$parameter->unit}}
+                                                                                    ) @endif</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="value" class="sr-only">Значение
+                                                                        параметра</label>
+                                                                    <input class="form-control"
+                                                                           name="parameter_value_{{$language->code}}[]"
+                                                                           placeholder="Значение параметра"/>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <button class="btn btn-default remove_button"
+                                                                            type="button"><i
+                                                                                class="glyphicon glyphicon-minus"></i>
+                                                                    </button>
+
+
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
 
 
@@ -284,7 +341,8 @@
                                                 <div class="form-group @if ($errors->has('description_full_'.$language->code)) has-error @endif">
                                                     {!! Form::label('description_full_'.$language->code, 'Детальное описание', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
-                                                        <textarea name="description_full_{{$language->code}}"></textarea>
+                                                        <textarea
+                                                                name="description_full_{{$language->code}}"></textarea>
                                                         @if ($errors->has('description_full_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('description_full_'.$language->code) }}</p> @endif
                                                     </div>
@@ -343,7 +401,7 @@
                     console.log(msg);
                 }
             });
-        })
+        });
 
 
         $(document).on('click', '.remove_button', function () {
@@ -394,6 +452,9 @@
             $('.product-images').append('<div class="col-md-4"><a href="#" style="position: absolute; right: 20px" class="product-image-remove"><i class="fa fa-trash-o" aria-hidden="true"></i></a><input class="form-control" type="file" name="product_images[]"></div>')
             return false;
         });
+        $('.delete_old_image').click(function () {
+            $(this).parent().remove();
+        })
 
         $('.add_option').on('click', function () {
             $(this).after('<input class="form-control" type="text">')

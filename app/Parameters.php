@@ -16,4 +16,12 @@ class Parameters extends Model
         return $this->hasOne('larashop\ParametersDescription','parameter_id')->where('language_id','=',1);
     }
 
+    public function all_descriptions(){
+        return $this->hasMany('larashop\ParametersDescription','parameter_id');
+    }
+
+    public function all_values(){
+        return $this->hasMany('larashop\ParametersValues','parameter_id');
+    }
+
 }

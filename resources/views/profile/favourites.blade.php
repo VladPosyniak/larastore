@@ -161,9 +161,10 @@
             $.get('{{url('/profile/favourites/delete')}}/' + product_id, function (response) {
                 if (response) {
                     $('.product-'+product_id).fadeOut();
+                    return false;
                 }
                 else {
-                    alert('not okay')
+                    alert('Something wrong')
                 }
             })
         })

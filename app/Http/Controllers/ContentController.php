@@ -625,6 +625,24 @@ class ContentController extends Controller
             array_push($myprods_arr, $value->product_id_recommend);
         }
 
+        $parameters_description = [];
+        foreach (Language::all() as $language){
+            foreach ($my_parameters as $parameter){
+                foreach ($parameter->all_descriptions as $description){
+                    if ($language->id === $description->language_id){
+                        $parameters_description[$language->code][] = $description;
+                    }
+                }
+                foreach ($my_parameters as $value){
+                    if ($language->id === $value->language_id){
+                        $parameters_description[$language->code][]['value'] = $value;
+                    }
+                }
+            }
+        }
+
+        return dd($parameters_description);
+
 
         ($product->isset == 'false') ? $product->isset = Null : $product->isset;
 
@@ -641,7 +659,8 @@ class ContentController extends Controller
             'myfilters_arr' => $myfilters_arr,
             'parameters' => $parameters,
             'my_parameters' => $my_parameters,
-            'languages' => Language::all()
+            'languages' => Language::all(),
+            'parameters_description' => $parameters_description
         ];
 
         return view('admin.content.productEdit')->with($data);
