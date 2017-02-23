@@ -236,6 +236,11 @@ class OrdersController extends Controller
 
                 $order_data = $order['attributes'];
 
+                $products_arr = [];
+                foreach ($products as $product){
+                    $products_arr[] = Products::find($product->id);
+                }
+
                 Mail::send('mail/order_in_process', [], function($message) use($request)
                 {
                     $message->to($request->input('email'), $request->input('name'))->subject('Ваш заказ в обработке!');
