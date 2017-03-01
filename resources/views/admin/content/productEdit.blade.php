@@ -48,7 +48,7 @@
                         </div>
                         <div class="box-body">
 
-                            {!! Form::open(array('action' => 'ContentController@storeProduct', 'method'=> 'POST', 'files' => true, 'class'=>'form-horizontal')) !!}
+                            {!! Form::open(array('action' => ['ContentController@updateProduct',$product->id], 'method'=> 'PATCH', 'files' => true, 'class'=>'form-horizontal')) !!}
                             {!! csrf_field() !!}
 
                             <ul class="nav nav-tabs">
@@ -221,7 +221,7 @@
                                                             data-lang="{{$language->id}}" type="button">
                                                         Добавить +
                                                     </button>
-                                                    @foreach($parameters_description as $parameter)
+                                                    @foreach($parameters_description[$language->code] as $parameter)
                                                         <div class="form-inline" role="form">
                                                             <br>
                                                             <div class="form-group">
@@ -232,9 +232,9 @@
                                                                             </span>
                                                                               <select class="form-control select-opt"
                                                                             name="parameter_id_{{$language->code}}[]">
-                                                                        @foreach($parameters as $parameter)
-                                                                            <option value="{{$parameter->id}}">{{$parameter->title}} @if($parameter->unit !='undefind')
-                                                                                    ({{$parameter->unit}}
+                                                                        @foreach($parameters[$language->code] as $item)
+                                                                            <option @if($item->title === $parameter->title) selected @endif value="{{$item->id}}">{{$parameter->title}} @if($item->unit !='undefind')
+                                                                                    ({{$item->unit}}
                                                                                     ) @endif</option>
                                                                         @endforeach
                                                                     </select>
@@ -242,9 +242,9 @@
                                                                 <div class="form-group">
                                                                     <label for="value" class="sr-only">Значение
                                                                         параметра</label>
-                                                                    <input class="form-control"
+                                                                    <input type="text" value="{{$parameter->value}}" class="form-control"
                                                                            name="parameter_value_{{$language->code}}[]"
-                                                                           placeholder="Значение параметра"/>
+                                                                           placeholder="Значение параметра" />
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <button class="btn btn-default remove_button"
@@ -304,7 +304,7 @@
                                                 <div class="form-group @if ($errors->has('title')) has-error @endif">
                                                     {!! Form::label('title_'.$language->code, 'Title', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
-                                                        {!! Form::text('title_'.$language->code, null, array('class'=>'form-control')) !!}
+                                                        {!! Form::text('title_'.$language->code, $product_description[$language->code]->title, array('class'=>'form-control')) !!}
                                                         @if ($errors->has('title_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('title_'.$language->code) }}</p> @endif
                                                     </div>
@@ -312,7 +312,7 @@
                                                 <div class="form-group @if ($errors->has('keywords')) has-error @endif">
                                                     {!! Form::label('keywords_'.$language->code, 'Keywords', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
-                                                        {!! Form::text('keywords_'.$language->code, null, array('class'=>'form-control')) !!}
+                                                        {!! Form::text('keywords_'.$language->code, $product_description[$language->code]->keywords, array('class'=>'form-control')) !!}
                                                         @if ($errors->has('keywords_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('keywords_'.$language->code) }}</p> @endif
                                                     </div>
@@ -325,7 +325,7 @@
                                                 <div class="form-group @if ($errors->has('name')) has-error @endif">
                                                     {!! Form::label('name_'.$language->code, 'Название', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-4">
-                                                        {!! Form::text('name_'.$language->code, null, array('class'=>'form-control')) !!}
+                                                        {!! Form::text('name_'.$language->code, $product_description[$language->code]->name, array('class'=>'form-control')) !!}
                                                         @if ($errors->has('name_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('name_'.$language->code) }}</p> @endif
                                                     </div>
@@ -333,7 +333,7 @@
                                                 <div class="form-group @if ($errors->has('description')) has-error @endif">
                                                     {!! Form::label('description_'.$language->code, 'Описание', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
-                                                        {!! Form::textarea('description_'.$language->code, null, array('class'=>'form-control', 'rows'=>'2')) !!}
+                                                        {!! Form::textarea('description_'.$language->code, $product_description[$language->code]->description, array('class'=>'form-control', 'rows'=>'2')) !!}
                                                         @if ($errors->has('description_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('description_'.$language->code) }}</p> @endif
                                                     </div>
@@ -342,7 +342,7 @@
                                                     {!! Form::label('description_full_'.$language->code, 'Детальное описание', array('class'=>'col-sm-3 control-label')) !!}
                                                     <div class="col-sm-9">
                                                         <textarea
-                                                                name="description_full_{{$language->code}}"></textarea>
+                                                                name="description_full_{{$language->code}}">{!! $product_description[$language->code]->description_full !!}</textarea>
                                                         @if ($errors->has('description_full_'.$language->code)) <p
                                                                 class="help-block">{{ $errors->first('description_full_'.$language->code) }}</p> @endif
                                                     </div>
@@ -358,7 +358,7 @@
                     </div>
                     <div class="form-group">
                         <div class="text-right">
-                            {!! HTML::decode(Form::button('Создать', array('type' => 'submit', 'class'=>'btn btn-success'))) !!}
+                            {!! HTML::decode(Form::button('Изменить', array('type' => 'submit', 'class'=>'btn btn-success'))) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}

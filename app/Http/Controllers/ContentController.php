@@ -16,6 +16,7 @@ use larashop\Info;
 use larashop\Language;
 use larashop\Options;
 use larashop\Parameters;
+use larashop\ParametersDescription;
 use larashop\ParametersValues;
 use larashop\ProductDescription;
 use larashop\ProductFilter;
@@ -139,7 +140,7 @@ class ContentController extends Controller
     public function createCat()
     {
 
-        $data = ['NewOrderCounter' => Purchase::Neworders()->count(), 'classes' => Classes::all(),'languages' => Language::all()];
+        $data = ['NewOrderCounter' => Purchase::Neworders()->count(), 'classes' => Classes::all(), 'languages' => Language::all()];
 
         return view('admin.content.categoryCreate')->with($data);
     }
@@ -153,9 +154,9 @@ class ContentController extends Controller
         $currentClass = Classes::find($cat->class_id);
 
         $descriptions = [];
-        foreach (Language::all() as $language){
-            foreach ($cat->all_descriptions as $description){
-                if ($language->id === $description->language_id){
+        foreach (Language::all() as $language) {
+            foreach ($cat->all_descriptions as $description) {
+                if ($language->id === $description->language_id) {
                     $descriptions[$language->code] = $description;
                 }
             }
@@ -192,11 +193,11 @@ class ContentController extends Controller
             'cover' => 'mimes:jpeg,bmp,png',
             'class' => 'required|integer',
         ];
-        foreach (Language::all() as $language){
-            $rules['name_'.$language->code] = 'required|min:3';
-            $rules['description_'.$language->code] = 'required';
-            $rules['title_'.$language->code] = 'required';
-            $rules['keywords_'.$language->code] = 'required';
+        foreach (Language::all() as $language) {
+            $rules['name_' . $language->code] = 'required|min:3';
+            $rules['description_' . $language->code] = 'required';
+            $rules['title_' . $language->code] = 'required';
+            $rules['keywords_' . $language->code] = 'required';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -225,17 +226,17 @@ class ContentController extends Controller
             );
             $cat->update($arr);
 
-            foreach (Language::all() as $language){
+            foreach (Language::all() as $language) {
                 $cat_description = CategoryDescription::where(
                     [
-                        ['language_id','=',$language->id],
-                        ['category_id','=',$id]
+                        ['language_id', '=', $language->id],
+                        ['category_id', '=', $id]
                     ]
                 )->first();
-                $cat_description->name = $request->{'name_'.$language->code};
-                $cat_description->title = $request->{'title_'.$language->code};
-                $cat_description->description = $request->{'description_'.$language->code};
-                $cat_description->keywords = $request->{'keywords_'.$language->code};
+                $cat_description->name = $request->{'name_' . $language->code};
+                $cat_description->title = $request->{'title_' . $language->code};
+                $cat_description->description = $request->{'description_' . $language->code};
+                $cat_description->keywords = $request->{'keywords_' . $language->code};
                 $cat_description->update();
             }
 
@@ -260,11 +261,11 @@ class ContentController extends Controller
             'cover' => 'mimes:jpeg,bmp,png',
             'class' => 'required|integer',
         ];
-        foreach (Language::all() as $language){
-            $rules['name_'.$language->code] = 'required|min:3';
-            $rules['description_'.$language->code] = 'required';
-            $rules['title_'.$language->code] = 'required';
-            $rules['keywords_'.$language->code] = 'required';
+        foreach (Language::all() as $language) {
+            $rules['name_' . $language->code] = 'required|min:3';
+            $rules['description_' . $language->code] = 'required';
+            $rules['title_' . $language->code] = 'required';
+            $rules['keywords_' . $language->code] = 'required';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -294,14 +295,14 @@ class ContentController extends Controller
             $category->save();
 
 
-            foreach (Language::all() as $lang){
+            foreach (Language::all() as $lang) {
                 $category_description = new CategoryDescription();
                 $category_description->language_id = $lang->id;
                 $category_description->category_id = $category->id;
-                $category_description->name = $request->{'name_'.$lang->code};
-                $category_description->description = $request->{'description_'.$lang->code};
-                $category_description->title = $request->{'title_'.$lang->code};
-                $category_description->keywords = $request->{'keywords_'.$lang->code};
+                $category_description->name = $request->{'name_' . $lang->code};
+                $category_description->description = $request->{'description_' . $lang->code};
+                $category_description->title = $request->{'title_' . $lang->code};
+                $category_description->keywords = $request->{'keywords_' . $lang->code};
                 $category_description->save();
             }
 
@@ -336,7 +337,7 @@ class ContentController extends Controller
             File::delete('files/cats/img/' . $cat->cover);
         }
 
-        ClassDescription::where('category_id','=',$id)->delete();
+        ClassDescription::where('category_id', '=', $id)->delete();
 
         $cat->delete();
 
@@ -419,14 +420,14 @@ class ContentController extends Controller
             'related' => 'array',
             'product_images' => 'array'
         ];
-        foreach (Language::all() as $language){
-            $rules['parameter_id_'.$language->code] = 'array';
-            $rules['parameter_value_'.$language->code] = 'array';
-            $rules['title_'.$language->code] = 'required';
-            $rules['keywords_'.$language->code] = 'required';
-            $rules['name_'.$language->code] = 'required';
-            $rules['description_'.$language->code] = 'required';
-            $rules['description_full_'.$language->code] = 'required';
+        foreach (Language::all() as $language) {
+            $rules['parameter_id_' . $language->code] = 'array';
+            $rules['parameter_value_' . $language->code] = 'array';
+            $rules['title_' . $language->code] = 'required';
+            $rules['keywords_' . $language->code] = 'required';
+            $rules['name_' . $language->code] = 'required';
+            $rules['description_' . $language->code] = 'required';
+            $rules['description_full_' . $language->code] = 'required';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -437,8 +438,7 @@ class ContentController extends Controller
         } else {
 
             $coverdb = Null;
-            if (isset($cover))
-            {
+            if (isset($cover)) {
                 $img = Image::make($cover);
                 // resize image
                 $img->fit(700, 700, function ($constraint) {
@@ -457,7 +457,6 @@ class ContentController extends Controller
                 $img_small->save('files/products/img/small/' . $string . '.' . $extension);
                 $coverdb = $string . '.' . $extension;
             }
-
 
 
             $class_id = Categories::find($request->categories_id);
@@ -482,16 +481,15 @@ class ContentController extends Controller
             $product = Products::create($arr);
             $product->recommendProds()->attach($request->related);
 
-            if (isset($request->product_images)){
-                if (is_array($request->product_images)){
+            if (isset($request->product_images)) {
+                if (is_array($request->product_images)) {
                     $product_images = $request->product_images;
-                }
-                else{
+                } else {
                     $product_images = [];
                     $product_images[0] = $request->product_images;
                 }
 
-                foreach ($product_images as $image){
+                foreach ($product_images as $image) {
                     $image = Image::make($image);
                     $image->fit(700, 700, function ($constraint) {
                         $constraint->aspectRatio();
@@ -504,7 +502,14 @@ class ContentController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
+                    $img_medium = Image::make($cover)->fit(400, 400, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+
+                    // save image
                     $image_small->save('files/products/img/small/' . $string . '.' . $extension);
+                    $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
 
                     $product_image = new ProductImage();
                     $product_image->url = $string . '.' . $extension;
@@ -514,23 +519,23 @@ class ContentController extends Controller
                 }
             }
 
-            foreach ($languages as $language){
+            foreach ($languages as $language) {
 //                return $request->{'name_'.$language->code};
                 $product_description = new ProductDescription();
                 $product_description->product_id = $product->id;
                 $product_description->language_id = $language->id;
-                $product_description->name = $request->{'name_'.$language->code};
-                $product_description->title = $request->{'title_'.$language->code};
-                $product_description->keywords = $request->{'keywords_'.$language->code};
-                $product_description->description = $request->{'description_'.$language->code};
-                $product_description->description_full = $request->{'description_full_'.$language->code};
+                $product_description->name = $request->{'name_' . $language->code};
+                $product_description->title = $request->{'title_' . $language->code};
+                $product_description->keywords = $request->{'keywords_' . $language->code};
+                $product_description->description = $request->{'description_' . $language->code};
+                $product_description->description_full = $request->{'description_full_' . $language->code};
                 $product_description->save();
             }
 
 
-            foreach ($languages as $language){
-                if (is_array($request->{'parameter_id_'.$language->code}) && is_array($request->{'parameter_value_'.$language->code})) {
-                    $parameters = array_combine($request->{'parameter_id_'.$language->code}, $request->{'parameter_value_'.$language->code});
+            foreach ($languages as $language) {
+                if (is_array($request->{'parameter_id_' . $language->code}) && is_array($request->{'parameter_value_' . $language->code})) {
+                    $parameters = array_combine($request->{'parameter_id_' . $language->code}, $request->{'parameter_value_' . $language->code});
                     foreach ($parameters as $param => $value) {
                         $parameters = new ParametersValues();
                         $parameters->parameters_id = $param;
@@ -583,12 +588,17 @@ class ContentController extends Controller
         $options = Options::all();
         $myopt = $product->productOptions;
         $filters = Filters::orderBy('id')->get();
-        $parameters = Parameters::all();
+
         $my_parameters = $product->productParameters;
         $myfilters = $product->productFilters;
         $cats = Categories::orderBy('sort_id', 'asc')->get();
         $prods = Products::orderBy('sort_id', 'asc')->get();
         $myprod = $product->recommendProd;
+
+        $parameters = [];
+        foreach (Language::all() as $language) {
+            $parameters[$language->code] = ParametersDescription::where('language_id', '=', $language->id)->get();
+        }
 
         $opt_arr = [];
         foreach ($options as $key => $value) {
@@ -626,22 +636,23 @@ class ContentController extends Controller
         }
 
         $parameters_description = [];
-        foreach (Language::all() as $language){
-            foreach ($my_parameters as $parameter){
-                foreach ($parameter->all_descriptions as $description){
-                    if ($language->id === $description->language_id){
-                        $parameters_description[$language->code][] = $description;
-                    }
-                }
-                foreach ($my_parameters as $value){
-                    if ($language->id === $value->language_id){
-                        $parameters_description[$language->code][]['value'] = $value;
-                    }
-                }
-            }
+        foreach (Language::all() as $language) {
+            $parameters_description[$language->code] = DB::table('parameters')
+                ->join('parameters_values', 'parameters.id', '=', 'parameters_values.parameters_id')
+                ->where('parameters_values.items_id', '=', $id)
+                ->where('parameters_values.language_id', '=', $language->id)
+                ->join('parameters_description', 'parameters_description.parameter_id', '=', 'parameters_values.parameters_id')
+                ->where('parameters_description.language_id', '=', $language->id)
+                ->select('parameters_description.title', 'parameters_description.unit', 'parameters_values.value')->get();
         }
 
-        return dd($parameters_description);
+        $product_description = [];
+        foreach (Language::all() as $language) {
+            $product_description[$language->code] = ProductDescription::where([
+                ['product_id', '=', $id],
+                ['language_id', '=', $language->id]
+            ])->first();
+        }
 
 
         ($product->isset == 'false') ? $product->isset = Null : $product->isset;
@@ -660,7 +671,8 @@ class ContentController extends Controller
             'parameters' => $parameters,
             'my_parameters' => $my_parameters,
             'languages' => Language::all(),
-            'parameters_description' => $parameters_description
+            'parameters_description' => $parameters_description,
+            'product_description' => $product_description
         ];
 
         return view('admin.content.productEdit')->with($data);
@@ -669,6 +681,17 @@ class ContentController extends Controller
     public function updateProduct(Request $request, $id)
     {
 
+        foreach (ProductImage::where('product_id', '=', $id)->get()->all() as $image) {
+            if (!in_array($image->id, $request->images_old)) {
+                ProductImage::find($image->id)->delete();
+                return 'sada';
+            }
+            else{
+                return 'bad';
+            }
+        }
+
+
 
         $product = Products::findOrFail($id);
 
@@ -676,16 +699,31 @@ class ContentController extends Controller
 
         //dd(Input::file());
         isset($cover) ? $extension = $cover->getClientOriginalExtension() : null;
-        ($request->isset == 'true') ? $isset = 'true' : $isset = 'false';
+        ($request->isset == 'true') ? $isset = 1 : $isset = 0;
 
         //$extension = $cover->getClientOriginalExtension();
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:2|max:255',
-            'description' => 'required|min:2',
+        $rules = [
             'cover' => 'mimes:jpeg,bmp,png',
-            'quantity' => 'integer'
-        ]);
+            'quantity' => 'integer',
+            'price' => 'required|integer',
+            'price_old' => 'integer',
+            'category' => 'integer',
+            'filters' => 'array',
+            'related' => 'array',
+            'product_images' => 'array'
+        ];
+        foreach (Language::all() as $language) {
+            $rules['parameter_id_' . $language->code] = 'array';
+            $rules['parameter_value_' . $language->code] = 'array';
+            $rules['title_' . $language->code] = 'required';
+            $rules['keywords_' . $language->code] = 'required';
+            $rules['name_' . $language->code] = 'required';
+            $rules['description_' . $language->code] = 'required';
+            $rules['description_full_' . $language->code] = 'required';
+        }
+
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
 
@@ -700,20 +738,25 @@ class ContentController extends Controller
                 $img = Image::make($cover);
 
                 // resize image
-                $img->fit(900, 800);
+                $img->fit(700, 700);
 
                 // save image
                 $string = str_random(40);
                 $img->save('files/products/img/' . $string . '.' . $extension);
 
                 // resize image
-                $img_small = Image::make($cover)->fit(50, 50, function ($constraint) {
+                $img_small = Image::make($cover)->fit(100, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+                $img_medium = Image::make($cover)->fit(400, 400, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
 
                 // save image
                 $img_small->save('files/products/img/small/' . $string . '.' . $extension);
+                $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
 
                 $coverdb = $string . '.' . $extension;
             } else {
@@ -728,23 +771,31 @@ class ContentController extends Controller
             } else {
                 $price_old = null;
             }
-            $arr = array(
-                'name' => $request->name,
-                'title' => $request->title,
-                'keywords' => $request->keywords,
-                'description' => $request->description,
-                'description_full' => $request->description_full,
+            $arr_product = array(
                 'cover' => $coverdb,
                 'price' => toUSD($request->price, 'UAH'),
                 'price_old' => $price_old,
-                'label' => $request->label,
                 'isset' => $isset,
                 'categories_id' => $request->categories_id,
                 'class_id' => $class_id,
                 'quantity' => $request->quantity
             );
+            $arr_description = [];
+            foreach (Language::all() as $language) {
+                $arr_description['name'] = $request->{'name_' . $language->code};
+                $arr_description['title'] = $request->{'title_' . $language->code};
+                $arr_description['keywords'] = $request->{'keywords_' . $language->code};
+                $arr_description['description'] = $request->{'description_' . $language->code};
+                $arr_description['description_full'] = $request->{'description_full_' . $language->code};
+                $product_description = ProductDescription::where(
+                    [
+                        ['product_id', '=', $id],
+                        ['language_id', '=', $language->id]
+                    ])->first();
+                $product_description->update($arr_description);
+            }
 
-            $product->update($arr);
+            $product->update($arr_product);
 
             $product->recommendProds()->detach();
             $product->recommendProds()->attach($request->related);
@@ -754,14 +805,17 @@ class ContentController extends Controller
 
             $delete_parameters = ParametersValues::where('items_id', '=', $product->id)->delete();
 
-            if (is_array($request->parameter_id) && is_array($request->parameter_value)) {
-                $parameters = array_combine($request->parameter_id, $request->parameter_value);
-                foreach ($parameters as $param => $value) {
-                    $parameters = new ParametersValues();
-                    $parameters->parameters_id = $param;
-                    $parameters->items_id = $product->id;
-                    $parameters->value = $value;
-                    $parameters->save();
+            foreach (Language::all() as $language) {
+                if (is_array($request->{'parameter_id_' . $language->code}) && is_array($request->{'parameter_value_' . $language->code})) {
+                    $parameters = array_combine($request->parameter_id, $request->parameter_value);
+                    foreach ($parameters as $param => $value) {
+                        $parameters = new ParametersValues();
+                        $parameters->parameters_id = $param;
+                        $parameters->items_id = $product->id;
+                        $parameters->value = $value;
+                        $parameters->language_id = $language->id;
+                        $parameters->save();
+                    }
                 }
             }
 
@@ -772,6 +826,13 @@ class ContentController extends Controller
                     $new_filter->product_id = $product->id;
                     $new_filter->filter_id = $filter;
                     $new_filter->save();
+                }
+            }
+
+            foreach (ProductImage::where('product_id', '=', $id)->get()->all() as $image) {
+                if (!in_array($image->id, $request->images_old)) {
+
+                    $image->delete();
                 }
             }
 
@@ -791,8 +852,8 @@ class ContentController extends Controller
             File::delete('files/cats/img/small/' . $prod->cover);
         }
 
-        $product_description = ProductDescription::where('product_id','=',$prod->id)->get();
-        foreach ($product_description as $item){
+        $product_description = ProductDescription::where('product_id', '=', $prod->id)->get();
+        foreach ($product_description as $item) {
             $desc = ProductDescription::find($item->id);
             $desc->delete();
         }
