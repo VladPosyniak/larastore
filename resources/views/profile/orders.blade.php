@@ -11,8 +11,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb breadcrumb-inverse">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Coupons</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('settings.orders')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -29,8 +29,8 @@
                 <div class="container">
 
                     <div class="text-center">
-                        <h3>Your<span> orders</span></h3>
-                        <p>Here you can find your orders and check their status.</p>
+                        <h3>{{trans('orders_settings.yours')}}<span> {{trans('orders_settings.orders')}}</span></h3>
+                        <p>{{trans('orders_settings.here')}}</p>
                     </div>
 
                 </div>
@@ -69,18 +69,12 @@
 
                 <!-- SIDE NAV -->
                 <ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-                    {{--<li class="list-group-item"><a href="{{url('/profile/history')}}"><i class="fa fa-history"></i> ORDER--}}
-                    {{--HISTORY</a></li>--}}
-                    <li class="list-group-item "><a href="{{url('/profile/settings')}}"><i class="fa fa-gears"></i>
-                            SETTINGS</a></li>
-                    <li class="list-group-item"><a href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i>
-                            COUPONS</a></li>
+                    <li class="list-group-item "><a href="{{url('/profile/settings')}}"><i class="fa fa-gears"></i>{{trans('settings.settings')}}</a></li>
+                    <li class="list-group-item"><a href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i>{{trans('settings.coupons')}}</a></li>
                     <li class="list-group-item active"><a href="{{url('/profile/orders')}}"><i
-                                    class="fa fa-archive"></i>
-                            ORDERS</a></li>
+                                    class="fa fa-archive"></i>{{trans('settings.orders')}}</a></li>
                     <li class="list-group-item"><a href="{{url('/profile/favourites')}}"><i
-                                    class="fa fa-star"></i>
-                            FAVOURITES</a></li>
+                                    class="fa fa-star"></i>{{trans('settings.favorite')}}</a></li>
                 </ul>
 
             </div>

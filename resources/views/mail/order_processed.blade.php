@@ -150,11 +150,21 @@
 					<tr>
 						<td bgcolor="#ffffff" class="contentblock">
 
-							<h4 class="secondary"><strong><singleline label="Title">Заказ успешно отправлен!</singleline></strong></h4>
+							<h4 class="secondary"><strong><singleline label="Title">Заказ успешно обработан!</singleline></strong></h4>
 							<multiline label="Description">
-								<p>Ваш заказ отправлен на обработку.</p>
-								<p>Обычно обработка длится меньше часа, после чего мы Вам напишем!</p>
+								<p>Заказ успешно обработан и будет отправлен как можно раньше!</p>
 								<p>Также Вы можете отслеживать статус заказа в своём личном кабинете.</p>
+								<p class="goods">Товары:</p>
+								<ul class="goods_list">
+									@foreach($products as $product)
+										@if($product['amount'] == 1)
+											<li>{{$product['title']}} - <b>{{$product['price']}}грн</b> x{{$product['amount']}}</li>
+										@else
+											<li>{{$product['title']}} - {{$product['price']}}грн x{{$product['amount']}}= <b>{{$product['total_price']}}грн</b></li>
+										@endif
+									@endforeach
+								</ul>
+								<b>Сумма: {{$total}}грн</b>
 							</multiline>
 
 						</td>

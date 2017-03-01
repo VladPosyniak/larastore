@@ -45,9 +45,9 @@
                                     Управление статусом
                                 </div>
                                 <div class="panel-body text-center">
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}" title="Ожидает обработки" class="btn btn-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> ожидает обработки</a>
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}" title="Обрабатывается" class="btn btn-info"><i class="fa fa-circle-o-notch fa-spin"></i> обрабатывается</a>
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}" title="Обработан" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> обработан</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}" title="В обработку" class="btn btn-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> Обрабатывается</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}" title="К доставке" class="btn btn-info"><i class="fa fa-circle-o-notch fa-spin"></i> Обработан</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}" title="Отправлен" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Доставляется</a>
                                 </div>
                             </div>
                             <div class="row">

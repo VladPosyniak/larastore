@@ -14,8 +14,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li><a href="{{url('/catalog')}}">Catalog</a></li>
+                <li><a href="{{url('/')}}">{{trans('product_page.home')}}</a></li>
+                <li><a href="{{url('/catalog')}}">{{trans('product_page.catalog')}}</a></li>
                 <li><a href="{{url('/catalog/'.$currentClass['urlhash'])}}">{{$currentClass->description->name}}</a>
                 </li>
                 <li>
@@ -26,12 +26,6 @@
 
         </div>
     </section>
-    <!-- /PAGE HEADER -->
-    <!-- <div style="max-width: 728px;height: 90px;line-height: 90px;text-align: center;border: 1px groove; margin: auto;margin-bottom: -70px; margin-top: 10px;">
-        <h2>место для рекламы</h2>
-    </div> -->
-
-    <!-- -->
     <section>
         <div class="container">
 
@@ -47,30 +41,12 @@
 
                             <div class="thumbnail relative margin-bottom-3">
 
-                                <!--
-                                    IMAGE ZOOM
-
-                                    data-mode="mouseover|grab|click|toggle"
-                                -->
                                 <figure id="zoom-primary" class="zoom" data-mode="mouseover">
-                                    <!--
-                                        zoom buttton
-
-                                        positions available:
-                                            .bottom-right
-                                            .bottom-left
-                                            .top-right
-                                            .top-left
-                                    -->
+                                
                                     <a class="lightbox bottom-right"
                                        href="{{ asset('/files/products/img/'.$currentProd->cover) }}"
                                        data-plugin-options='{"type":"image"}'><i class="glyphicon glyphicon-search"></i></a>
 
-                                    <!--
-                                        image
-
-                                        Extra: add .image-bw class to force black and white!
-                                    -->
                                     <img class="img-responsive"
                                          src="{{ asset('/files/products/img/'.$currentProd->cover) }}" width="1200"
                                          height="1500" alt="This is the product title"/>
@@ -104,13 +80,12 @@
 
                             <!-- buttons -->
                             <div class="pull-right">
-                                <!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
                                 <a class="btn btn-default add-wishlist" href="#" data-added="{{$favourite}}"
                                    data-id="{{$currentProd->id}}" {{--data-toggle="tooltip"--}}
                                    @if($favourite)
-                                   title="Remove from Wishlist"
+                                   title="{{trans('product_page.del_wish')}}"
                                    @else
-                                   title="Add To Wishlist"
+                                   title="{{trans('product_page.add_wish')}}"
                                         @endif
                                 ><i
                                             @if($favourite)
@@ -133,14 +108,10 @@
                             <hr/>
                             <div class="clearfix margin-bottom-30">
                                 @if($currentProd->isset)
-                                    <span class="pull-right text-success"><i class="fa fa-check"></i> In Stock</span>
+                                    <span class="pull-right text-success"><i class="fa fa-check"></i> {{trans('product_page.in_stock')}}</span>
                                 @else
-                                    <span class="pull-right text-danger"><i class="fa fa-times"></i> Out Stock</span>
+                                    <span class="pull-right text-danger"><i class="fa fa-times"></i> {{trans('product_page.out_stock')}}</span>
                                 @endif
-                            <!--
-                                    <span class="pull-right text-danger"><i class="glyphicon glyphicon-remove"></i> Out of Stock</span>
-                                    -->
-
                                 {{--<strong>SKU:</strong> UY7321987--}}
                             </div>
 
@@ -151,114 +122,10 @@
 
                             <!-- /short description -->
 
-
-                            <!-- countdown -->
-                        {{--<div class="text-center">--}}
-                        {{--<h5>Limited Offer</h5>--}}
-                        {{--<div class="countdown" data-from="January 31, 2018 15:03:26" data-labels="years,months,weeks,days,hour,min,sec"><!-- Example Date From: December 31, 2018 15:03:26 --></div>--}}
-                        {{--</div>--}}
-                        <!-- /countdown -->
-
-
                             <hr/>
 
                             <!-- FORM -->
                             <form class="clearfix form-inline nomargin" method="get" action="">
-                                {{--<input type="hidden" name="product_id" value="1"/>--}}
-
-                                {{--<!-- see assets/js/view/demo.shop.js -->--}}
-                                {{--<input type="hidden" id="color" name="color" value="yellow"/>--}}
-                                {{--<input type="hidden" id="qty" name="qty" value="1"/>--}}
-                                {{--<input type="hidden" id="size" name="size" value="5"/>--}}
-                                {{--<!-- see assets/js/view/demo.shop.js -->--}}
-
-                                {{--<div class="btn-group pull-left product-opt-color">--}}
-                                {{--<button type="button" class="btn btn-default dropdown-toggle product-color-dd noradius"--}}
-                                {{--data-toggle="dropdown">&nbsp;--}}
-                                {{--<span class="caret"></span>--}}
-                                {{--<span id="product-selected-color" class="tag shop-color"--}}
-                                {{--style="background-color:#F0E68C"></span>--}}
-                                {{--</button>--}}
-
-                                {{--<!----}}
-                                {{--href = required to be hex color starting with: #--}}
-                                {{--data-val = color name or color id from the database--}}
-                                {{---->--}}
-                                {{--<ul id="product-color-dd" class="dropdown-menu clearfix" role="menu">--}}
-                                {{--<li class="active"><a class="tag shop-color" data-val="purple" href="#800080"--}}
-                                {{--style="background-color:#800080"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="red" href="#FF0000"--}}
-                                {{--style="background-color:#FF0000"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="pink" href="#FF0080"--}}
-                                {{--style="background-color:#FF0080"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="orange" href="#FF6600"--}}
-                                {{--style="background-color:#FF6600"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="grey" href="#E0DCC8"--}}
-                                {{--style="background-color:#E0DCC8"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="yellow" href="#F0E68C"--}}
-                                {{--style="background-color:#F0E68C"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="light-yellow" href="#FFFFD0"--}}
-                                {{--style="background-color:#FFFFD0"></a></li>--}}
-                                {{--<li><a class="tag shop-color" style="background-color:#4B0082"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="dark-grey" href="#666666"--}}
-                                {{--style="background-color:#666666"></a></li>--}}
-                                {{--<li><a class="tag shop-color" data-val="green" href="#00FF00"--}}
-                                {{--style="background-color:#00FF00"></a></li>--}}
-                                {{--</ul>--}}
-                                {{--</div><!-- /btn-group -->--}}
-
-                                {{--<div class="btn-group pull-left product-opt-size">--}}
-                                {{--<button type="button" class="btn btn-default dropdown-toggle product-size-dd noradius"--}}
-                                {{--data-toggle="dropdown">--}}
-                                {{--<span class="caret"></span>--}}
-                                {{--Size--}}
-                                {{--<small id="product-selected-size">(<span>5</span>)</small>--}}
-                                {{--</button>--}}
-
-                                {{--<!-- data-val = size value or size id -->--}}
-                                {{--<ul id="product-size-dd" class="dropdown-menu" role="menu">--}}
-                                {{--<li class="active"><a data-val="5" href="#">5</a></li>--}}
-                                {{--<li><a data-val="5.5" href="#">5.5</a></li>--}}
-                                {{--<li><a data-val="6" href="#">6</a></li>--}}
-                                {{--<li><a data-val="6.5" href="#">6.5</a></li>--}}
-                                {{--<li><a data-val="7" href="#">7</a></li>--}}
-                                {{--<li><a data-val="7.5" href="#">7.7</a></li>--}}
-                                {{--<li><a data-val="8" href="#">8</a></li>--}}
-                                {{--<li><a data-val="8.5" href="#">8.5</a></li>--}}
-                                {{--<li><a data-val="9" href="#">9</a></li>--}}
-                                {{--<li><a data-val="9.5" href="#">9.5</a></li>--}}
-                                {{--<li><a data-val="10" href="#">10</a></li>--}}
-                                {{--<li><a data-val="10.5" href="#">10.5</a></li>--}}
-                                {{--<li><a data-val="11" href="#">11</a></li>--}}
-                                {{--<li><a data-val="11.5" href="#">11.5</a></li>--}}
-                                {{--<li><a data-val="12" href="#">12</a></li>--}}
-                                {{--<li><a data-val="13" href="#">13</a></li>--}}
-                                {{--<li><a data-val="14" href="#">14</a></li>--}}
-                                {{--</ul>--}}
-                                {{--</div><!-- /btn-group -->--}}
-
-                                {{--<div class="btn-group pull-left product-opt-qty">--}}
-                                {{--<button type="button" class="btn btn-default dropdown-toggle product-qty-dd noradius"--}}
-                                {{--data-toggle="dropdown">--}}
-                                {{--<span class="caret"></span>--}}
-                                {{--Qty--}}
-                                {{--<small id="product-selected-qty">(<span>5</span>)</small>--}}
-                                {{--</button>--}}
-
-                                {{--<ul id="product-qty-dd" class="dropdown-menu clearfix" role="menu">--}}
-                                {{--<li class="active"><a data-val="1" href="#">1</a></li>--}}
-                                {{--<li><a data-val="2" href="#">2</a></li>--}}
-                                {{--<li><a data-val="3" href="#">3</a></li>--}}
-                                {{--<li><a data-val="4" href="#">4</a></li>--}}
-                                {{--<li><a data-val="5" href="#">5</a></li>--}}
-                                {{--<li><a data-val="6" href="#">6</a></li>--}}
-                                {{--<li><a data-val="7" href="#">7</a></li>--}}
-                                {{--<li><a data-val="8" href="#">8</a></li>--}}
-                                {{--<li><a data-val="9" href="#">9</a></li>--}}
-                                {{--<li><a data-val="10" href="#">10</a></li>--}}
-                                {{--</ul>--}}
-                                {{--</div><!-- /btn-group -->--}}
-
                                 @foreach($opt_groups as $group)
                                     <div data-group="{{$group->id}}" class="text-center margin-bottom-20 option-id">
                                         <b>{{$group->name}}</b>
@@ -282,7 +149,7 @@
                                             data-img="{{ asset('/files/products/img/'.$currentProd['cover']) }}"
                                             data-price="{{currencyWithoutPrefix($currentProd['price'])}}"
                                             data-currency="{{currencyPrefix()}}"
-                                            class="btn btn-default btn-lg btn-block btn-success buy-btn">ADD TO CART
+                                            class="btn btn-default btn-lg btn-block btn-success buy-btn">{{trans('product_page.add')}}
                                     </button>
                                 </div>
 
@@ -291,14 +158,6 @@
 
 
                             <hr/>
-
-                        {{--<small class="text-muted">--}}
-                        {{--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla,--}}
-                        {{--commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim--}}
-                        {{--massa, sodales tempor convallis et.--}}
-                        {{--</small>--}}
-
-                        {{--<hr/>--}}
 
                         <!-- Share -->
                             <div class="pull-right">
@@ -347,9 +206,9 @@
 
 
                     <ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
-                        <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">Description</a>
+                        <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">{{trans('product_page.desc')}}</a>
                         </li>
-                        <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">Specifications</a></li>
+                        <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">{{trans('product_page.spec')}}</a></li>
                         {{--<li role="presentation"><a href="#reviews" role="tab" data-toggle="tab">Reviews (2)</a></li>--}}
                     </ul>
 
@@ -516,7 +375,7 @@
                         <hr class="margin-top-80 margin-bottom-80"/>
 
 
-                        <h2 class="owl-featured"><strong>Related</strong> products:</h2>
+                        <h2 class="owl-featured"><strong>{{trans('product_page.related')}}</strong> {{trans('product_page.products')}}:</h2>
                         <div class="owl-carousel featured nomargin owl-padding-10"
                              data-plugin-options='{"singleItem": false, "items": "4", "stopOnHover":false, "autoPlay":4500, "autoHeight": false, "navigation": true, "pagination": false}'>
 
@@ -531,9 +390,6 @@
                                             <img class="img-responsive"
                                                  src="{{ asset('/files/products/img/'.$prod->cover) }}"
                                                  alt="shop first image"/>
-                                            {{--<img class="img-responsive"--}}
-                                            {{--src="{{asset('smarty/images/demo/shop/products/300x450/p14.jpg')}}"--}}
-                                            {{--alt="shop hover image"/>--}}
                                         </a>
                                         <!-- /product image(s) -->
 
@@ -541,7 +397,7 @@
                                         <div class="shop-item-info">
                                             {{--<span class="label label-success">NEW</span>--}}
                                             @if($prod->price_old != '')
-                                                <span class="label label-danger">SALE</span>
+                                                <span class="label label-danger">{{trans('product_page.sale')}}</span>
                                             @endif
                                         </div>
                                         <!-- /product more info -->
@@ -565,20 +421,6 @@
                                         </div>
                                         <!-- /price -->
                                     </div>
-
-                                    <!-- buttons -->
-                                    {{--<div class="shop-item-buttons text-center products">--}}
-                                    {{--<a class="btn btn-default buy-btn"--}}
-                                    {{--id="{{$prod->id}}"--}}
-                                    {{--data-id="{{$prod->id}}"--}}
-                                    {{--data-title="{{$prod->name}}"--}}
-                                    {{--data-img="{{ asset('/files/products/img/'.$prod->cover) }}"--}}
-                                    {{--data-price="{{currencyWithoutPrefix($prod->price)}}"--}}
-                                    {{--data-currency="{{currencyPrefix()}}" href="#"><i class="fa fa-cart-plus"></i>--}}
-                                    {{--Add--}}
-                                    {{--to--}}
-                                    {{--Cart</a>--}}
-                                    {{--</div>--}}
                                     <div class="text-center">
                                         <a class="btn btn-default" href='{{url('product/'.$prod->id)}}'><i
                                                     class="fa fa-cart-plus"></i>BUY</a>
@@ -603,24 +445,16 @@
 
                         <div class="side-nav-head">
                             <button class="fa fa-bars"></button>
-                            <h4>CATEGORIES</h4>
+                            <h4>{{trans('product_page.categories')}}</h4>
                         </div>
 
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                            {{--<li class="list-group-item active">--}}
-                            {{--<a class="dropdown-toggle" href="#">WOMEN</a>--}}
-                            {{--<ul>--}}
-                            {{--<li><a href="#"><span class="size-11 text-muted pull-right">(123)</span> Shoes &amp; Boots</a></li>--}}
-                            {{--<li class="active"><a href="#"><span class="size-11 text-muted pull-right">(331)</span> Top &amp; Blouses</a></li>--}}
-                            {{--<li><a href="#"><span class="size-11 text-muted pull-right">(234)</span> Dresses &amp; Skirts</a></li>--}}
-                            {{--</ul>--}}
-                            {{--</li>--}}
                             @foreach(\larashop\Classes::all() as $class)
                                 <li class="list-group-item @if($class->description->name == $currentClass->description->name)active @endif">
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
-                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">ALL</a></li>
+                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">{{trans('product_page.all')}}</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id == $class->id)
                                                 <li class="@if($cat->description->name == $currentCat->description->name)active @endif">
@@ -655,56 +489,20 @@
                     </div>
                     <!-- /BANNER ROTATOR -->
 
-
-                    <!-- FEATURED -->
-                {{--<div class="margin-bottom-60">--}}
-
-                {{--<h2 class="owl-featured">FEATURED</h2>--}}
-                {{--<div class="owl-carousel featured"--}}
-                {{--data-plugin-options='{"singleItem": true, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": false, "pagination": false}'>--}}
-
-                {{--<div><!-- SLIDE 1 -->--}}
-                {{--<ul class="list-unstyled nomargin nopadding text-left">--}}
-                {{--@foreach ($topProds as $prod)--}}
-                {{--<li class="clearfix"><!-- item -->--}}
-                {{--<div class="thumbnail featured clearfix pull-left">--}}
-                {{--<a href="{{ URL::to('/'.$prod['link']) }}.html">--}}
-                {{--<img src="{{ asset('files/products/img/small/'.$prod['cover']) }}"--}}
-                {{--width="80"--}}
-                {{--height="80" alt="featured item">--}}
-                {{--</a>--}}
-                {{--</div>--}}
-
-                {{--<a class="block size-12"--}}
-                {{--href="{{ URL::to('/'.$prod['link']) }}.html">{{$prod['name']}}</a>--}}
-                {{--<div class="rating rating-4 size-13 width-100 text-left">--}}
-                {{--<!-- rating-0 ... rating-5 --></div>--}}
-                {{--<div class="size-18 text-left">{{$prod['price']}}</div>--}}
-                {{--</li><!-- /item -->--}}
-                {{--@endforeach--}}
-                {{--</ul>--}}
-                {{--</div><!-- /SLIDE 1 -->--}}
-
-                {{--</div>--}}
-                <!-- /FEATURED -->
-
-
                     <!-- HTML BLOCK -->
                     <div class="margin-bottom-60">
-                        <h4>HTML BLOCK</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non
-                            tellus
-                            eunit.</p>
+                        <h4>{{trans('catalog_page.newsletter_header')}}</h4>
+                        <p>{{trans('catalog_page.newsletter_body')}}</p>
 
-                        <form action="#" role="form" method="post">
+                        <form action="\newsletter-add" role="form" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" name="email" class="form-control required"
-                                       placeholder="Enter your Email">
+                                       placeholder="{{trans('catalog_page.enter_email')}}">
                                 <span class="input-group-btn">
-											<button class="btn btn-success" type="submit"><i
+                                            <button class="btn btn-success" type="submit"><i
                                                         class="glyphicon glyphicon-send"></i></button>
-										</span>
+                                        </span>
                             </div>
                         </form>
 
@@ -746,7 +544,7 @@
                     if (response) {
                         $('.add-wishlist').children('.fa').css('color', 'black');
                         $('.add-wishlist').data('added', 0);
-                        $('.add-wishlist').attr('title', 'Add to Wishlist');
+                        $('.add-wishlist').attr('title', "{{trans('product_page.add_wish')}}");
 //                        $('.add-wishlist').data('originalTitle','Add to Wishlist');
                         _toastr('Удаленно из избранного!', "bottom-right", "success", false);
                         return false;

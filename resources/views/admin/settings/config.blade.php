@@ -24,10 +24,7 @@
                     <div class="flash-message">
                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                             @if(Session::has('alert-' . $msg))
-                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#"
-                                                                                                         class="close"
-                                                                                                         data-dismiss="alert"
-                                                                                                         aria-label="close">&times;</a>
+                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#">
                                 </p>
                             @endif
                         @endforeach
@@ -61,6 +58,28 @@
                                     </div>
                                 @endif
                             </div>
+                            <!-- Фавикон-->
+                            <div class="form-group @if ($errors->has('favicon')) has-error @endif">
+                                {!! Form::label('favicon', 'Фавикон', array('class'=>'col-sm-3 control-label')) !!}
+                                @if (Setting::get('config.favicon'))
+                                    <div class="col-sm-5">
+                                        <img style=" max-height: 50px; "
+                                             src="{!! asset('favicon.ico') !!}" alt="4" class="img-responsive">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        {!! Form::file('favicon', null, array('class'=>'form-control')) !!}
+                                        @if ($errors->has('favicon')) <p
+                                                class="help-block">{{ $errors->first('favicon') }}</p> @endif
+                                    </div>
+                                @else
+                                    <div class="col-sm-9">
+                                        {!! Form::file('favicon', null, array('class'=>'form-control')) !!}
+                                        @if ($errors->has('favicon')) <p
+                                                class="help-block">{{ $errors->first('favicon') }}</p> @endif
+                                    </div>
+                                @endif
+                            </div>
+
 
                             {{--<div class="form-group @if ($errors->has('sitecolor')) has-error @endif">--}}
                                 {{--{!! Form::label('sitecolor', 'Цвет сайта', array('class'=>'col-sm-3 control-label')) !!}--}}
@@ -143,85 +162,6 @@
                                 </div>
                             </div>
                             <hr>
-
-                            {{--<hr>--}}
-                            {{--<em>SEO галереи</em>--}}
-                            {{--<div class="form-group @if ($errors->has('galtitle')) has-error @endif">--}}
-                                {{--{!! Form::label('galtitle', 'Название', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::text('galtitle', Setting::get('config.galtitle'), array('class'=>'form-control')) !!}--}}
-                                    {{--@if ($errors->has('galtitle')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('galtitle') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group @if ($errors->has('galwords')) has-error @endif">--}}
-                                {{--{!! Form::label('galwords', 'Ключевые слова', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::text('galwords', Setting::get('config.galwords'), array('class'=>'form-control')) !!}--}}
-                                    {{--@if ($errors->has('galwords')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('galwords') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group @if ($errors->has('galdesc')) has-error @endif">--}}
-                                {{--{!! Form::label('galdesc', 'Описание', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::textarea('galdesc', Setting::get('config.galdesc'), array('class'=>'form-control', 'rows'=>'2')) !!}--}}
-                                    {{--@if ($errors->has('galdesc')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('galdesc') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<hr>--}}
-
-
-                            {{--end--}}
-
-                            {{--<em>Товар на главной</em>--}}
-                            {{--<div class="form-group @if ($errors->has('mainprod')) has-error @endif">--}}
-                                {{--{!! Form::label('mainprod', 'Изображение', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--@if (Setting::get('config.mainprod'))--}}
-                                    {{--<div class="col-sm-5">--}}
-                                        {{--<img style=" max-height: 50px; "--}}
-                                             {{--src="{!! asset('files/img/'.Setting::get('config.mainprod')) !!}" alt="4"--}}
-                                             {{--class="img-responsive">--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-sm-4">--}}
-                                        {{--{!! Form::file('mainprod', null, array('class'=>'form-control')) !!}--}}
-                                        {{--@if ($errors->has('mainprod')) <p--}}
-                                                {{--class="help-block">{{ $errors->first('mainprod') }}</p> @endif--}}
-                                    {{--</div>--}}
-                                {{--@else--}}
-                                    {{--<div class="col-sm-9">--}}
-                                        {{--{!! Form::file('mainprod', null, array('class'=>'form-control')) !!}--}}
-                                        {{--@if ($errors->has('mainprod')) <p--}}
-                                                {{--class="help-block">{{ $errors->first('mainprod') }}</p> @endif--}}
-                                    {{--</div>--}}
-                                {{--@endif--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group @if ($errors->has('mainprodtitle')) has-error @endif">--}}
-                                {{--{!! Form::label('mainprodtitle', 'Название', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::text('mainprodtitle', Setting::get('config.mainprodtitle'), array('class'=>'form-control')) !!}--}}
-                                    {{--@if ($errors->has('mainprodtitle')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('mainprodtitle') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="form-group @if ($errors->has('mainproddesc')) has-error @endif">--}}
-                                {{--{!! Form::label('mainproddesc', 'Описание', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::textarea('mainproddesc', Setting::get('config.mainproddesc'), array('class'=>'form-control', 'rows'=>'2')) !!}--}}
-                                    {{--@if ($errors->has('mainproddesc')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('mainproddesc') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group @if ($errors->has('mainprodlink')) has-error @endif">--}}
-                                {{--{!! Form::label('mainprodlink', 'Ссылка', array('class'=>'col-sm-3 control-label')) !!}--}}
-                                {{--<div class="col-sm-9">--}}
-                                    {{--{!! Form::text('mainprodlink', Setting::get('config.mainprodlink'), array('class'=>'form-control')) !!}--}}
-                                    {{--@if ($errors->has('mainprodlink')) <p--}}
-                                            {{--class="help-block">{{ $errors->first('mainprodlink') }}</p> @endif--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-8">
                                     {!! HTML::decode(Form::button('Сохранить', array('type' => 'submit', 'class'=>'btn btn-success'))) !!}

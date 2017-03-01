@@ -8,34 +8,15 @@
 
 @section('page')
 
-
-
-    <!--
-				PAGE HEADER
-
-				CLASSES:
-					.page-header-xs	= 20px margins
-					.page-header-md	= 50px margins
-					.page-header-lg	= 80px margins
-					.page-header-xlg= 130px margins
-					.dark			= dark page header
-
-					.shadow-before-1 	= shadow 1 header top
-					.shadow-after-1 	= shadow 1 header bottom
-					.shadow-before-2 	= shadow 2 header top
-					.shadow-after-2 	= shadow 2 header bottom
-					.shadow-before-3 	= shadow 3 header top
-					.shadow-after-3 	= shadow 3 header bottom
-			-->
     <section class="page-header page-header-xs dark">
         <div class="container">
 
-            <h1>SEARCH RESULT</h1>
+            <h1>{{trans('search.result')}}</h1>
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Search Result</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('search.result')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -63,7 +44,7 @@
                         <div class="input-group">
                             <span class="input-group-btn">
                             <select name="category" class="btn">
-                                <option value="">All categories</option>
+                                <option value="">{{trans('search.all_categories')}}</option>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}"  @if($current_category == $category->id) selected @endif>{{$category->description->name}}</option>
                                 @endforeach
@@ -71,7 +52,7 @@
                             </span>
 
                             <input name="keyword" value="{{$keyword or ''}}" class="form-control  @if ($errors->has('keyword')) error @endif"
-                                   type="text" placeholder="Search...">
+                                   type="text" placeholder="{{trans('layout.search')}}...">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default input-lg noborder-left my-group-button">
                                     <i class="fa fa-search fa-lg nopadding"></i>
@@ -104,7 +85,7 @@
                             @include('catalog.products_smarty')
                         </ul>
                     @else
-                        <h2>Nothing...</h2>
+                        <h2>{{trans('search.nothing')}}...</h2>
                     @endif
                 </div>
 

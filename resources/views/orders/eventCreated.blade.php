@@ -8,12 +8,12 @@
     <section class="page-header">
         <div class="container">
 
-            <h1>ORDER PLACED</h1>
+            <h1>{{trans('placed.placed')}}</h1>
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Checkout Final</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('placed.placed')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -31,7 +31,7 @@
                     <h3>Спасибо, {{Auth::user()->name}}.</h3>
 
                     <p>
-                        Ваше напоминание создано!
+                        {{trans('placed.desc')}}
                     </p>
 
                     <hr/>

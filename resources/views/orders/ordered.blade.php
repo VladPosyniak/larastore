@@ -8,12 +8,12 @@
     <section class="page-header">
         <div class="container">
 
-            <h1>ORDER PLACED</h1>
+            <h1>{{trans('placed.placed')}}</h1>
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Checkout Final</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('placed.placed')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -57,7 +57,7 @@
                             <div class="panel-heading">
                                 <label for="name">Название события</label>
                                 <input name="name" type="text" class="form-control"
-                                       placeholder="Например: день рождение мамы" required>
+                                       placeholder="Например: День рождения мамы" required>
                             </div>
                             <div class="panel-body">
                                 <label for="date">Дата события</label>

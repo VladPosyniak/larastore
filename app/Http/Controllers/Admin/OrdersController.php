@@ -13,13 +13,15 @@ use larashop\OrderedProducts;
 use larashop\Products;
 use larashop\User;
 
+use Mail;
+
 class OrdersController extends Controller
 {
     public function index(){
         $all_orders = Order::all();
-        $to_processing = Order::where('status','=','Ожидает обработки')->orderBy('created_at','desk')->get();
-        $in_processing = Order::where('status','=','Обрабатывается')->orderBy('created_at','desk')->get();
-        $end_processing = Order::where('status','=','Обработан')->orderBy('created_at','desk')->get();
+        $to_processing = Order::where('status','=','Обрабатывается')->orderBy('created_at','desk')->get();
+        $in_processing = Order::where('status','=','Обработан')->orderBy('created_at','desk')->get();
+        $end_processing = Order::where('status','=','Отправлен')->orderBy('created_at','desk')->get();
         foreach ($to_processing as $key => $order) {
             $to_processing[$key]->user = User::find($order->user_id);
             if ($order->paid) {
@@ -188,26 +190,82 @@ class OrdersController extends Controller
 
     public function waitStatus(Request $request, $id){
         $order = Order::findOrFail($id);
-        $order->status = 'Ожидает обработки';
+        $order->status = 'Обрабатывается';
         $order->to_processing = 1;
         $order->save();
-        $request->session()->flash('alert-success', 'Cтатус обнолен!');
+        $request->session()->flash('alert-success', 'Cтатус обновлен!');
         return redirect()->back();
     }
     public function processingStatus(Request $request, $id){
         $order = Order::findOrFail($id);
-        $order->status = 'Обрабатывается';
+        $order->status = 'Обработан';
         $order->to_processing = 1;
         $order->save();
-        $request->session()->flash('alert-success', 'Cтатус обнолен!');
+        $request->session()->flash('alert-success', 'Cтатус обновлен!');
+
+        $products = OrderedProducts::where('order_id','=',$order->id)->get();
+
+        $products_mail = [];
+
+        foreach ($products as $key=>$item){
+            $products[$key]->data = Products::find($item->product_id)
+                    ->join('products_description', 'products_description.product_id', '=', 'products.id')
+                    ->where('products_description.language_id', '=', currentLanguageId())->get();
+            $product_mail = [
+                'title' => $products[$key]->data[$key]->name,
+                'amount' => $products[$key]->amount,
+                'price' => currencyWithoutPrefix($products[$key]->data[$key]->price)
+            ];
+
+            $product_mail['total_price'] = $product_mail['price'] * $product_mail['amount'];
+            $products_mail[] = $product_mail;
+
+        }
+
+        $order_info = unserialize($order->delivery_address);
+        $total = currencyWithoutPrefix($order->to_pay);
+
+        Mail::send('mail/order_processed', ['total'=>$total, 'products' => $products_mail], function($message) use($request, $order_info)
+        {
+            $message->to( $order_info['email'] , $order_info['name'])->subject('Ваш заказ обработан!');
+        });
+
         return redirect()->back();
     }
     public function completeStatus(Request $request, $id){
         $order = Order::findOrFail($id);
-        $order->status = 'Обработан';
+        $order->status = 'Отправлен';
         $order->to_processing = 0;
         $order->save();
-        $request->session()->flash('alert-success', 'Cтатус обнолен!');
+        $request->session()->flash('alert-success', 'Cтатус обновлен!');
+
+        $products = OrderedProducts::where('order_id','=',$order->id)->get();
+
+        $products_mail = [];
+
+        foreach ($products as $key=>$item){
+            $products[$key]->data = Products::find($item->product_id)
+                    ->join('products_description', 'products_description.product_id', '=', 'products.id')
+                    ->where('products_description.language_id', '=', currentLanguageId())->get();
+            $product_mail = [
+                'title' => $products[$key]->data[$key]->name,
+                'amount' => $products[$key]->amount,
+                'price' => currencyWithoutPrefix($products[$key]->data[$key]->price)
+            ];
+
+            $product_mail['total_price'] = $product_mail['price'] * $product_mail['amount'];
+            $products_mail[] = $product_mail;
+
+        }
+
+        $order_info = unserialize($order->delivery_address);
+        $total = currencyWithoutPrefix($order->to_pay);
+
+        Mail::send('mail/order_ship', ['total'=>$total, 'products' => $products_mail], function($message) use($request, $order_info)
+        {
+            $message->to( $order_info['email'] , $order_info['name'])->subject('Ваш заказ успешно отправлен!');
+        });
+
         return redirect()->back();
     }
 

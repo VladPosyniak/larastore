@@ -1,2 +1,14 @@
 User-agent: *
-Disallow:
+Disallow: /mail/
+Disallow: /test
+Disallow: /liqpay
+Disallow: /checkout
+Disallow: /profile/
+Disallow: /setlocale/
+Disallow: /delivery/
+Disallow: /admin/
+Disallow: /login
+Disallow: /registration
+Disallow: /socialite/
+Disallow: /forgot
+Disallow: /password/

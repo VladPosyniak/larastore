@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<!--[if IE 8]>
-<html class="ie ie8"> <![endif]-->
-<!--[if IE 9]>
-<html class="ie ie9"> <![endif]-->
-<!--[if gt IE 9]><!-->
-<html> <!--<![endif]-->
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WS8WXNP');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="utf-8"/>
 {{--<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]"/>--}}
 
@@ -13,10 +15,7 @@
 
 <!-- mobile settings -->
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
-    <!--[if IE]>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
-    <!-- WEB FONTS : use %7C instead of | (pipe) -->
+    
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700"
           rel="stylesheet" type="text/css"/>
 
@@ -33,76 +32,16 @@
     <link href="{{asset('smarty/css/color_scheme/green.css')}}" rel="stylesheet" type="text/css" id="color_scheme"/>
     <link rel="stylesheet" href="{{asset('smarty/css/plugin-hover-buttons.css')}}">
     <link rel="stylesheet" href="{{asset('smarty/css/other.css')}}">
+
+    <meta name="yandex-verification" content="5be6705cc9de7de0" />
 </head>
-<!--
-    AVAILABLE BODY CLASSES:
 
-    smoothscroll 			= create a browser smooth scroll
-    enable-animation		= enable WOW animations
-
-    bg-grey					= grey background
-    grain-grey				= grey grain background
-    grain-blue				= blue grain background
-    grain-green				= green grain background
-    grain-blue				= blue grain background
-    grain-orange			= orange grain background
-    grain-yellow			= yellow grain background
-
-    boxed 					= boxed layout
-    pattern1 ... patern11	= pattern background
-    menu-vertical-hide		= hidden, open on click
-
-    BACKGROUND IMAGE [together with .boxed class]
-    data-background="assets/images/boxed_background/1.jpg"
--->
 <body {{--data-background="https://pp.vk.me/c626417/v626417735/37f2d/dnxbA9ATs8Y.jpg"--}} class="{{--boxed--}}  @if(Setting::get('view.theme_smoothscroll')) smoothscroll @endif enable-animation {{Setting::get('view.theme_color')}} ">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS8WXNP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-
-<!-- SLIDE TOP -->
-{{--<div id="slidetop">--}}
-
-{{--<div class="container">--}}
-
-{{--<div class="row">--}}
-
-{{--<div class="col-md-4">--}}
-{{--<h6><i class="icon-heart"></i> WHY SMARTY?</h6>--}}
-{{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed,--}}
-{{--dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac--}}
-{{--massa. </p>--}}
-{{--</div>--}}
-
-{{--<div class="col-md-4">--}}
-{{--<h6><i class="icon-attachment"></i> RECENTLY VISITED</h6>--}}
-{{--<ul class="list-unstyled">--}}
-{{--<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>--}}
-{{--<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very--}}
-{{--very very very very very very very </a></li>--}}
-{{--<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>--}}
-{{--<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit--}}
-{{--amet</a></li>--}}
-{{--<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur--}}
-{{--adipiscing elit</a></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-
-{{--<div class="col-md-4">--}}
-{{--<h6><i class="icon-envelope"></i> CONTACT INFO</h6>--}}
-{{--<ul class="list-unstyled">--}}
-{{--<li><b>Address:</b> PO Box 21132, Here Weare St, <br/> Melbourne, Vivas 2355 Australia</li>--}}
-{{--<li><b>Phone:</b> 1-800-565-2390</li>--}}
-{{--<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-
-{{--</div>--}}
-
-{{--</div>--}}
-
-{{--<a class="slidetop-toggle" href="#"><!-- toggle button --></a>--}}
-
-{{--</div>--}}
-<!-- /SLIDE TOP -->
 
 
 <!-- wrapper -->
@@ -123,10 +62,6 @@
                         <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><i
                                     class="fa fa-user hidden-xs"></i>{{mb_strtoupper(trans('layout.my_account'))}}</a>
                         <ul class="dropdown-menu pull-right">
-                            {{--<li><a tabindex="-1" href="{{url('/profile/history')}}"><i class="fa fa-history"></i> ORDER HISTORY</a></li>--}}
-                            <li class="divider"></li>
-                            {{--<li><a tabindex="-1" href="#"><i class="fa fa-bookmark"></i> MY WISHLIST</a></li>--}}
-                            {{--<li><a tabindex="-1" href="#"><i class="fa fa-edit"></i> MY REVIEWS</a></li>--}}
                             <li><a tabindex="-1" href="{{url('/profile/settings')}}"><i
                                             class="fa fa-cog"></i> {{mb_strtoupper(trans('layout.my_settings'))}}</a>
                             </li>
@@ -154,8 +89,8 @@
 
             <!-- left -->
             <ul class="top-links list-inline">
-                <li class="hidden-xs"><a href="page-faq-1.html">FAQ</a></li>
-                <li>
+                <!-- <li class="hidden-xs"><a href="page-faq-1.html">FAQ</a></li> -->
+                <!-- <li>
                     <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" href="#"><img class="flag-lang"
                                                                                                       src="
 @if(Auth::check() && Auth::user()->locale !== null){{asset('smarty/images/flags/'.Auth::user()->locale.'.png')}}@elseif(Session::get('locale') != ''){{asset('smarty/images/flags/'.Session::get('locale').'.png')}}@else{{asset('smarty/images/flags/'.Config::get('app.locale').'.png')}}@endif"
@@ -175,49 +110,21 @@
                             </li>
                         @endforeach
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <a class="dropdown-toggle no-text-underline" data-toggle="dropdown"
                        href="#">@if(Auth::check() && Auth::user()->currency !== null){{Auth::user()->currency}}@elseif(Session::get('currency') !=''){{Session::get('currency')}} @else
                             USD @endif</a>
                     <ul class="dropdown-langs dropdown-menu">
                         <li><a tabindex="-1" href="{{url('/setcurrency/USD')}}">USD</a></li>
-                        <li><a tabindex="-1" href="{{url('/setcurrency/RUB')}}">RUB</a></li>
                         <li><a tabindex="-1" href="{{url('/setcurrency/UAH')}}">UAH</a></li>
+                        <li><a tabindex="-1" href="{{url('/setcurrency/RUB')}}">RUB</a></li>
                     </ul>
                 </li>
             </ul>
 
         </div>
     </div>
-    <!-- /Top Bar -->
-
-    <!--
-        AVAILABLE HEADER CLASSES
-
-        Default nav height: 96px
-        .header-md 		= 70px nav height
-        .header-sm 		= 60px nav height
-
-        .noborder 		= remove bottom border (only with transparent use)
-        .transparent	= transparent header
-        .translucent	= translucent header
-        .sticky			= sticky header
-        .static			= static header
-        .dark			= dark header
-        .bottom			= header on bottom
-
-        shadow-before-1 = shadow 1 header top
-        shadow-after-1 	= shadow 1 header bottom
-        shadow-before-2 = shadow 2 header top
-        shadow-after-2 	= shadow 2 header bottom
-        shadow-before-3 = shadow 3 header top
-        shadow-after-3 	= shadow 3 header bottom
-
-        .clearfix		= required for mobile menu, do not remove!
-
-        Example Usage:  class="clearfix sticky header-sm transparent noborder"
-    -->
     <div id="header" class="sticky clearfix">
 
 
@@ -241,11 +148,11 @@
                         <div class="search-box">
                             <form action="{{url('/search')}}" method="get">
                                 <div class="input-group">
-                                    <input type="text" name="keyword" placeholder="{{trans('search')}}"
+                                    <input type="text" name="keyword" placeholder="{{trans('layout.search')}}"
                                            class="form-control" required/>
                                     <span class="input-group-btn">
 												<button class="btn btn-primary"
-                                                        type="submit">{{trans('search')}}</button>
+                                                        type="submit">{{trans('layout.search')}}</button>
 											</span>
                                 </div>
                             </form>
@@ -316,31 +223,7 @@
                             </li>
                         -->
                         <ul id="topMain" class="nav nav-pills nav-main">
-                            {{--<li class="dropdown"><!-- HOME -->--}}
-                            {{--<a class="dropdown-toggle" href="#">--}}
-                            {{--HOME--}}
-                            {{--</a>--}}
-                            {{--<ul class="dropdown-menu">--}}
-                            {{--<li class="dropdown">--}}
-                            {{--<a class="dropdown-toggle" href="#">--}}
-                            {{--HOME CORPORATE--}}
-                            {{--</a>--}}
-                            {{--<ul class="dropdown-menu">--}}
-                            {{--<li><a href="index-corporate-1.html">CORPORATE LAYOUT 1</a></li>--}}
-                            {{--<li><a href="index-corporate-2.html">CORPORATE LAYOUT 2</a></li>--}}
-                            {{--<li><a href="index-corporate-3.html">CORPORATE LAYOUT 3</a></li>--}}
-                            {{--<li><a href="index-corporate-4.html">CORPORATE LAYOUT 4</a></li>--}}
-                            {{--<li><a href="index-corporate-5.html">CORPORATE LAYOUT 5</a></li>--}}
-                            {{--<li><a href="index-corporate-6.html">CORPORATE LAYOUT 6</a></li>--}}
-                            {{--<li><a href="index-corporate-7.html">CORPORATE LAYOUT 7</a></li>--}}
-                            {{--</ul>--}}
-                            {{--</li>--}}
-                            {{--</ul>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<a href="">CATEGORIES</a>--}}
-                            {{--</li>--}}
-
+                           
                             <li>
                                 <a href="{{url('/')}}">{{mb_strtoupper(trans('layout.home'))}}</a>
                             </li>
@@ -357,7 +240,7 @@
                                         <li class="navbar_products"
                                             style="display: inline-block; width: 120px; height: 140px;"><a
                                                     style="text-align: center;height: 140px;"
-                                                    href="{{ url('catalog/'.$navbar_class->urlhash) }}">{{trans('layout.all')}}
+                                                    href="{{ url('catalog/'.$navbar_class->urlhash) }}">{{trans('all.all')}}
                                                 <br>
                                                 <img src="{{asset('files/classes/img/'.$navbar_class->cover)}}"
                                                      style="max-width: 100px;height: 100px" alt=""></a></li>
@@ -394,25 +277,6 @@
 
     </div>
 
-
-    <!--
-        PAGE HEADER
-
-        CLASSES:
-            .page-header-xs	= 20px margins
-            .page-header-md	= 50px margins
-            .page-header-lg	= 80px margins
-            .page-header-xlg= 130px margins
-            .dark			= dark page header
-
-            .shadow-before-1 	= shadow 1 header top
-            .shadow-after-1 	= shadow 1 header bottom
-            .shadow-before-2 	= shadow 2 header top
-            .shadow-after-2 	= shadow 2 header bottom
-            .shadow-before-3 	= shadow 3 header top
-            .shadow-after-3 	= shadow 3 header bottom
-    -->
-
 @yield('page')
 
 <!-- FOOTER -->
@@ -434,20 +298,6 @@
                     <!-- Social Icons -->
                     <div class="clearfix">
 
-                        <a href="{{Setting::get('integration.facebook')}}"
-                           class="social-icon social-icon-sm social-icon-border social-facebook pull-left"
-                           data-toggle="tooltip" data-placement="top" title="Facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-
-                        <a href="{{Setting::get('integration.twitter')}}"
-                           class="social-icon social-icon-sm social-icon-border social-twitter pull-left"
-                           data-toggle="tooltip" data-placement="top" title="Twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
-
                         <a href="{{Setting::get('integration.vkontakte')}}"
                            class="social-icon social-icon-sm social-icon-border social-vk pull-left"
                            data-toggle="tooltip" data-placement="top" title="Вконтакте">
@@ -462,21 +312,6 @@
                             <i class="icon-instagram"></i>
                         </a>
 
-                        {{--<a href="#" class="social-icon social-icon-sm social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">--}}
-                        {{--<i class="icon-gplus"></i>--}}
-                        {{--<i class="icon-gplus"></i>--}}
-                        {{--</a>--}}
-
-                        {{--<a href="#" class="social-icon social-icon-sm social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">--}}
-                        {{--<i class="icon-linkedin"></i>--}}
-                        {{--<i class="icon-linkedin"></i>--}}
-                        {{--</a>--}}
-
-                        {{--<a href="#" class="social-icon social-icon-sm social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">--}}
-                        {{--<i class="icon-rss"></i>--}}
-                        {{--<i class="icon-rss"></i>--}}
-                        {{--</a>--}}
-
                     </div>
                     <!-- /Social Icons -->
 
@@ -487,29 +322,6 @@
                 <div class="col-md-8 col-sm-8">
 
                     <div class="row">
-
-                        {{--<div class="col-md-5 hidden-sm hidden-xs">--}}
-                        {{--<h4 class="letter-spacing-1">RECENT NEWS</h4>--}}
-                        {{--<ul class="list-unstyled footer-list half-paddings">--}}
-                        {{--<li>--}}
-                        {{--<a class="block" href="#">New CSS3 Transitions this Year</a>--}}
-                        {{--<small>June 29, 2015</small>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                        {{--<a class="block" href="#">Inteligent Transitions In UX Design</a>--}}
-                        {{--<small>June 29, 2015</small>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                        {{--<a class="block" href="#">Lorem Ipsum Dolor</a>--}}
-                        {{--<small>June 29, 2015</small>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                        {{--<a class="block" href="#">New CSS3 Transitions this Year</a>--}}
-                        {{--<small>June 29, 2015</small>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
-                        {{--</div>--}}
-
                         <div class="col-md-3 hidden-sm hidden-xs">
                             <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.explore_us'))}}</h4>
                             <ul class="list-unstyled footer-list half-paddings noborder">
@@ -529,12 +341,12 @@
                         <div class="col-md-4">
                             <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.secure_payment'))}}</h4>
                             <p>{{trans('layout.secure_payment_content')}}</p>
-                            <p>    <!-- see assets/images/cc/ for more icons -->
+                            {{--<p>    <!-- see assets/images/cc/ for more icons -->
                                 <img src="{{asset('smarty/images/cc/Visa.png')}}" alt=""/>
                                 <img src="{{asset('smarty/images/cc/Mastercard.png')}}" alt=""/>
                                 <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt=""/>
-                                {{--<img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />--}}
-                            </p>
+                                <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />
+                            </p> --}}
                         </div>
 
                         <div class="col-md-4">
@@ -553,13 +365,8 @@
 
         <div class="copyright">
             <div class="container">
-                <ul class="pull-right nomargin list-inline mobile-block">
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li>&bull;</li>
-                    <li><a href="#">Privacy</a></li>
-                </ul>
-
-                &copy; All Rights Reserved, Company LTD
+             
+                &copy; {{trans('layout.all_right')}}
             </div>
         </div>
 

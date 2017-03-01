@@ -14,8 +14,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li><a href="{{url('/catalog')}}">Catalog</a></li>
+                <li><a href="{{url('/')}}">{{trans('category_page.home')}}</a></li>
+                <li><a href="{{url('/catalog')}}">{{trans('category_page.catalog')}}</a></li>
                 <li class="active">{{$currentClass->description->name}}</li>
             </ol><!-- /breadcrumbs -->
 
@@ -91,15 +91,7 @@
                     <div class="clearfix shop-list-options margin-bottom-20">
 
                         <div class="options-left">
-                            {{--<select>--}}
-                            {{--<option value="pos_asc">Position ASC</option>--}}
-                            {{--<option value="pos_desc">Position DESC</option>--}}
-                            {{--<option value="name_asc">Name ASC</option>--}}
-                            {{--<option value="name_desc">Name DESC</option>--}}
-                            {{--<option value="price_asc">Price ASC</option>--}}
-                            {{--<option value="price_desc">Price DESC</option>--}}
-                            {{--</select>--}}
-
+                           
                             <a class="btn active fa fa-th many-col" href="#"><!-- grid --></a>
                             <a class="btn fa fa-list one-col" href="#"><!-- list --></a>
                         </div>
@@ -131,27 +123,16 @@
 
                         <div class="side-nav-head">
                             <button class="fa fa-bars"></button>
-                            <h4>CATEGORIES</h4>
+                            <h4>{{trans('category_page.categories')}}</h4>
                         </div>
 
                         <ul class="list-group list-group-bordered list-group-noicon uppercase">
-                            {{--<li class="list-group-item active">--}}
-                            {{--<a class="dropdown-toggle" href="#">WOMEN</a>--}}
-                            {{--<ul>--}}
-                            {{--<li><a href="#"><span class="size-11 text-muted pull-right">(123)</span> Shoes &amp;--}}
-                            {{--Boots</a></li>--}}
-                            {{--<li class="active"><a href="#"><span class="size-11 text-muted pull-right">(331)</span>--}}
-                            {{--Top &amp; Blouses</a></li>--}}
-                            {{--<li><a href="#"><span class="size-11 text-muted pull-right">(234)</span> Dresses &amp;--}}
-                            {{--Skirts</a></li>--}}
-                            {{--</ul>--}}
-                            {{--</li>--}}
                             @foreach(\larashop\Classes::all() as $class)
                                 <li class="list-group-item @if($class->id === $currentClass->id)active @endif">
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
-                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}" class="active">ALL</a></li>
+                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}" class="active">{{trans('all.all')}}</a></li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id === $class->id)
                                                 <li>
@@ -224,56 +205,20 @@
 
                 {{--/FILTERS--}}
 
-
-                <!-- FEATURED -->
-                {{--<div class="margin-bottom-60">--}}
-
-                {{--<h2 class="owl-featured">FEATURED</h2>--}}
-                {{--<div class="owl-carousel featured"--}}
-                {{--data-plugin-options='{"singleItem": true, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": false, "pagination": false}'>--}}
-
-                {{--<div><!-- SLIDE 1 -->--}}
-                {{--<ul class="list-unstyled nomargin nopadding text-left">--}}
-                {{--@foreach ($topProds as $prod)--}}
-                {{--<li class="clearfix"><!-- item -->--}}
-                {{--<div class="thumbnail featured clearfix pull-left">--}}
-                {{--<a href="{{ URL::to('/'.$prod['link']) }}.html">--}}
-                {{--<img src="{{ asset('files/products/img/small/'.$prod['cover']) }}"--}}
-                {{--width="80"--}}
-                {{--height="80" alt="featured item">--}}
-                {{--</a>--}}
-                {{--</div>--}}
-
-                {{--<a class="block size-12"--}}
-                {{--href="{{ URL::to('/'.$prod['link']) }}.html">{{$prod['name']}}</a>--}}
-                {{--<div class="rating rating-4 size-13 width-100 text-left">--}}
-                {{--<!-- rating-0 ... rating-5 --></div>--}}
-                {{--<div class="size-18 text-left">{{$prod['price']}}</div>--}}
-                {{--</li><!-- /item -->--}}
-                {{--@endforeach--}}
-                {{--</ul>--}}
-                {{--</div><!-- /SLIDE 1 -->--}}
-
-                {{--</div>--}}
-                <!-- /FEATURED -->
-
-
                     <!-- HTML BLOCK -->
                     <div class="margin-bottom-60">
-                        <h4>HTML BLOCK</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non
-                            tellus
-                            eunit.</p>
+                        <h4>{{trans('catalog_page.newsletter_header')}}</h4>
+                        <p>{{trans('catalog_page.newsletter_body')}}</p>
 
-                        <form action="#" role="form" method="post">
+                        <form action="\newsletter-add" role="form" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" name="email" class="form-control required"
-                                       placeholder="Enter your Email">
+                                       placeholder="{{trans('catalog_page.enter_email')}}">
                                 <span class="input-group-btn">
-											<button class="btn btn-success" type="submit"><i
+                                            <button class="btn btn-success" type="submit"><i
                                                         class="glyphicon glyphicon-send"></i></button>
-										</span>
+                                        </span>
                             </div>
                         </form>
 

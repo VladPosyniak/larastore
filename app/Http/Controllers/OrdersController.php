@@ -164,7 +164,7 @@ class OrdersController extends Controller
             case 1:
                 $pay_type = 'cash';
                 $to_processing = 1;
-                $order_status = 'Ожидает обработки';
+                $order_status = 'Обрабатывается';
                 break;
             case 2:
                 $pay_type = 'liqpay';
@@ -175,7 +175,7 @@ class OrdersController extends Controller
                 $pay_type = 'balance';
                 if ($this->balancePay($to_pay - $to_pay * $coupon_percent)) {
                     $to_processing = 1;
-                    $order_status = 'ожидает обработки';
+                    $order_status = 'Обрабатывается';
                     $paid = 1;
                 } else {
                     return view('orders.message', ['message' => 'На вашем балансе недостаточно денег!']);
@@ -207,6 +207,9 @@ class OrdersController extends Controller
             'postal_code' => $request->input('zipcode'),
             'company' => $request->input('company'),
             'comment' => $request->input('comment'),
+            'name' => $request->input('name'),            
+            'phone' => $request->input('phone'),            
+            'email' => $request->input('email')
         ));
         $order->save();
 
@@ -330,7 +333,7 @@ class OrdersController extends Controller
             if ($order->paid != 1) {
                 $order->paid = 1;
                 $order->to_processing = 1;
-                $order->status = 'Ожидает обработки';
+                $order->status = 'Обрабатывается';
                 $order->save();
 
                 $ordered_products = OrderedProducts::where('order_id', '=', $id)->get();

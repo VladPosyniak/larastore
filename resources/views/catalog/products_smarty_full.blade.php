@@ -16,9 +16,8 @@
 
                 <!-- product more info -->
                 <div class="shop-item-info">
-                    {{--<span class="label label-success">NEW</span>--}}
                     @if($product['price_old'] !== null)
-                        <span class="label label-danger">SALE</span>
+                        <span class="label label-danger">{{trans('product_page.sale')}}</span>
                     @endif
                 </div>
                 <!-- /product more info -->
@@ -26,10 +25,6 @@
 
             <div class="shop-item-summary">
                 <h2>{{$product['name']}}</h2>
-
-                <!-- rating -->
-            {{--<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>--}}
-            <!-- /rating -->
 
                 <p><!-- product short description -->
                     {{$product['description']}}
@@ -43,26 +38,15 @@
                         @endif
                         {{currency($product['price'])}}
                     @else
-                        Not Available
+                        {{trans('product_page.not_av')}}
                     @endif
                 </div>
                 <!-- /price -->
 
                 <!-- buttons -->
-                {{--<div class="shop-item-buttons">--}}
-                    {{--<a id="{{$product['id']}}" data-id="{{$product['id']}}" data-title="{{$product['name']}}" data-img="{{ asset('/files/products/img/'.$product['cover']) }}" data-price="{{currency($product['price'])}}" class="btn btn-default buy-btn" href="#"><i--}}
-                                {{--class="fa fa-cart-plus"></i> Add--}}
-                        {{--to--}}
-                        {{--Cart</a>--}}
-                    {{--<!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->--}}
-                    {{--<a class="btn btn-default add-wishlist" href="#" data-item-id="1" data-toggle="tooltip"--}}
-                       {{--title="Add To Wishlist"><i class="fa fa-heart nopadding"></i></a>--}}
-                    {{--<a class="btn btn-default add-compare" href="#" data-item-id="1" data-toggle="tooltip"--}}
-                       {{--title="Add To Compare"><i class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>--}}
-                {{--</div>--}}
                 <div>
                     <a class="btn btn-default" href='{{url('product/'.$product['id'])}}'><i
-                                class="fa fa-cart-plus"></i>BUY</a>
+                                class="fa fa-cart-plus"></i>{{trans('product_page.buy')}}</a>
                 </div>
                 <!-- /buttons -->
             </div>

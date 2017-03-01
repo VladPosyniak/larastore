@@ -37,9 +37,9 @@
                         <div class="box-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#to_process" data-toggle="tab">Заказы к обработке</a></li>
-                                <li><a href="#in_process" data-toggle="tab">Обрабатываються</a></li>
-                                <li><a href="#end_process" data-toggle="tab">Обработыные</a></li>
-                                <li><a href="#all_orders" data-toggle="tab">Все заказы</a></li>
+                                <li><a href="#in_process" data-toggle="tab">К доставке</a></li>
+                                <li><a href="#end_process" data-toggle="tab">Доставляются</a></li>
+                                <li><a href="#all_orders" data-toggle="tab">Все</a></li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -101,14 +101,11 @@
                                                                                                     aria-hidden="true"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
-                                                           title="Ожидает обработки" class="btn btn-warning"><i
-                                                                    class="fa fa-clock-o" aria-hidden="true"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
-                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                           title="К доставке" class="btn btn-info"><i
                                                                     class="fa fa-circle-o-notch fa-spin"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Обработан" class="btn btn-success"><i
+                                                           title="Отправлен" class="btn btn-success"><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
@@ -181,13 +178,10 @@
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
-                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                           title="В обработку" class="btn btn-warning"><i
                                                                     class="fa fa-clock-o" aria-hidden="true"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
-                                                           title="Обрабатывается" class="btn btn-info"><i
-                                                                    class="fa fa-circle-o-notch fa-spin"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Обработан" class="btn btn-success"><i
+                                                           title="Отправлен" class="btn btn-success"><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
@@ -260,14 +254,11 @@
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
-                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                           title="В обработку" class="btn btn-warning"><i
                                                                     class="fa fa-clock-o" aria-hidden="true"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
-                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                           title="К доставке" class="btn btn-info"><i
                                                                     class="fa fa-circle-o-notch fa-spin"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Обработан" class="btn btn-success"><i
-                                                                    class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
                                                 </tr>
@@ -338,13 +329,13 @@
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
-                                                           title="Ожидает обработки" class="btn btn-warning"><i
+                                                           title="В обработку" class="btn btn-warning"><i
                                                                     class="fa fa-clock-o" aria-hidden="true"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
-                                                           title="Обрабатывается" class="btn btn-info"><i
+                                                           title="К доставке" class="btn btn-info"><i
                                                                     class="fa fa-circle-o-notch fa-spin"></i></a>
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Обработан" class="btn btn-success"><i
+                                                           title="Отправлен" class="btn btn-success"><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>

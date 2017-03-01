@@ -15,23 +15,10 @@
                 </a>
                 <!-- /product image(s) -->
 
-                <!-- hover buttons -->
-                <div class="shop-option-over">
-                    <!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
-                    {{--<a class="btn btn-default add-wishlist" href="#" data-item-id="1"--}}
-                       {{--data-toggle="tooltip" title="Add To Wishlist"><i--}}
-                                {{--class="fa fa-heart nopadding"></i></a>--}}
-                    {{--<a class="btn btn-default add-compare" href="#" data-item-id="1"--}}
-                       {{--data-toggle="tooltip" title="Add To Compare"><i--}}
-                                {{--class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>--}}
-                </div>
-                <!-- /hover buttons -->
-
                 <!-- product more info -->
                 <div class="shop-item-info">
-                    {{--<span class="label label-success">NEW</span>--}}
                     @if($product['price_old'] !== null)
-                        <span class="label label-danger">SALE</span>
+                        <span class="label label-danger">{{trans('product_page.sale')}}</span>
                     @endif
                 </div>
                 <!-- /product more info -->
@@ -39,13 +26,6 @@
 
             <div class="shop-item-summary text-center">
                 <h2>{{$product['name']}}</h2>
-
-                <!-- rating -->
-                {{--<div class="shop-item-rating-line">--}}
-                    {{--<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>--}}
-                {{--</div>--}}
-                <!-- /rating -->
-
                 <!-- price -->
                 <div class="shop-item-price">
                     @if($product['price'] !== '')
@@ -54,7 +34,7 @@
                         @endif
                         <div class="price-js" style="display: inline-block">{{currency($product['price'])}}</div>
                     @else
-                        not available
+                        {{trans('product_page.not_av')}}
                     @endif
                 </div>
                 <!-- /price -->
@@ -62,22 +42,12 @@
 
 
             <!-- buttons -->
-            {{--<div class="shop-item-buttons text-center products+">--}}
-                {{--<a id="{{$product['id']}}" data-id="{{$product['id']}}" data-title="{{$product['name']}}" data-img="{{ asset('/files/products/img/'.$product['cover']) }}" data-currency="{{currencyPrefix()}}" data-price="{{currencyWithoutPrefix($product['price'])}}" class="btn btn-default buy-btn" href="#"><i--}}
-                            {{--class="fa fa-cart-plus"></i> Add--}}
-                    {{--to--}}
-                    {{--Cart</a>--}}
-            {{--</div>--}}
             <div class="text-center">
                 <a class="btn btn-default" href='{{url('product/'.$product['id'])}}'><i
-                            class="fa fa-cart-plus"></i>BUY</a>
+                            class="fa fa-cart-plus"></i>{{trans('product_page.buy')}}</a>
             </div>
             <br>
             <div class="product-attr">
-                {{--<div class="box-icon-title">--}}
-                    {{--<i class="noborder fa fa-cogs"></i>--}}
-                    {{--<h4>Характеристики:</h4>--}}
-                {{--</div>--}}
                 <ul class="list-unstyled list-icons" style="padding: 0">
 
                     @foreach($attr as $item)

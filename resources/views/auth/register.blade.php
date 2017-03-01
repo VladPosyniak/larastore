@@ -14,26 +14,18 @@
                 <!-- LOGIN -->
                 <div class="col-md-6 col-sm-6">
 
-                    <!-- ALERT -->
-                    <!--
-                    <div class="alert alert-mini alert-danger margin-bottom-30">
-                        <strong>Oh snap!</strong> Login Incorrect!
-                    </div>
-                    -->
-                    <!-- /ALERT -->
-
                     <!-- register form -->
                     <form class="nomargin sky-form boxed" action="{{url('/registration')}}" method="post">
                         <header>
-                            <i class="fa fa-users"></i> Register
+                            <i class="fa fa-users"></i> {{trans('reg.register')}}
                         </header>
                         {{csrf_field()}}
                         <fieldset class="nomargin">
                             <label class="input margin-bottom-10">
                                 <i class="ico-append fa fa-envelope"></i>
                                 <input class="@if ($errors->has('email')) error @endif" type="text" name="email"
-                                       placeholder="Email address">
-                                <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                                       placeholder="{{trans('reg.email')}}">
+                                <b class="tooltip tooltip-bottom-right">{{trans('reg.verify_error')}}</b>
                                 @if ($errors->has('email')) <p
                                         class="help-block">{{ $errors->first('email') }}</p> @endif
                             </label>
@@ -41,8 +33,8 @@
                             <label class="input margin-bottom-10">
                                 <i class="ico-append fa fa-lock"></i>
                                 <input class="@if ($errors->has('password')) error @endif" type="password"
-                                       name="password" placeholder="Password">
-                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                       name="password" placeholder="{{trans('reg.password')}}">
+                                <b class="tooltip tooltip-bottom-right">{{trans('reg.latin_error')}}</b>
                                 @if ($errors->has('password')) <p
                                         class="help-block">{{ $errors->first('password') }}</p> @endif
                             </label>
@@ -51,8 +43,8 @@
                                 <i class="ico-append fa fa-lock"></i>
                                 <input name="password_confirmation"
                                        class="@if ($errors->has('password_confirmation')) error @endif" type="password"
-                                       placeholder="Confirm password">
-                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                       placeholder="{{trans('reg.confirm_pass')}}">
+                                <b class="tooltip tooltip-bottom-right">{{trans('reg.latin_error')}}</b>
                                 @if ($errors->has('password_confirmation')) <p
                                         class="help-block">{{ $errors->first('password_confirmation') }}</p> @endif
                             </label>
@@ -60,8 +52,8 @@
                             <label class="input margin-bottom-10">
                                 <i class="ico-append fa fa-user"></i>
                                 <input name="name" class="@if ($errors->has('name')) error @endif" type="text"
-                                       placeholder="Your name">
-                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                       placeholder="{{trans('reg.name')}}">
+                                <b class="tooltip tooltip-bottom-right">{{trans('reg.latin_error')}}</b>
                                 @if ($errors->has('name')) <p class="help-block">{{ $errors->first('name') }}</p> @endif
                             </label>
 
@@ -93,14 +85,13 @@
 
                             <div class="margin-top-30">
                                 {{--<label class="checkbox nomargin"><input class="checked-agree" type="checkbox" name="checkbox"><i></i>I agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>--}}
-                                <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>I want to
-                                    receive news and special offers</label>
+                                <label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>{{trans('reg.email_follow')}}</label>
                             </div>
                         </fieldset>
 
                         <div class="row margin-bottom-20">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> REGISTER
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> {{trans('reg.reg_sub')}}
                                 </button>
                             </div>
                         </div>
@@ -116,7 +107,7 @@
                     <form action="#" method="post" class="sky-form boxed">
 
                         <header class="size-18 margin-bottom-20">
-                            Register using your favourite social network
+                            {{trans('reg.reg_with_social')}}
                         </header>
 
                         <fieldset class="nomargin">
@@ -125,24 +116,26 @@
 
                                 <div class="col-md-8 col-md-offset-2">
 
-                                    <a href="{{url('/socialite/facebook')}}"
+                                   {{-- <a href="{{url('/socialite/facebook')}}"
                                        class="btn btn-block btn-social btn-facebook margin-bottom-10">
                                         <i class="fa fa-facebook"></i> Sign up with Facebook
-                                    </a>
+                                    </a> --}}
 
                                     <a href="{{url('/socialite/vkontakte')}}"
                                        class="btn btn-block btn-social btn-twitter margin-bottom-10">
-                                        <i class="fa fa-vk"></i> Sign up with Vkontakte
+                                        <i class="fa fa-vk"></i>  {{trans('reg.vk_reg')}}
                                     </a>
 
-                                    <a href="{{url('/socialite/google')}}"
+                                    {{--<a href="{{url('/socialite/google')}}"
                                        class="btn btn-block btn-social btn-google margin-bottom-10">
                                         <i class="fa fa-google-plus"></i> Sign up with Google
-                                    </a>
-                                    <a href="{{url('/socialite/linkedin')}}"
+                                    </a>--}}
+
+                                    {{--<a href="{{url('/socialite/linkedin')}}"
                                        class="btn btn-block btn-social btn-linkedin margin-bottom-10">
                                         <i class="fa fa-linkedin"></i> Sign in with LinkedIn
-                                    </a>
+                                    </a>--}}
+
 
                                 </div>
                             </div>
@@ -150,7 +143,7 @@
                         </fieldset>
 
                         <footer>
-                            Already have an account? <a href="{{url('/login')}}"><strong>Back to login!</strong></a>
+                            {{trans('reg.already_have')}} <a href="{{url('/login')}}"><strong>{{trans('reg.back_to_login')}}</strong></a>
                         </footer>
 
                     </form>

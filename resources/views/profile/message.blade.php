@@ -18,7 +18,7 @@
             @if(count($errors) > 0)
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h2>Errors:</h2>
+                        <h2>{{trans('messages.errors')}}:</h2>
                         <ul>
                             @foreach($errors as $error)
                                 <li>{{$error}}</li>

@@ -16,12 +16,7 @@
   {!! Html::style('dist/css/AdminLTE.min.css'); !!}
   <!-- iCheck -->
   {!! Html::style('plugins/iCheck/square/blue.css'); !!}
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -30,7 +25,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg"> Enter your email address and your password will be reset and emailed to you.</p>
+    <p class="login-box-msg">{{trans('password_reset.enter_email')}}</p>
 {!! Form::open(array('url' => 'forgot', 'method'=> 'POST', 'autocomplete'=>'off')) !!}
     
 
@@ -52,7 +47,7 @@
         <!-- /.col -->
       </div>
     {!! Form::close(); !!}
-    <a href="{!! URL::to('/login') !!}" class="text-center">I already have a membership</a><br>
+    <a href="{!! URL::to('/login') !!}" class="text-center">{{trans('password_reset.i_reset')}}</a><br>
    
   </div>
   <!-- /.login-box-body -->

@@ -11,8 +11,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb breadcrumb-inverse">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Coupons</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('settings.favorite')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -29,8 +29,8 @@
                 <div class="container">
 
                     <div class="text-center">
-                        <h3>Your<span> favourite products</span></h3>
-                        <p>Here you can find your favourite products.</p>
+                        <h3>{{trans('favourites.yours')}}<span> {{trans('favourites.fav_products')}}</span></h3>
+                        <p>{{trans('favourites.here')}}</p>
                     </div>
 
                 </div>
@@ -49,9 +49,6 @@
                                             <img class="img-responsive"
                                                  src="{{ asset('/files/products/img/'.$product['cover']) }}"
                                                  alt="shop first image"/>
-                                            {{--<img class="img-responsive"--}}
-                                            {{--src="{{asset('smarty/images/demo/shop/products/300x450/p14.jpg')}}"--}}
-                                            {{--alt="shop hover image"/>--}}
                                         </a>
                                         <!-- /product image(s) -->
 
@@ -60,19 +57,15 @@
                                             <!-- replace data-item-id width the real item ID - used by js/view/demo.shop.js -->
                                             <a class="btn btn-default remove_favourite" href="#"
                                                data-id="{{$product['id']}}"
-                                               data-toggle="tooltip" title="Remove from favourites"><i
+                                               data-toggle="tooltip" title="{{trans('favourites.remove')}}"><i
                                                         class="fa fa-times nopadding"></i></a>
-                                            {{--<a class="btn btn-default add-compare" href="#" data-item-id="1"--}}
-                                            {{--data-toggle="tooltip" title="Add To Compare"><i--}}
-                                            {{--class="fa fa-bar-chart-o nopadding" data-toggle="tooltip"></i></a>--}}
                                         </div>
                                         <!-- /hover buttons -->
 
                                         <!-- product more info -->
                                         <div class="shop-item-info">
-                                            {{--<span class="label label-success">NEW</span>--}}
                                             @if($product['price_old'] !== null)
-                                                <span class="label label-danger">SALE</span>
+                                                <span class="label label-danger">{{trans('favourites.sale')}}</span>
                                             @endif
                                         </div>
                                         <!-- /product more info -->
@@ -82,9 +75,7 @@
                                         <h2>{{$product['name']}}</h2>
 
                                         <!-- rating -->
-                                    {{--<div class="shop-item-rating-line">--}}
-                                    {{--<div class="rating rating-4 size-13"><!-- rating-0 ... rating-5 --></div>--}}
-                                    {{--</div>--}}
+
                                     <!-- /rating -->
 
                                         <!-- price -->
@@ -96,25 +87,11 @@
                                                 <div class="price-js"
                                                      style="display: inline-block">{{currency($product['price'])}}</div>
                                             @else
-                                                not available
+                                                {{trans('favourites.not_av')}}
                                             @endif
                                         </div>
                                         <!-- /price -->
                                     </div>
-
-
-                                    <!-- buttons -->
-                                {{--<div class="shop-item-buttons text-center products+">--}}
-                                {{--<a id="{{$product['id']}}" data-id="{{$product['id']}}" data-title="{{$product['name']}}" data-img="{{ asset('/files/products/img/'.$product['cover']) }}" data-currency="{{currencyPrefix()}}" data-price="{{currencyWithoutPrefix($product['price'])}}" class="btn btn-default buy-btn" href="#"><i--}}
-                                {{--class="fa fa-cart-plus"></i> Add--}}
-                                {{--to--}}
-                                {{--Cart</a>--}}
-                                {{--</div>--}}
-                                {{--<div class="text-center">--}}
-                                {{--<a class="btn btn-default" href='{{url('product/'.$product['id'])}}'><i--}}
-                                {{--class="fa fa-cart-plus"></i>BUY</a>--}}
-                                {{--</div>--}}
-                                <!-- /buttons -->
                                 </div>
 
                             </li>
@@ -132,18 +109,12 @@
 
                 <!-- SIDE NAV -->
                 <ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-                    {{--<li class="list-group-item"><a href="{{url('/profile/history')}}"><i class="fa fa-history"></i> ORDER--}}
-                    {{--HISTORY</a></li>--}}
-                    <li class="list-group-item "><a href="{{url('/profile/settings')}}"><i class="fa fa-gears"></i>
-                            SETTINGS</a></li>
-                    <li class="list-group-item"><a href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i>
-                            COUPONS</a></li>
+                    <li class="list-group-item "><a href="{{url('/profile/settings')}}"><i class="fa fa-gears"></i>{{trans('settings.settings')}}</a></li>
+                    <li class="list-group-item"><a href="{{url('/profile/coupons')}}"><i class="fa fa-ticket"></i>{{trans('settings.coupons')}}</a></li>
                     <li class="list-group-item "><a href="{{url('/profile/orders')}}"><i
-                                    class="fa fa-archive"></i>
-                            ORDERS</a></li>
+                                    class="fa fa-archive"></i>{{trans('settings.orders')}}</a></li>
                     <li class="list-group-item active"><a href="{{url('/profile/favourites')}}"><i
-                                    class="fa fa-star"></i>
-                            FAVOURITES</a></li>
+                                    class="fa fa-star"></i>{{trans('settings.favorite')}}</a></li>
                 </ul>
 
             </div>

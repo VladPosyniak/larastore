@@ -11,8 +11,8 @@
 
             <!-- breadcrumbs -->
             <ol class="breadcrumb breadcrumb-inverse">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">Coupons</li>
+                <li><a href="{{url('/')}}">{{trans('all.home')}}</a></li>
+                <li class="active">{{trans('coupons.coupons')}}</li>
             </ol><!-- /breadcrumbs -->
 
         </div>
@@ -29,8 +29,8 @@
                 <div class="container">
 
                     <div class="text-center">
-                        <h3>Your<span> coupons</span></h3>
-                        <p>Here you can find your coupons.</p>
+                        <h3>{{trans('coupons.yours')}}<span> {{trans('coupons.coupons')}}</span></h3>
+                        <p>{{trans('coupons.you_can_find')}}</p>
                     </div>
 
                 </div>
@@ -49,34 +49,18 @@
                                     <h4>
                                         - {{$coupon['discount']}}%
                                     </h4>
-                                    {{--<h5> COUPON </h5>--}}
                                     <hr/>
-                                    <p>You can use this coupon for any product!</p>
+                                    <p>{{trans('coupons.you_can_use')}}</p>
                                     <hr/>
                                     <div class="countdown countdown-sm"
                                          data-from="{{$months[$coupon->expiration_date->month-1].' '.$coupon->expiration_date->day.', '.$coupon->expiration_date->year.' '.$coupon->expiration_date->hour.':'.$coupon->expiration_date->minute.':'.$coupon->expiration_date->second}}">
                                         <!-- Example Date From: December 31, 2018 15:03:26 --></div>
                                     <hr/>
-                                    <a href="{{url('/catalog')}}" class="btn btn-3d btn-primary">TO SHOP!</a>
+                                    <a href="{{url('/catalog')}}" class="btn btn-3d btn-primary">{{trans('coupons.to_shop')}}</a>
                                 </div>
 
                             </div>
                         @endforeach
-                        {{--<div class="col-md-4 col-sm-4">--}}
-
-                        {{--<div class="price-clean">--}}
-                        {{--<h4>--}}
-                        {{--<sup>$</sup>15<em>/month</em>--}}
-                        {{--</h4>--}}
-                        {{--<h5> STARTER </h5>--}}
-                        {{--<hr />--}}
-                        {{--<p>For individuals looking for something simple to get started.</p>--}}
-                        {{--<hr />--}}
-                        {{--<a href="#" class="btn btn-3d btn-teal">Learn More</a>--}}
-                        {{--</div>--}}
-
-                        {{--</div>--}}
-
                     </div>
 
                 @else
@@ -91,18 +75,16 @@
 
                 <!-- SIDE NAV -->
                 <ul class="side-nav list-group margin-bottom-60" id="sidebar-nav">
-                    {{--<li class="list-group-item"><a href="{{url('/profile/history')}}"><i class="fa fa-history"></i> ORDER--}}
-                    {{--HISTORY</a></li>--}}
                     <li class="list-group-item "><a href="{{url('/profile/settings')}}"><i class="fa fa-gears"></i>
-                            SETTINGS</a></li>
+                            {{trans('settings.settings')}}</a></li>
                     <li class="list-group-item active"><a href="{{url('/profile/coupons')}}"><i
                                     class="fa fa-ticket"></i>
-                            COUPONS</a></li>
+                            {{trans('settings.coupons')}}</a></li>
                     <li class="list-group-item "><a href="{{url('/profile/orders')}}"><i class="fa fa-archive"></i>
-                            ORDERS</a></li>
+                            {{trans('settings.orders')}}</a></li>
                     <li class="list-group-item"><a href="{{url('/profile/favourites')}}"><i
                                     class="fa fa-star"></i>
-                            FAVOURITES</a></li>
+                            {{trans('settings.favorite')}}</a></li>
                 </ul>
 
             </div>

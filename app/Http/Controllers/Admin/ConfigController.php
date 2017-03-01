@@ -33,6 +33,7 @@ class ConfigController extends Controller
 
         $validator = Validator::make($request->all(), [
             'logo' => 'mimes:jpeg,bmp,png',
+            'favicon' => 'mimes:ico',
             'mainprod' => 'mimes:jpeg,bmp,png',
             'sitename' => 'required',
             'email' => 'required|email',
@@ -57,6 +58,9 @@ class ConfigController extends Controller
             $logoName = Setting::get('config.logo');
 
             $logoReq = $request->file('logo');
+
+            $favicon = $request->file('favicon');
+
             if (isset($logoReq)) {
                 $extension = $logoReq->getClientOriginalExtension();
                 $logo = Image::make($logoReq);
@@ -68,6 +72,10 @@ class ConfigController extends Controller
                 $string = str_random(40);
                 $logoName = $string . '.' . $extension;
                 $logo->save('files/img/' . $logoName);
+            }
+
+            if (isset($favicon)) {
+                $favicon->move(public_path(""),'favicon.ico');
             }
 
             $mainprodName = Setting::get('config.mainprod');
