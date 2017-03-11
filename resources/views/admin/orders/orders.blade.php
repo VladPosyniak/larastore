@@ -24,10 +24,7 @@
                     <div class="flash-message">
                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                             @if(Session::has('alert-' . $msg))
-                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#"
-                                                                                                         class="close"
-                                                                                                         data-dismiss="alert"
-                                                                                                         aria-label="close">&times;</a>
+<p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 </p>
                             @endif
                         @endforeach
@@ -104,8 +101,8 @@
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
                                                            title="К доставке" class="btn btn-info"><i
                                                                     class="fa fa-circle-o-notch fa-spin"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Отправлен" class="btn btn-success"><i
+                                                        <a href="#"
+                                                           title="Отправлен" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-success complete" data-id='{{$order->id}}'><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
@@ -180,8 +177,8 @@
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
                                                            title="В обработку" class="btn btn-warning"><i
                                                                     class="fa fa-clock-o" aria-hidden="true"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Отправлен" class="btn btn-success"><i
+                                                        <a href="#"
+                                                           title="Отправлен" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-success complete" data-id='{{$order->id}}'><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
@@ -213,16 +210,10 @@
                                                     <center>Имя покупателя</center>
                                                 </th>
                                                 <th>
-                                                    <center>Статус</center>
-                                                </th>
-                                                <th>
                                                     <center>Цена</center>
                                                 </th>
                                                 <th>
-                                                    <center>Тип оплаты</center>
-                                                </th>
-                                                <th>
-                                                    <center>Оплачено</center>
+                                                    <center>Накладная</center>
                                                 </th>
                                                 <th>
                                                     <center>Действие</center>
@@ -243,10 +234,8 @@
                                                     <td>{{$order->created_at}}</td>
                                                     <td>{{$order->updated_at}}</td>
                                                     <td>{{$order->user->name}}</td>
-                                                    <td><span class="label label-success">{{$order->status}}</span></td>
                                                     <td>{{currency($order->to_pay,'UAH')}}</td>
-                                                    <td>{{$order->pay_type}}</td>
-                                                    <td>{{$order->paid}}</td>
+                                                    <td><a target="_blank" href="https://novaposhta.ua/tracking/?cargo_number={{unserialize($order->delivery_address)['express']}}">{{unserialize($order->delivery_address)['express']}}</a></td>
                                                     <td class="text-center">
                                                         <a href="{{url('admin/orders/show/'.$order->id)}}"
                                                            class="btn btn-info" title="Подробно"><i class="fa fa-info"
@@ -334,8 +323,8 @@
                                                         <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
                                                            title="К доставке" class="btn btn-info"><i
                                                                     class="fa fa-circle-o-notch fa-spin"></i></a>
-                                                        <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
-                                                           title="Отправлен" class="btn btn-success"><i
+                                                        <a href="#"
+                                                           title="Отправлен" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-success complete" data-id='{{$order->id}}'><i
                                                                     class="fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>{{$order->id}}</td>
@@ -360,10 +349,32 @@
 
                 </div>
             </div>
-
         </section>
         <!-- /.content -->
     </div>
+
+<!-- Large Modal >-->
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- header modal -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myLargeModalLabel">Номер накладной</h4>
+            </div>
+            <div class="modal-body">
+               <form class="form-group express">
+                   <input name='express_number' class="form-control">
+                   <br>
+                   <input type="submit" class='btn btn-success'>
+                   </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--enn Large Modal >-->
+
 @include("admin.layout.footer")
 <!-- page script -->
     <script>
@@ -389,6 +400,18 @@
 //                    }
 //                });
 //            });
+
+            $('.complete').click(function(e){
+                if(e.target.localName === 'i'){
+                    var id = $($(e.target).parent()).data('id');
+                }else{
+                    var id = $(e.target).data('id');
+                }
+                var url = "{{url('admin/orders/changestatus/')}}";
+                action = url+'/'+id+'/complete';
+                $('form.express').attr('action', action);
+            });
+
             $("#table1").DataTable({
                 "language": {
                     "url": "{!! asset('plugins/datatables/lang/Russian.json') !!}",

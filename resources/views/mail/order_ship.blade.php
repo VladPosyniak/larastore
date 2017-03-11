@@ -152,7 +152,7 @@
 
 							<h4 class="secondary"><strong><singleline label="Title">Заказ успешно отправлен!</singleline></strong></h4>
 							<multiline label="Description">
-								<p>Заказ успешно отправлен Новой почтой и имеет такой номер накладной: <a href="https://novaposhta.ua/tracking/?cargo_number=59000234610532" target="_blank" style="color:#a6a6a6;text-decoration:underline;">59000234610532</a></p>
+								<p>Заказ успешно отправлен Новой почтой и имеет такой номер накладной: <a href="https://novaposhta.ua/tracking/?cargo_number={{$express}}" target="_blank" style="color:#a6a6a6;text-decoration:underline;">{{$express}}</a></p>
 								<p class="goods">Товары:</p>
 								<ul class="goods_list">
 									@foreach($products as $product)

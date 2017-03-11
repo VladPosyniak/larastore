@@ -236,6 +236,10 @@ class OrdersController extends Controller
         $order = Order::findOrFail($id);
         $order->status = 'Отправлен';
         $order->to_processing = 0;
+        $order_data = unserialize($order->delivery_address);
+        $order_data['express'] = $request->express_number;
+        $order_data = serialize($order_data);
+        $order->delivery_address =  $order_data;
         $order->save();
         $request->session()->flash('alert-success', 'Cтатус обновлен!');
 
@@ -259,9 +263,10 @@ class OrdersController extends Controller
         }
 
         $order_info = unserialize($order->delivery_address);
+        $express = $order_info['express'];
         $total = currencyWithoutPrefix($order->to_pay);
 
-        Mail::send('mail/order_ship', ['total'=>$total, 'products' => $products_mail], function($message) use($request, $order_info)
+        Mail::send('mail/order_ship', ['total'=>$total, 'products' => $products_mail, 'express'=>$express], function($message) use($request, $order_info)
         {
             $message->to( $order_info['email'] , $order_info['name'])->subject('Ваш заказ успешно отправлен!');
         });
