@@ -3,6 +3,7 @@ use larashop\Currency;
 use larashop\Language;
 function currency($value, $currency = null) //принимает в качестве аргумента доллары и переводит их в валюту, которая стоит у пользователя вида: 25 грн.
 {
+    return $value.' грн.';
     $available_currency = [];
     foreach (Currency::all() as $item) {
         $available_currency[] = $item->name;
@@ -41,6 +42,7 @@ function currency($value, $currency = null) //принимает в качест
 
 function currencyWithoutPrefix($value, $currency = null)
 {
+    return $value;
     $available_currency = [];
     foreach (Currency::all() as $item) {
         $available_currency[] = $item->name;
@@ -74,7 +76,9 @@ function currencyWithoutPrefix($value, $currency = null)
 
 function currencyPrefix()
 {
+    return 'грн';
 
+//
     $available_currency = [];
     foreach (Currency::all() as $item) {
         $available_currency[] = $item->name;
@@ -95,6 +99,8 @@ function currencyPrefix()
 
 function currentCurrency()
 {
+    return 'UAH';
+//
     $available_currency = [];
     foreach (Currency::all() as $item) {
         $available_currency[] = $item->name;
@@ -114,6 +120,8 @@ function currentCurrency()
 
 function toUSD($value, $currency = null)
 {
+
+    return $value;
 
     $available_currency = [];
     foreach (Currency::all() as $item) {

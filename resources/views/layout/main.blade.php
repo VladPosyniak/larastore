@@ -111,16 +111,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         @endforeach
                     </ul>
                 </li> -->
-                <li>
-                    <a class="dropdown-toggle no-text-underline" data-toggle="dropdown"
-                       href="#">@if(Auth::check() && Auth::user()->currency !== null){{Auth::user()->currency}}@elseif(Session::get('currency') !=''){{Session::get('currency')}} @else
-                            USD @endif</a>
-                    <ul class="dropdown-langs dropdown-menu">
-                        <li><a tabindex="-1" href="{{url('/setcurrency/USD')}}">USD</a></li>
-                        <li><a tabindex="-1" href="{{url('/setcurrency/UAH')}}">UAH</a></li>
-                        <li><a tabindex="-1" href="{{url('/setcurrency/RUB')}}">RUB</a></li>
-                    </ul>
-                </li>
+                {{--<li>--}}
+                    {{--<a class="dropdown-toggle no-text-underline" data-toggle="dropdown"--}}
+                       {{--href="#">@if(Auth::check() && Auth::user()->currency !== null){{Auth::user()->currency}}@elseif(Session::get('currency') !=''){{Session::get('currency')}} @else--}}
+                            {{--USD @endif</a>--}}
+                    {{--<ul class="dropdown-langs dropdown-menu">--}}
+                        {{--<li><a tabindex="-1" href="{{url('/setcurrency/USD')}}">USD</a></li>--}}
+                        {{--<li><a tabindex="-1" href="{{url('/setcurrency/UAH')}}">UAH</a></li>--}}
+                        {{--<li><a tabindex="-1" href="{{url('/setcurrency/RUB')}}">RUB</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
             </ul>
 
         </div>

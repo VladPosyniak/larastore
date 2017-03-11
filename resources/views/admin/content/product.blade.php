@@ -59,7 +59,7 @@
                                                 <td style="vertical-align: inherit;" class="text-right">
                                                     <div class="btn-group ">
                                                         <a href="{!! URL::to('admin/content/product/edit/'.$product->id) !!}" class="btn btn-sm btn-primary btn-flat"><i class=" fa fa-pencil"></i></a>
-                                                        <a href="#" data-id="{{$product->id}}" class="btn btn-sm btn-danger btn-flat remove_prod"><i class=" fa fa-trash-o"></i></a>
+                                                        <a href="{{url('admin/content/product/delete').'/'.$product->id}}" data-id="{{$product->id}}" class="btn btn-sm btn-danger btn-flat {{--remove_prod--}}"><i class=" fa fa-trash-o"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -100,7 +100,7 @@
 
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <a href="{!! URL::to('admin/content/product/add'); !!}" class="btn btn-block btn-primary btn-flat">Создать продукт</a>
+                                <a href="{!! URL::to('admin/content/product/add') !!}" class="btn btn-block btn-primary btn-flat">Создать продукт</a>
                             </div>
                             <!-- /.box-body -->
                         </div>

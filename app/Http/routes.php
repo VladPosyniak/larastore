@@ -172,7 +172,7 @@ Route::group(['middleware' => ['auth','manager']], function () {
     Route::patch('admin/content/product/sort', ['uses' => 'ContentController@sortProduct']);
     Route::get('admin/content/product/edit/{id}', ['uses' => 'ContentController@editProduct']);
     Route::patch('admin/content/product/edit/{id}', ['uses' => 'ContentController@updateProduct']);
-    Route::delete('admin/content/product/delete/{id}', ['uses' => 'ContentController@destroyProduct']);
+    Route::get('admin/content/product/delete/{id}', ['uses' => 'ContentController@destroyProduct']);
     Route::get('admin/content/product/delete', function (Request $request) {
         $request->session()->flash('alert-success', 'Продукт успешно удалён!');
         return redirect('admin/content/prod');

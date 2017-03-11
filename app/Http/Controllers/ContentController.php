@@ -10,6 +10,7 @@ use larashop\CategoryDescription;
 use larashop\ClassDescription;
 use larashop\Classes;
 use larashop\Comments;
+use larashop\Favourite;
 use larashop\Filters;
 use larashop\Gallery;
 use larashop\Info;
@@ -21,8 +22,10 @@ use larashop\ParametersValues;
 use larashop\ProductDescription;
 use larashop\ProductFilter;
 use larashop\ProductImage;
+use larashop\ProductOptions;
 use larashop\Products;
 use larashop\Purchase;
+use larashop\recommendsProducts;
 use Validator;
 
 //use Input;
@@ -453,7 +456,13 @@ class ContentController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 });
+                $img_medium = Image::make($cover)->fit(400, 400, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                });
+
                 // save image
+                $img_medium->save('files/products/img/medium'.$string.'.'.$extension);
                 $img_small->save('files/products/img/small/' . $string . '.' . $extension);
                 $coverdb = $string . '.' . $extension;
             }
@@ -496,18 +505,19 @@ class ContentController extends Controller
                         $constraint->upsize();
                     });
                     $string = str_random(40);
-                    $image->save('files/products/img/' . $string . '.' . $extension);
+
 
                     $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
-                    $img_medium = Image::make($cover)->fit(400, 400, function ($constraint) {
+                    $img_medium = Image::make($image)->fit(400, 400, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
 
                     // save image
+                    $image->save('files/products/img/' . $string . '.' . $extension);
                     $image_small->save('files/products/img/small/' . $string . '.' . $extension);
                     $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
 
@@ -681,15 +691,16 @@ class ContentController extends Controller
     public function updateProduct(Request $request, $id)
     {
 
-        foreach (ProductImage::where('product_id', '=', $id)->get()->all() as $image) {
-            if (!in_array($image->id, $request->images_old)) {
-                ProductImage::find($image->id)->delete();
-                return 'sada';
-            }
-            else{
-                return 'bad';
-            }
-        }
+//        return dd($request->all());
+//        foreach (ProductImage::where('product_id', '=', $id)->get()->all() as $image) {
+//            if (!in_array($image->id, $request->images_old)) {
+//                ProductImage::find($image->id)->delete();
+//                return 'sada';
+//            }
+//            else{
+//                return 'bad';
+//            }
+//        }
 
 
 
@@ -734,6 +745,7 @@ class ContentController extends Controller
                 if (isset($product->cover)) {
                     File::delete('files/cats/img/' . $product->cover);
                     File::delete('files/cats/img/small/' . $product->cover);
+                    File::delete('files/cats/img/medium/' . $product->cover);
                 }
                 $img = Image::make($cover);
 
@@ -807,7 +819,7 @@ class ContentController extends Controller
 
             foreach (Language::all() as $language) {
                 if (is_array($request->{'parameter_id_' . $language->code}) && is_array($request->{'parameter_value_' . $language->code})) {
-                    $parameters = array_combine($request->parameter_id, $request->parameter_value);
+                    $parameters = array_combine($request->{'parameter_id_'.$language->code}, $request->{'parameter_value_'.$language->code});
                     foreach ($parameters as $param => $value) {
                         $parameters = new ParametersValues();
                         $parameters->parameters_id = $param;
@@ -819,7 +831,7 @@ class ContentController extends Controller
                 }
             }
 
-            $delete_filters = ProductFilter::where('product_id', '=', $product->id)->delete();
+            ProductFilter::where('product_id', '=', $product->id)->delete();
             if (isset($request->filters)) {
                 foreach ($request->filters as $filter) {
                     $new_filter = new ProductFilter();
@@ -829,10 +841,44 @@ class ContentController extends Controller
                 }
             }
 
+            if ($request->images_old === null){
+                $request->images_old = [];
+            }
+
             foreach (ProductImage::where('product_id', '=', $id)->get()->all() as $image) {
                 if (!in_array($image->id, $request->images_old)) {
-
+                    File::delete('/files/products/img/small/'.$image->url);
+                    File::delete('/files/products/img/medium/'.$image->url);
+                    File::delete('/files/products/img/'.$image->url);
                     $image->delete();
+                }
+            }
+            if (is_array($request->product_images)){
+                foreach ($request->product_images as $image){
+                    $extension = $image->getClientOriginalExtension();
+                    $image = Image::make($image);
+                    $image->fit(700, 700, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $img_medium = Image::make($image)->fit(400, 400, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                    $string = str_random(40);
+                    // save image
+                    $image->save('files/products/img/' . $string . '.' . $extension);
+                    $image_small->save('files/products/img/small/' . $string . '.' . $extension);
+                    $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
+
+                    $product_image = new ProductImage();
+                    $product_image->url = $string . '.' . $extension;
+                    $product_image->product_id = $product->id;
+                    $product_image->save();
                 }
             }
 
@@ -850,6 +896,13 @@ class ContentController extends Controller
         if (isset($prod->cover)) {
             File::delete('files/cats/img/' . $prod->cover);
             File::delete('files/cats/img/small/' . $prod->cover);
+            File::delete('files/cats/img/medium/' . $prod->cover);
+        }
+        foreach ($prod->images as $image){
+            File::delete('files/cats/img/' . $image->url);
+            File::delete('files/cats/img/small/' . $image->url);
+            File::delete('files/cats/img/medium/' . $image->url);
+            $image->delete();
         }
 
         $product_description = ProductDescription::where('product_id', '=', $prod->id)->get();
@@ -857,11 +910,16 @@ class ContentController extends Controller
             $desc = ProductDescription::find($item->id);
             $desc->delete();
         }
+        Favourite::where('product_id','=',$id)->delete();
+        ParametersValues::where('items_id','=',$id)->delete();
+        ProductFilter::where('product_id','=',$id)->delete();
+        ProductOptions::where('product_id','=',$id)->delete();
+        recommendsProducts::where('product_id','=',$id)->delete();
 
         $prod->delete();
 
-        //$request->session()->flash('alert-success', 'Категория успешно удалена!');
-        //return redirect('content/cat');
+        $request->session()->flash('alert-success', 'Товар успешно удален!');
+        return redirect()->back();
 
 
     }
