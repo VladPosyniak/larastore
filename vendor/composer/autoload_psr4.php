@@ -46,6 +46,7 @@ return array(
     'Mews\\Captcha\\' => array($vendorDir . '/mews/captcha/src'),
     'MaxMind\\Db\\' => array($vendorDir . '/maxmind-db/reader/src/MaxMind/Db'),
     'MaxMind\\' => array($vendorDir . '/maxmind/web-service-common/src'),
+    'LisDev\\' => array($vendorDir . '/lis-dev/nova-poshta-api-2/src'),
     'League\\OAuth1\\' => array($vendorDir . '/league/oauth1-client/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Laravel\\Socialite\\' => array($vendorDir . '/laravel/socialite/src'),

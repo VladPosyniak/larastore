@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9839689004207c01eb345ff0afdddd1c",
-    "content-hash": "c7b4d8efda855e93ff491c47373802db",
+    "hash": "5c8ea2fba9f02ef4f1561b33ca7b602c",
+    "content-hash": "8508a38dc828753d2ade98d00c3b11fe",
     "packages": [
         {
             "name": "anlutro/l4-settings",
@@ -1509,6 +1509,58 @@
                 "pay"
             ],
             "time": "2016-06-04 07:55:03"
+        },
+        {
+            "name": "lis-dev/nova-poshta-api-2",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lis-dev/nova-poshta-api-2.git",
+                "reference": "44e964c189c9e53bb850dfa8110eba42aff3428c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lis-dev/nova-poshta-api-2/zipball/44e964c189c9e53bb850dfa8110eba42aff3428c",
+                "reference": "44e964c189c9e53bb850dfa8110eba42aff3428c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LisDev\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Ivashchenko",
+                    "homepage": "https://github.com/lis-dev/nova-poshta-api-2",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Team",
+                    "homepage": "https://github.com/lis-dev/nova-poshta-api-2/graphs/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "PHP class for API 2.0 ukrainian delivery company \"Nova Poshta\"",
+            "homepage": "https://github.com/lis-dev/",
+            "keywords": [
+                "delivery",
+                "delivery service",
+                "nova poshta",
+                "nova poshta api"
+            ],
+            "time": "2015-03-30 09:19:33"
         },
         {
             "name": "maxmind-db/reader",
@@ -4949,7 +5001,8 @@
     "stability-flags": {
         "laravelrus/localized-carbon": 20,
         "weboap/visitor": 20,
-        "liqpay/liqpay": 20
+        "liqpay/liqpay": 20,
+        "lis-dev/nova-poshta-api-2": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -26,7 +26,8 @@
     "liqpay/liqpay": "dev-master",
     "jenssegers/date": "^3.2",
     "socialiteproviders/google": "^2.0",
-    "socialiteproviders/linkedin": "^2.0"
+    "socialiteproviders/linkedin": "^2.0",
+    "lis-dev/nova-poshta-api-2": "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
