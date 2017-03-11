@@ -54,6 +54,9 @@ Route::get('/search', ['uses' => 'SearchController@search']);
 
 Route::get('/liqpay', ['uses' => 'OrdersController@liqpay']);
 
+Route::get('/ship/get_cities', ['uses' => 'OrdersController@get_cities']);
+Route::get('/ship/get_posts', ['uses' => 'OrdersController@get_posts']);
+
 
 // orders
 

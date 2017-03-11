@@ -458,10 +458,18 @@ class NovaPoshtaApi2 {
 	 * @return mixed
 	 */
 	function getAreas($ref = '', $page = 0) {
-	    return $this->request('Address', 'getAreas', array(
+		empty($this->areas) AND $this->areas = include dirname(__FILE__).'/NovaPoshtaApi2Areas.php';
+	    $areas = $this->request('Address', 'getAreas', array(
 	        'Ref' => $ref,
 	        'Page' => $page,
-	    ));
+	    ))['data'];
+
+	    foreach($areas as $key=>$area)
+	    {
+	    	if(isset($this->areas[$area['Ref']])) $areas[$key]['DescriptionRu'] = $this->areas[$area['Ref']]['AreaRu'];
+	    } 
+
+	    return $areas;
 	}
 	
 	/**
@@ -471,7 +479,7 @@ class NovaPoshtaApi2 {
 	 * @param string $areaName
 	 * @return array 
 	 */
-	protected function findCityByRegion($cities, $areaName) {
+	function findCityByRegion($cities, $areaName) {
 		$data = array();
 		$areaRef = '';
 		// Get region id
@@ -485,7 +493,23 @@ class NovaPoshtaApi2 {
 			}
 		}
 		return $data;
-	}
+	}	
+
+	/**
+	 * Find city from list by name of region ref
+	 * 
+	 * @param array $cities Array from query getCities to NovaPoshta 
+	 * @param string $areaRef
+	 * @return array 
+	 */
+	function findCityByRegionRef($cities, $areaRef) {
+        foreach($cities['data'] as $city) {
+            if ($city['Area'] == $areaRef) {
+                $data[] = $city;
+            }
+        }
+        return $data;
+    }
 	
 	/**
 	 * Get city by name and region (if it needs)

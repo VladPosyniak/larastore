@@ -4,6 +4,7 @@ namespace larashop\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Jenssegers\Date\Date;
+use LisDev\Delivery\NovaPoshtaApi2;
 use larashop\Clients;
 use larashop\Coupons;
 use larashop\Options;
@@ -72,10 +73,58 @@ class OrdersController extends Controller
             $coupons = [];
             $addresses = [];
         }
+        $areas = $this->get_areas();
 
-
-        return view('orders.checkout', ['products' => $products, 'total' => $total, 'addresses' => $addresses, 'coupons' => $coupons]);
+        return view('orders.checkout', ['products' => $products, 'total' => $total, 'addresses' => $addresses,'areas' => $areas, 'coupons' => $coupons]);
     }
+
+    public function get_areas(){
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        unset($areas[0]);
+        $result_array = [];
+        foreach($areas as $key => $area)
+        {
+            if(isset($area['DescriptionRu'])) $result_array[$key] = $area['DescriptionRu'];
+        }
+        return $result_array;
+    }
+
+    public function get_cities(Request $request){
+
+        $area_number = $request->area;
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        $all_cities = $np->getCities();
+        $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$area_number]['Ref']);
+        $result_array = [];
+        foreach($all_cities as $key => $city)
+        {
+            $result_array[$key] = $city['DescriptionRu'];
+        }
+
+        $result = json_encode($result_array);
+
+        echo $result;
+    }
+
+    public function get_posts(Request $request){
+        $area_number = $request->area;
+        $city_number = $request->city;
+
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        $all_cities = $np->getCities();
+        $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$area_number]['Ref']);
+        $city = $all_cities[$city_number]['Ref'];
+        $result_array = $np->getWarehouses($city)["data"];
+
+        $result = json_encode($result_array);
+
+        echo $result;    
+    }
+
+   
 
 
     public function processing(Request $request)

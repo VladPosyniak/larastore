@@ -84,6 +84,8 @@ return [
 
     'key' => env('APP_KEY', 'SomeRandomString'),
 
+    'nova_poshta_api' => 'aab8d1cbc2c269779e73b8b5e4b43e26',
+
     'cipher' => 'AES-256-CBC',
 
     /*

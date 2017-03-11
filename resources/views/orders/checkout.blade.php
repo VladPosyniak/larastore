@@ -89,6 +89,29 @@
                             <br>
                         @endif
 
+                        <select class="form-control areas">
+                            <option value="">Область</option>
+                            @for ($i = 1; $i < count($areas); $i++)
+                                 <option value="{{$i}}">{{$areas[$i]}}</option>
+                            @endfor
+                        </select>
+
+                        <div class="city_block" hidden>
+                            <br>
+                            <select class="form-control city">
+                                <option value="">Город</option>
+                            </select>
+                        </div>
+
+                        <div class="post_block" hidden>
+                            <br>
+                            <select class="form-control post" hidden="hidden">
+                                <option value="">Отделение</option>
+                            </select>
+                        </div>
+
+                        <br>
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="address">{{trans('checkout.address')}} *</label>
@@ -288,6 +311,21 @@
     <script type="text/javascript" src="{{asset('smarty/js/view/demo.shop.js')}}"></script>
 
     <script>
+        $('.areas').change(function(e){
+            var selected = $('.areas').val();
+            if(selected !== ''){
+                $.ajax({
+                  method: "GET",
+                  url: "/ship/get_cities/",
+                  data:{area:selected}
+                })
+              .done(function( msg ) {
+                cities = JSON.parse(msg);
+                cities_handler(cities);
+              });
+            }
+        });
+
         var addressId = null;
         $('.address-select').click(function () {
 
@@ -304,6 +342,39 @@
                 })
             }
         })
+
+        function cities_handler(cities){
+            $(cities).each(function(element){
+                city = cities[element];
+                $('.city').append('<option value="'+element+'">'+city+'</option>');
+                $('.city_block').show();
+            });
+
+            $('.city').change(function(e){
+                var city = $('.city').val(),
+                area = $('.areas').val();
+
+                if(city !== '' && area !== ''){
+                    $.ajax({
+                      method: "GET",
+                      url: "/ship/get_posts/",
+                      data:{area:area, city:city}
+                    })
+                  .done(function( msg ) {
+                    posts = JSON.parse(msg);
+                    post_handler(posts);
+                  });
+                }
+            });
+        }
+
+        function post_handler(posts){
+            $(posts).each(function(element){
+                post = posts[element];
+                $('.post').append('<option value="'+element+'">'+post["DescriptionRu"]+'</option>');
+                $('.post_block').show();
+            });
+        }
     </script>
 
 @endsection
