@@ -3,7 +3,7 @@
 @section('seo')
     <title>{{$currentProd->description->title}}</title>
     <meta name="keywords" content="{{$currentProd->description->keywords}}"/>
-    <meta name="description" content="{{$currentProd->description->description}}"/>
+    <meta name="description" content="{{$currentProd->description->description_meta}}"/>
 @endsection
 
 @section('page')
@@ -42,7 +42,7 @@
                             <div class="thumbnail relative margin-bottom-3">
 
                                 <figure id="zoom-primary" class="zoom" data-mode="mouseover">
-                                
+
                                     <a class="lightbox bottom-right"
                                        href="{{ asset('/files/products/img/'.$currentProd->cover) }}"
                                        data-plugin-options='{"type":"image"}'><i class="glyphicon glyphicon-search"></i></a>
@@ -107,10 +107,12 @@
                             <!-- /price -->
                             <hr/>
                             <div class="clearfix margin-bottom-30">
-                                @if($currentProd->isset)
-                                    <span class="pull-right text-success"><i class="fa fa-check"></i> {{trans('product_page.in_stock')}}</span>
+                                @if($currentProd->quantity > 0 && $currentProd->isset)
+                                    <span class="pull-right text-success"><i
+                                                class="fa fa-check"></i> {{trans('product_page.in_stock')}}</span>
                                 @else
-                                    <span class="pull-right text-danger"><i class="fa fa-times"></i> {{trans('product_page.out_stock')}}</span>
+                                    <span class="pull-right text-danger"><i
+                                                class="fa fa-times"></i> {{trans('product_page.out_stock')}}</span>
                                 @endif
                                 {{--<strong>SKU:</strong> UY7321987--}}
                             </div>
@@ -137,67 +139,43 @@
                                             @endforeach
                                         </select>
                                     </div>
-                            @endforeach
+                                @endforeach
 
                             <!--
                                     .fancy-arrow
                                     .fancy-arrow-double
                                 -->
-                                <div class="products">
-                                    <button id="{{$currentProd['id']}}" data-id="{{$currentProd['id']}}"
-                                            data-title="{{$currentProd->description->name}}"
-                                            data-img="{{ asset('/files/products/img/'.$currentProd['cover']) }}"
-                                            data-price="{{currencyWithoutPrefix($currentProd['price'])}}"
-                                            data-currency="{{currencyPrefix()}}"
-                                            class="btn btn-default btn-lg btn-block btn-success buy-btn">{{trans('product_page.add')}}
-                                    </button>
-                                </div>
+                                @if($currentProd->quantity > 0 && $currentProd->isset)
+                                    <div class="products">
+                                        <button id="{{$currentProd['id']}}" data-id="{{$currentProd['id']}}"
+                                                data-title="{{$currentProd->description->name}}"
+                                                data-img="{{ asset('/files/products/img/'.$currentProd['cover']) }}"
+                                                data-price="{{currencyWithoutPrefix($currentProd['price'])}}"
+                                                data-currency="{{currencyPrefix()}}"
+                                                class="btn btn-default btn-lg btn-block btn-success buy-btn btn-hvr hvr-buzz-out">{{trans('product_page.add')}}
+                                        </button>
+                                    </div>
+                                    <hr/>
+                                @endif
 
                             </form>
                             <!-- /FORM -->
 
-
-                            <hr/>
-
-                        <!-- Share -->
-                            <div class="pull-right">
-
-                                <a href="#"
-                                   class="social-icon social-icon-sm social-icon-transparent social-facebook pull-left"
-                                   data-toggle="tooltip" data-placement="top" title="Facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-
-                                <a href="#"
-                                   class="social-icon social-icon-sm social-icon-transparent social-twitter pull-left"
-                                   data-toggle="tooltip" data-placement="top" title="Twitter">
-                                    <i class="icon-twitter"></i>
-                                    <i class="icon-twitter"></i>
-                                </a>
-
-                                <a href="#"
-                                   class="social-icon social-icon-sm social-icon-transparent social-gplus pull-left"
-                                   data-toggle="tooltip" data-placement="top" title="Google plus">
-                                    <i class="icon-gplus"></i>
-                                    <i class="icon-gplus"></i>
-                                </a>
-
-                                <a href="#"
-                                   class="social-icon social-icon-sm social-icon-transparent social-linkedin pull-left"
-                                   data-toggle="tooltip" data-placement="top" title="Linkedin">
-                                    <i class="icon-linkedin"></i>
-                                    <i class="icon-linkedin"></i>
-                                </a>
-
+                            <div class="col-md-12">
+                                <div class="heading-title heading-border-bottom">
+                                    <h3><i class="fa fa-truck" aria-hidden="true"></i> Доставка</h3>
+                                </div>
+                                <ul class="list-unstyled list-icons">
+                                    <li><i class="fa fa-check text-success"></i> <b>Новой почтой</b></li>
+                                </ul>
+                                <div class="heading-title heading-border-bottom">
+                                    <h3><i class="fa fa-credit-card" aria-hidden="true"></i> Оплата</h3>
+                                </div>
+                                <ul class="list-unstyled list-icons">
+                                    <li><i class="fa fa-check text-success"></i> <b>Банковской картой</b></li>
+                                    <li><i class="fa fa-check text-success"></i> <b>При получении</b></li>
+                                </ul>
                             </div>
-                            <!-- /Share -->
-
-
-                            <!-- rating -->
-                        {{--<div class="rating rating-4 size-13 margin-top-10 width-100">--}}
-                        {{--<!-- rating-0 ... rating-5 --></div>--}}
-                        <!-- /rating -->
 
                         </div>
                         <!-- /ITEM DESC -->
@@ -206,22 +184,24 @@
 
 
                     <ul id="myTab" class="nav nav-tabs nav-top-border margin-top-80" role="tablist">
-                        <li role="presentation" class="active"><a href="#description" role="tab" data-toggle="tab">{{trans('product_page.desc')}}</a>
+                        <li role="presentation" class="active"><a href="#description" role="tab"
+                                                                  data-toggle="tab">{{trans('product_page.desc')}}</a>
                         </li>
-                        <li role="presentation"><a href="#specs" role="tab" data-toggle="tab">{{trans('product_page.spec')}}</a></li>
+                        <li role="presentation"><a href="#specs" role="tab"
+                                                   data-toggle="tab">{{trans('product_page.spec')}}</a></li>
                         {{--<li role="presentation"><a href="#reviews" role="tab" data-toggle="tab">Reviews (2)</a></li>--}}
                     </ul>
 
                     <div class="tab-content padding-top-20">
                         <!-- DESCRIPTION -->
                         <style>
-                            #description img{
+                            #description img {
                                 max-width: 100%;
                                 display: block;
                                 margin: auto;
                             }
                         </style>
-                        <div role="tabpanel"  class="tab-pane fade in active" id="description">
+                        <div role="tabpanel" class="tab-pane fade in active" id="description">
                             {!! $currentProd->description->description_full!!}
                         </div>
 
@@ -375,7 +355,8 @@
                         <hr class="margin-top-80 margin-bottom-80"/>
 
 
-                        <h2 class="owl-featured"><strong>{{trans('product_page.related')}}</strong> {{trans('product_page.products')}}:</h2>
+                        <h2 class="owl-featured">
+                            <strong>{{trans('product_page.related')}}</strong> {{trans('product_page.products')}}:</h2>
                         <div class="owl-carousel featured nomargin owl-padding-10"
                              data-plugin-options='{"singleItem": false, "items": "4", "stopOnHover":false, "autoPlay":4500, "autoHeight": false, "navigation": true, "pagination": false}'>
 
@@ -454,7 +435,9 @@
                                     <a class="dropdown-toggle"
                                        href="{{ url('catalog/'.$class->urlhash) }}">{{$class->description->name}}</a>
                                     <ul>
-                                        <li><a href="{{ url('catalog/'.$class->urlhash) }}">{{trans('product_page.all')}}</a></li>
+                                        <li>
+                                            <a href="{{ url('catalog/'.$class->urlhash) }}">{{trans('product_page.all')}}</a>
+                                        </li>
                                         @foreach(\larashop\Categories::all() as $cat)
                                             @if($cat->class_id == $class->id)
                                                 <li class="@if($cat->description->name == $currentCat->description->name)active @endif">

@@ -208,6 +208,7 @@ class InstallStruct extends Migration
             $table->string('keywords')->nullable();
             $table->longText('description')->nullable();
             $table->text('description_full')->nullable();
+            $table->text('description_meta')->nullable();
             $table->timestamps();
         });
 

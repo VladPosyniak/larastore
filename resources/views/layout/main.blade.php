@@ -170,10 +170,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <i class="fa fa-shopping-cart"></i>
                             </a>
                             <div class="quick-cart-box">
-                                @if(Auth::check())
-                                    <h5 style=" padding-top: 3px; padding-right:7px; position: absolute; right: -1px;">
-                                        {{trans('layout.balance')}}: {{currency(Auth::user()->balance)}}</h5>
-                                @endif
                                 <h4>{{trans('layout.cart')}}</h4>
 
 

@@ -251,11 +251,13 @@ class OrdersController extends Controller
         $order->to_pay = $to_pay - ($to_pay * $coupon_percent);
         $order->delivery_address = serialize(array(
             'city' => $request->input('city'),
-            'address' => $request->input('address'),
-            'country' => $request->input('country'),
-            'postal_code' => $request->input('zipcode'),
-            'company' => $request->input('company'),
-            'comment' => $request->input('comment'),
+            'secession' => $request->input('secession'),
+            'region' => $request->input('region'),
+//            'address' => $request->input('address'),
+//            'country' => $request->input('country'),
+//            'postal_code' => $request->input('zipcode'),
+//            'company' => $request->input('company'),
+//            'comment' => $request->input('comment'),
             'name' => $request->input('name'),            
             'phone' => $request->input('phone'),            
             'email' => $request->input('email')
@@ -378,7 +380,7 @@ class OrdersController extends Controller
         $private_key = Setting::get('ligpay.privateKey');
         $signature = base64_encode(sha1($private_key . $_POST['data'] . $private_key, 1));
         if ($signature === $_POST['signature'] && $data->status === 'success' || $data->status === 'sandbox') {
-            $order = Order::find($id);
+            $order = Order::where('code','=',$id)->first();
             if ($order->paid != 1) {
                 $order->paid = 1;
                 $order->to_processing = 1;

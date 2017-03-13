@@ -89,23 +89,23 @@
                             <br>
                         @endif
 
-                        <select class="form-control areas">
+                        <select name="region" class="form-control areas ">
                             <option value="">Область</option>
                             @for ($i = 1; $i < count($areas); $i++)
                                  <option value="{{$i}}">{{$areas[$i]}}</option>
                             @endfor
                         </select>
 
-                        <div class="city_block" hidden>
+                        <div  class="city_block" hidden>
                             <br>
-                            <select class="form-control city">
+                            <select name="city" class="form-control city">
                                 <option value="">Город</option>
                             </select>
                         </div>
 
                         <div class="post_block" hidden>
                             <br>
-                            <select class="form-control post" hidden="hidden">
+                            <select name="secession" class="form-control post" hidden="hidden">
                                 <option value="">Отделение</option>
                             </select>
                         </div>

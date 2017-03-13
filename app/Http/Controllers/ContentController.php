@@ -431,6 +431,7 @@ class ContentController extends Controller
             $rules['name_' . $language->code] = 'required';
             $rules['description_' . $language->code] = 'required';
             $rules['description_full_' . $language->code] = 'required';
+            $rules['description_meta_' . $language->code] = 'required';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -539,6 +540,7 @@ class ContentController extends Controller
                 $product_description->keywords = $request->{'keywords_' . $language->code};
                 $product_description->description = $request->{'description_' . $language->code};
                 $product_description->description_full = $request->{'description_full_' . $language->code};
+                $product_description->description_meta = $request->{'description_meta_' . $language->code};
                 $product_description->save();
             }
 
@@ -732,6 +734,7 @@ class ContentController extends Controller
             $rules['name_' . $language->code] = 'required';
             $rules['description_' . $language->code] = 'required';
             $rules['description_full_' . $language->code] = 'required';
+            $rules['description_meta_' . $language->code] = 'required';
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -799,6 +802,7 @@ class ContentController extends Controller
                 $arr_description['keywords'] = $request->{'keywords_' . $language->code};
                 $arr_description['description'] = $request->{'description_' . $language->code};
                 $arr_description['description_full'] = $request->{'description_full_' . $language->code};
+                $arr_description['description_meta'] = $request->{'description_meta_' . $language->code};
                 $product_description = ProductDescription::where(
                     [
                         ['product_id', '=', $id],

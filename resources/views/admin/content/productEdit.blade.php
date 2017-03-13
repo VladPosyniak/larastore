@@ -317,6 +317,14 @@
                                                                 class="help-block">{{ $errors->first('keywords_'.$language->code) }}</p> @endif
                                                     </div>
                                                 </div>
+                                                <div class="form-group @if ($errors->has('keywords')) has-error @endif">
+                                                    {!! Form::label('description_meta_'.$language->code, 'Description meta', array('class'=>'col-sm-3 control-label')) !!}
+                                                    <div class="col-sm-9">
+                                                        {!! Form::text('description_meta_'.$language->code, $product_description[$language->code]->description_meta, array('class'=>'form-control')) !!}
+                                                        @if ($errors->has('description_meta_'.$language->code)) <p
+                                                                class="help-block">{{ $errors->first('description_meta_'.$language->code) }}</p> @endif
+                                                    </div>
+                                                </div>
                                                 <hr>
                                             </div>
 
