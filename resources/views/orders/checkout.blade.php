@@ -314,10 +314,16 @@
     <script type="text/javascript" src="{{asset('smarty/plugins/jquery/jquery-2.1.4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('smarty/js/view/demo.shop.js')}}"></script>
 
-    <script>
+     <script>
         $('.areas').change(function(e){
             var selected = $('.areas').val();
             if(selected !== ''){
+                $('.city_block').hide();
+                $('.post_block').hide();
+                $('.city').empty();
+                $('.city').append('<option value="">Город</option>');
+                $('.post').empty();
+                $('.post').append('<option value="">Отделение</option>');
                 $.ajax({
                   method: "GET",
                   url: "/ship/get_cities/",
@@ -348,6 +354,8 @@
 //        })
 
         function cities_handler(cities){
+            
+
             $(cities).each(function(element){
                 city = cities[element];
                 $('.city').append('<option value="'+element+'">'+city+'</option>');
@@ -373,6 +381,7 @@
         }
 
         function post_handler(posts){
+            
             $(posts).each(function(element){
                 post = posts[element];
                 $('.post').append('<option value="'+element+'">'+post["DescriptionRu"]+'</option>');

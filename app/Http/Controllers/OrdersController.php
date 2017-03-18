@@ -128,8 +128,6 @@ class OrdersController extends Controller
     {
         $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
         $areas = $np->getAreas();
-        unset($areas[0]);
-        sort($areas);
         return $areas[$id]['DescriptionRu'];
     }
 
@@ -137,8 +135,6 @@ class OrdersController extends Controller
     {
         $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
         $areas = $np->getAreas();
-        unset($areas[0]);
-        sort($areas);
         $all_cities = $np->getCities();
         $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$id_area]['Ref']);
 
@@ -149,8 +145,6 @@ class OrdersController extends Controller
     {
         $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
         $areas = $np->getAreas();
-        unset($areas[0]);
-        sort($areas);
         $all_cities = $np->getCities();
         $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$id_area]['Ref']);
         $city = $all_cities[$id_city]['Ref'];
