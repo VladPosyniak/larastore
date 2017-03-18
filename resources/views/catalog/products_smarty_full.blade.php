@@ -8,7 +8,7 @@
             <div class="thumbnail">
                 <!-- product image(s) -->
                 <a class="shop-item-image" href="{{url('/product/'.$product['id'])}}">
-                    <img class="img-responsive" src="{{ asset('/files/products/img/'.$product['cover']) }}"
+                    <img class="img-responsive" src="{{ asset('/files/products/img/medium/'.$product['cover']) }}"
                          alt="shop first image"/>
                     {{--<img class="img-responsive" src="smarty/images/demo/shop/products/300x450/p14.jpg" alt="shop hover image" />--}}
                 </a>

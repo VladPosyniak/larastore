@@ -7,7 +7,7 @@
                 <!-- product image(s) -->
                 <a class="shop-item-image" href="{{url('/product/'.$product['id'])}}">
                     <img class="img-responsive"
-                         src="{{ asset('/files/products/img/'.$product['cover']) }}"
+                         src="{{ asset('/files/products/img/medium/'.$product['cover']) }}"
                          alt="shop first image"/>
                     {{--<img class="img-responsive"--}}
                     {{--src="{{asset('smarty/images/demo/shop/products/300x450/p14.jpg')}}"--}}

@@ -2,11 +2,193 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387ac2bd-ff6a-4c47-955c-ae65bccc9bb9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/cart.js" afterPath="$PROJECT_DIR$/public/dist/js/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/ru/all.php" afterPath="$PROJECT_DIR$/resources/lang/ru/all.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/6my9lLIl0dH5GkfOChm4nmk5uoIxYXI7MCntlro1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/AqfHZrinfN6i14CqXRItQB0uo4xieH2gZ1QvSYYa.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/JSD9wI1f4cOJSjEujJyfbyyz5D0zWciIiYwW3DJJ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/MmKmi58yKj94M13mwasqKbCOwXVAhXA5a00HV2Il.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/NvQohQl0wQhbby66GmtkGPXXqNWfw8GD7ho6eAFC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/Ov4nbrinP7pMd1nKMAdCkZRExkmOH6Z2ZoFPogKz.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/RrpZt0dbSrg6mHhwIjTfO1OtizRbsOrB1TbuY02U.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/SaU4CG63cpVfCuxTQrvAhZosBUPpLwwXqYFA3zQn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/YMskuxrDYxcG4rdPcSln9gSid3TDgT1ElqBplqBA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/ch94xYOCVdDYlPpsPV15Z2i6BNDcTGcbiXOPQTtI.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/hFM53Py8tauFRLhr5EI25ouvp8lChcv81iTzFurq.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/mSVCRJbHPJSyCdSJwHN9kutvfN5K9XpWAwDYEpyN.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/v1uD5RWMol3saruOMkNjPF4Y7Jquxd543XhMQebf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/cats/img/xjQLbAA1EZsWueDBCDYp054mNdofqRk4mU2BeKm5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/50atrNq9CnPaBVFoKn6dzsP7pNHPMTf1qSAtldX1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/5MQA0LNzD8mMM8bipexc0KJP2kqoNdItjXYBp7cn.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/6ptnibqfgQ0UagUBe8cjvVLf1iNG25agrKZV9Gdn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/6tJp8vPONz586fJF3699B3w6JTPTUrOC4GwaCURf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/7ETHGyUc8UDIpyavJMDV8AsGn4kZB3nkllX2z4Ez.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/C28QhRwIKrBg2cWYevTfhC30q40x62NMr76UBcmC.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/Gaz280tiOTdJFDRb1h6xGW91JRy1MFrtcN1CevZv.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/K1XpsimT0OcIjS0O46YXZcSqqSUAJQFvfTqC3sMh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/P0G7DvSkrMaxXS1o5aPFwCsqrAdnAidTHihT9fc6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/Pu9Ph2N5x8yC11BqsU5FNuOuAY3giEncIvb020Gc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/S1CUuSa7J8UATtN8K39efxXeXQdDZQnOG1bMtNg5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/SnqzDc90FGj0Bz21hu5Z562X2VzXnfnoyIliWU4U.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/dHUZv5fdhEJJFDAZWEdbFlPjvRv9CSqlmF6Jj4ja.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/iTsBlcMwENAn1EX3Cuu207dGb3hCg9q8JphGT6cz.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/nM0tzIrxuR11tiRosaBdN2JMhE3Z9x334v1qXEso.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/oMHH0deJBlxzj6girCN9DRn2kg11X491wHYA9lwg.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/classes/img/pWjsRviLjP8RBTyduCM4dF53zAuOIjbbIzbb3Lae.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/0zEqkBdiiEK9WQeil1M4lcWAkohPJt9148vOgxXY.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/1LhZZ8sFolBOaavHOCzjRXqljwiXTPE83cOJxBgI.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/2tBshswnOu2PeUa7E2GFdga6u7tBjjxL9g9tnv1x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/48odtJL66zb0Umt4V5weSC5XQpximS9nMIsXJH9t.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/4UE9Xr6L0zuG9SeFVkBSpN53aNELytwnA5oRDeSl.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/4ctGCLtX0PJbfDVnL4all6rLPjp8ZFQRNXQN0bEO.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/4nwGm5EvmOiAi6lLZjlQogBW8xh5ot6fGp27wzUM.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/5bxrwmdxBTdedeZN1ekxNq8ghEDrPjnOab4KNxw6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/6iHtOXjQO3ojz5W6Nlq3Ij6IipPtOuw7tiJObTZi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/AGoM3nSsO4C0bZoSun1R1MgsUELT0kUAtXRH71P7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/B2LuBJTgM3Nx59koz0uCfDxvSAqaxwi03XksAl5u.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/CGcfZl5py1Icx1lKE9Up9jz87bsoD993iCafhTE3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/ELvbS6ChtEe3VWI5JUpupOPa21dFprftIkmGWFkW.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/FUknFBYXBtqHFHuCQVSaot1tjNsvB1I13OMQeMgs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/FVJ3RwCv8B3iMnDy0PopM3EA3W6Lyhgpvv5PEcti.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/H188bLcwtsmAyN3B4rJCrezErJ734V2MwTKuB789.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/HryP7YzNnXTmQthxmHlDwmy0ffqln1msg0VjU4h3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/ITzmdvmiAYenPT088ELZgwsuz9PBDFRJHoF42N9D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/Iu6wRoOCP1QcAD1DT4PRfxpnZfIILYh21MTrDTsf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/J6MRkMART22VvtNJ0PD5mU97HBiQydSPKTU5ZZJA.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/KMzH6b6S2n5YQtuS0XEhazKp0AZA2SFfv8DvbAei.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/LfHIlGNyrPMOiM9PT1t2WwOggCSfavNZ36pkpFmd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/MUXuN4jPh963g6dME4GIe2E4xWUnK7B5nOfOgjVN.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/MdK3p03UKLWxBnHIRyapONpm9yMaovpTYeDwxanP.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/OuKyEuAFt25LwtAyECAPjaX4Nq8bDJFyNOKPMzKG.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/PDtZoVvYpFRq6GFn3caGk6pKN9gHKhl4zIAY1T4b.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/PTJfVTW9sexhR9jwA7zyACIiBniTiHVK5qqF3PAh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/Rfhqge77r3bR0xC6tAnUMhAeTmgBSCLhuJeNNDYy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/RfltfcdeznfjCUSnv1Hrjz2HwGiWGrxQFg0rD2Ra.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/T6dXsYieQjpeZfS393QRIsO2mke6rQ8XPdMR3EHB.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/X8hrTCWwnl4piejBvCFK6F2TION0r8NCZRP1b9Dg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/XoNfbJIg3wokDqtpCEhYF7KfJkDtsU60QL7aeX67.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/b6xmYm9Nkgp5FODFwYl74fwN3spv4YgVVKn8K8UZ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/bSwg2kyYMAeOLrp728lGRPXpMWiLBqpOEMw0s7Eh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/e9QH86SEIvBOgse5majYZEnA8Yca92jki5O2GaLi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/fEPQTFyjNpCXyRPDNeNlCTpQbB0Em7rQTVIspeuU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/fzb3xbbpTqXuDRLZbVtdIDl5s3mTt6EHv770zj6Z.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/gEvRAuVIrLte9kI31lecBoqgDTOvB3Nsr8ykEpD8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/gjibT1cv1ieX7oCwvoqvDy7JNz1XDdDU7hdm9NsZ.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/hQUsjJHlcn6NB88kUWKEdQZIHwl68O0YirAmozm1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/0zEqkBdiiEK9WQeil1M4lcWAkohPJt9148vOgxXY.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/2tBshswnOu2PeUa7E2GFdga6u7tBjjxL9g9tnv1x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/4ctGCLtX0PJbfDVnL4all6rLPjp8ZFQRNXQN0bEO.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/FUknFBYXBtqHFHuCQVSaot1tjNsvB1I13OMQeMgs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/MdK3p03UKLWxBnHIRyapONpm9yMaovpTYeDwxanP.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/PTJfVTW9sexhR9jwA7zyACIiBniTiHVK5qqF3PAh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/Rfhqge77r3bR0xC6tAnUMhAeTmgBSCLhuJeNNDYy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/gEvRAuVIrLte9kI31lecBoqgDTOvB3Nsr8ykEpD8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/gjibT1cv1ieX7oCwvoqvDy7JNz1XDdDU7hdm9NsZ.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/hQUsjJHlcn6NB88kUWKEdQZIHwl68O0YirAmozm1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/medium/nYKdvzEwB79WkAuTuSNHjEBe6JKeexQuHdFAlGbK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/mediumMUXuN4jPh963g6dME4GIe2E4xWUnK7B5nOfOgjVN.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/mediumfzb3xbbpTqXuDRLZbVtdIDl5s3mTt6EHv770zj6Z.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/mediumvG1DBE77Y2iR1S4kmdq68UBbw4C8scskKsHUcyBU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/nYKdvzEwB79WkAuTuSNHjEBe6JKeexQuHdFAlGbK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/ogafRaMO9uboPFkUdH7nLN9hg7GDcJlBdV2hHKPO.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/0zEqkBdiiEK9WQeil1M4lcWAkohPJt9148vOgxXY.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/2tBshswnOu2PeUa7E2GFdga6u7tBjjxL9g9tnv1x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/48odtJL66zb0Umt4V5weSC5XQpximS9nMIsXJH9t.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/4UE9Xr6L0zuG9SeFVkBSpN53aNELytwnA5oRDeSl.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/4ctGCLtX0PJbfDVnL4all6rLPjp8ZFQRNXQN0bEO.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/4nwGm5EvmOiAi6lLZjlQogBW8xh5ot6fGp27wzUM.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/5RGyghAooRZGBX3KHPUYRYArMwU1Sl3Pzrp9s59K.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/5bxrwmdxBTdedeZN1ekxNq8ghEDrPjnOab4KNxw6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/5xqZ2pijzWABDzhcuQAIXlqsHXKhzFedDYJMxmCk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/7IYCcVbEDtvuSZfOtNozSao7etbxKPWl3z8k8cOD.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/9PmZrGmsxybC5tzKOMEQ45bFHTGj9emBrVYhggs9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/AGoM3nSsO4C0bZoSun1R1MgsUELT0kUAtXRH71P7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/CGcfZl5py1Icx1lKE9Up9jz87bsoD993iCafhTE3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/CgdEHif2MxknKDV3gov4JmzhGpBV30WXMqhquZaS.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/ELvbS6ChtEe3VWI5JUpupOPa21dFprftIkmGWFkW.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/EvssODaPQjIgkGg9L9lEViCPHdfHjemCDnOSMrFm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/FUknFBYXBtqHFHuCQVSaot1tjNsvB1I13OMQeMgs.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/FVJ3RwCv8B3iMnDy0PopM3EA3W6Lyhgpvv5PEcti.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/GdYH9bsegUGVDgr4sviCOqEkhUC6dCZyMzkurYc9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/Ggg5Sz7rWadEEjjdKI0CpQTiOUigoFIeIVIKW3eJ.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/H188bLcwtsmAyN3B4rJCrezErJ734V2MwTKuB789.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/HryP7YzNnXTmQthxmHlDwmy0ffqln1msg0VjU4h3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/KMzH6b6S2n5YQtuS0XEhazKp0AZA2SFfv8DvbAei.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/LfHIlGNyrPMOiM9PT1t2WwOggCSfavNZ36pkpFmd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/LjIPZplwEW7M7Xn9Bu0uX2C6UJjJQX5d0ECFc86c.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/MUXuN4jPh963g6dME4GIe2E4xWUnK7B5nOfOgjVN.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/MdK3p03UKLWxBnHIRyapONpm9yMaovpTYeDwxanP.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/MsCSZbDC39R1ZwIEAm9KcAWU2uXG0T0HE0wcmVh6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/OuKyEuAFt25LwtAyECAPjaX4Nq8bDJFyNOKPMzKG.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/PDtZoVvYpFRq6GFn3caGk6pKN9gHKhl4zIAY1T4b.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/PTJfVTW9sexhR9jwA7zyACIiBniTiHVK5qqF3PAh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/QqsRnLp1TwKXC5mdX6eTWu9zu0DSKPR99EVjAvND.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/Rfhqge77r3bR0xC6tAnUMhAeTmgBSCLhuJeNNDYy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/RfltfcdeznfjCUSnv1Hrjz2HwGiWGrxQFg0rD2Ra.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/RpXC2xXw1EIYMawe70oYN17f0jaGAGEq2PW9w5IW.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/SwMvC9EPXOvEY5l8uxiQNfta39purp8I4fd1cQm5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/TigGYGJLQlhfc5iy0XbuSu5LcJPFmrzttFxStkMu.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/TzIC5S5VnDZv2kP1IdiZTmbW1C3wLnriI1Lhl2Ev.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/VMXS869B1CjGizaSim6tHFPUNUMJX9iG7lpFcirV.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/X4IEQQuGSc4i6rAebVzY7TDFxxqLdhMfIjQmdeKG.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/XNQXgNmAaXZ5czBbqCf259mGOEjOaTl0KLNzYYfH.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/XoNfbJIg3wokDqtpCEhYF7KfJkDtsU60QL7aeX67.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/ZaJodSFANuMtS50KYWq5NaFYpQDt9Kv1RgAIbg6z.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/ZniK5Pu0L5tpjmYMVybynsj4bq7IYS1oQmcU0Rox.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/aLgBwhRonW9KrLMbm9RyLy7XBQjPyCeIFTws248k.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/b6xmYm9Nkgp5FODFwYl74fwN3spv4YgVVKn8K8UZ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/bSwg2kyYMAeOLrp728lGRPXpMWiLBqpOEMw0s7Eh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/bsrlsyn3mkwgjV2miKHW7DvLrkFvCLjKnFnwE10D.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/dGQtJVQdjxoqPCNajBLFOYTPclb39ey5f9t0SVNz.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/djAqhRMRMu7BQ9yqvAoW7K39jZr9w1GaFElTYBJf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/e9QH86SEIvBOgse5majYZEnA8Yca92jki5O2GaLi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/ePU8bPjp4fsCqEWqNzRq7EsogXv2goEt2rk5tOCo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/eg0t0QNLzi7RSzyHmTHure3FnaQBa7pZCHnrsnWi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/fEPQTFyjNpCXyRPDNeNlCTpQbB0Em7rQTVIspeuU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/flzXmmsjVdeuStTqaezLq9N88RaGI9ANBDKunRVk.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/fzb3xbbpTqXuDRLZbVtdIDl5s3mTt6EHv770zj6Z.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/gEvRAuVIrLte9kI31lecBoqgDTOvB3Nsr8ykEpD8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/gjibT1cv1ieX7oCwvoqvDy7JNz1XDdDU7hdm9NsZ.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/gthsYuHupwlTN1rxruLu3WnzU8damWPrIkGg2KpE.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/gxIatg1Ijgce1TNm1EcVN22ivwxqu0fb2ss6qjQ2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/hQUsjJHlcn6NB88kUWKEdQZIHwl68O0YirAmozm1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/kIlTC2IxLFrrwbXMceCcruwTxDaACLU8ilkrFZtD.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/kw0QpltN1sdoGEdzkFYZzIwuV8SdGVVDCSrKav9W.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/kxOAihhkxHYWzIESyeOyMzIAJN4Th5z6eF8aSMK2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/nYKdvzEwB79WkAuTuSNHjEBe6JKeexQuHdFAlGbK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/nssU5qjG0cYoxzroAQIBhW9e5BlOB1SOhhfpuHgp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/ogafRaMO9uboPFkUdH7nLN9hg7GDcJlBdV2hHKPO.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/oygnwWW8wfhbXJEErxinjrisuLbO0YGBcbUFnMT3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/sj5sq4LM7SGQMGWgnpSuvoHUIxwaQghVuB51XyoB.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/szadReF2pH1n1bZeFPyOd0zWyEmTvNvqnmA7SAg3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/tLPiL9XutmKhuZCtWPHHZOwZqEEelOEfJfQgQwJS.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/u4VtFA9kduV0znQAveGVkhFCDiNmpkLkHx7VC6lp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/uLPBXrpoRYq1gadqMrlQe6Yxb2XB9FpeFxR4vig9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/umbTe0rp1DtQIj4daE3Hmy4NZnMMm9yu7X5Scur8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/v8kRUyirxy0HSC12pUtSXE3deXQKndzI1xWIRdFn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/vECWreyQ1SisgJVFTJDE1UP9BofRVj0WzzdoPqM6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/vG1DBE77Y2iR1S4kmdq68UBbw4C8scskKsHUcyBU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/xDbRPxoPhNknTImyJQA7HU8zTFUPLjw2yiRJNcaK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/small/zVmo1gSkPJkXgsNhPRmwdcvtonGQ71in1josrZBj.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/szadReF2pH1n1bZeFPyOd0zWyEmTvNvqnmA7SAg3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/ta6mFpdewvcV3dYRHB2sOxGF8b4Rwj1kxhkcYdGe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/uLPBXrpoRYq1gadqMrlQe6Yxb2XB9FpeFxR4vig9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/v8kRUyirxy0HSC12pUtSXE3deXQKndzI1xWIRdFn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/vG1DBE77Y2iR1S4kmdq68UBbw4C8scskKsHUcyBU.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/products/img/xDbRPxoPhNknTImyJQA7HU8zTFUPLjw2yiRJNcaK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/2PrbwL5bK5I6rS0ZXVRNIDZ2KYtt7McJXpiiUCbj.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/3GsixDPNnmkDqsdepvqqQftwmPXYQSjhwjXA6fi6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/EcQNInsSEb5yIBFdNxscbg6XytBke1geYw29bcl6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/G4EEDzYhf1jJodbth2HnlIf0annzbPt3pguuPvmp.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/WdbXy0mZeRgdQnRez6m840oDcf8KTxPzBp0XlDQW.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/WhqI4qAIXIOJLCYcyIU4OkLJchJwjdUlAK9bbKpc.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/cvQsN6yTeZlg2SsTfbZnJfAlGhGNlzLvNNnGG8tn.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/dnxtzpChdq0ZsBRCrYkdVqMoF8XLO1fudK6ZQ7Kp.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/tMeZyEykoiLb6bqHclL0pDcdwvTyKiRqETzPYXXK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/files/sliders/xSrsrYduIxFVsaTTQHfg7RJ2DnAvKjcSXPa8eMxh.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/products_smarty.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/products_smarty.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/products_smarty_full.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/products_smarty_full.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/orders/ordered.blade.php" afterPath="$PROJECT_DIR$/resources/views/orders/ordered.blade.php" />
     </list>
     <ignored path="larashop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,68 +220,60 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="104" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="catalog_smarty.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class_smarty.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="155" column="69" selection-start-line="155" selection-start-column="69" selection-end-line="155" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category_smarty.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/catalog/category_smarty.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="85" column="104" selection-start-line="85" selection-start-column="101" selection-end-line="85" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/ru/all.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <file leaf-file-name="page-404-2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Desktop/Templates/smartyv112/HTML/page-404-2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="61" selection-end-column="10" />
+            <state relative-caret-position="578">
+              <caret line="1166" column="0" selection-start-line="1166" selection-start-column="0" selection-end-line="1226" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CatalogController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CatalogController.php">
+      <file leaf-file-name="main.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1480">
-              <caret line="160" column="5" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+            <state relative-caret-position="339">
+              <caret line="150" column="55" selection-start-line="150" selection-start-column="55" selection-end-line="150" selection-end-column="69" />
+              <folding>
+                <marker date="1489841498335" expanded="true" signature="19183:19254" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="404.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/errors/404.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/settings.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkout.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/orders/checkout.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="317" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="392" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -122,18 +296,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/lang/en/home_page.php" />
-        <option value="$PROJECT_DIR$/resources/lang/en/catalog_page.php" />
-        <option value="$PROJECT_DIR$/resources/views/mail/message.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2017_02_02_163858_Images.php" />
         <option value="$PROJECT_DIR$/app/ProductImage.php" />
         <option value="$PROJECT_DIR$/resources/views/mail.blade.php" />
         <option value="$PROJECT_DIR$/public/smarty/css/layout.css" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layout/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Classes.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/content/classCreate.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/content/classes.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/content/categoryCreate.blade.php" />
@@ -173,6 +341,12 @@
         <option value="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/ru/all.php" />
         <option value="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/catalog/products_smarty.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/catalog/products_smarty_full.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/orders/ordered.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/storage/settings.json" />
+        <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
       </list>
     </option>
   </component>
@@ -244,11 +418,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="storage" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -269,8 +439,26 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="catalog" />
+              <option name="myItemId" value="larastore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="larastore" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orders" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,29 +476,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="larastore" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="larastore" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru" />
+              <option name="myItemId" value="errors" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -338,7 +508,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;la&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;Locale.p&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Middleware/Locale.php&#10;esse&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/essentials.css&#10;other.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/other.css&#10;plugin-hover-buttons.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/plugin-hover-buttons.css&#10;green.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/color_scheme/green.css&#10;layout-shop&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout-shop.css&#10;header-1&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/header-1.css&#10;grayscale&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;jquery-2.1.4.min.js&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/plugins/jquery/jquery-2.1.4.min.js&#10;ma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;la&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;Locale.p&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Middleware/Locale.php&#10;esse&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/essentials.css&#10;other.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/other.css&#10;plugin-hover-buttons.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/plugin-hover-buttons.css&#10;green.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/color_scheme/green.css&#10;layout-shop&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout-shop.css&#10;header-1&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/header-1.css&#10;grayscale&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;jquery-2.1.4.min.js&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/plugins/jquery/jquery-2.1.4.min.js&#10;ma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -515,55 +685,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/category.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1396">
-          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/catalog_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Classes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ClassController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile/favourites.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="166" column="42" selection-start-line="166" selection-start-column="42" selection-end-line="166" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/sliders/slidersEdit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="137" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ParametersValues.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="89" selection-start-line="13" selection-start-column="89" selection-end-line="13" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/content/parameters.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -753,16 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3196">
-          <caret line="188" column="59" selection-start-line="188" selection-start-column="59" selection-end-line="188" selection-end-column="59" />
-          <folding>
-            <marker date="1489841498335" expanded="true" signature="19183:19254" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3060">
@@ -782,14 +893,6 @@
             <element signature="e#9825#10101#0#PHP" expanded="false" />
             <element signature="e#19343#23138#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/orders/ordered.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,14 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/orders/checkout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="317" column="27" selection-start-line="317" selection-start-column="27" selection-end-line="317" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/content/classes.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
@@ -868,14 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1480">
           <caret line="160" column="5" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="104" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="104" />
           <folding />
         </state>
       </provider>
@@ -908,6 +995,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="155" column="69" selection-start-line="155" selection-start-column="69" selection-end-line="155" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/catalog/products_smarty.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="67" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/orders/eventCreated.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-231">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/catalog/products_smarty_full.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="90" selection-start-line="10" selection-start-column="90" selection-end-line="10" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/orders/ordered.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="14240" column="10" selection-start-line="14240" selection-start-column="10" selection-end-line="14240" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/settings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/orders/checkout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="317" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="392" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Templates/smartyv112/HTML/page-404-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="1166" column="0" selection-start-line="1166" selection-start-column="0" selection-end-line="1226" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/main.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="150" column="55" selection-start-line="150" selection-start-column="55" selection-end-line="150" selection-end-column="69" />
+          <folding>
+            <marker date="1489841498335" expanded="true" signature="19183:19254" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/errors/404.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>

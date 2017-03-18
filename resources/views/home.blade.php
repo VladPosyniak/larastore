@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-    <title>{{Setting::get('config.sitename', 'SiteName')}}</title>
+    <title>{{Setting::get('seo.home_title')}}</title>
     <meta name="keywords" content="{{Setting::get('seo.home_keywords')}}"/>
     <meta name="description" content="{{Setting::get('seo.home_description')}}"/>
 @endsection
