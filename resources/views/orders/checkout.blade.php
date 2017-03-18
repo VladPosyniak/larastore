@@ -330,22 +330,22 @@
             }
         });
 
-        var addressId = null;
-        $('.address-select').click(function () {
-
-            if (addressId !== $(".address-select").val()) {
-                addressId = $(".address-select").val();
-
-                $.getJSON('profile/getaddress/' + addressId, function (data) {
-                    $('#address').val(data[0].address);
-                    $('#city').val(data[0].city);
-                    $('#zipcode').val(data[0].postal_code);
-                    $('#country').val(data[0].country);
-                    $('#company').val(data[0].company);
-                    $('#comment').val(data[0].comment);
-                })
-            }
-        })
+//        var addressId = null;
+//        $('.address-select').click(function () {
+//
+//            if (addressId !== $(".address-select").val()) {
+//                addressId = $(".address-select").val();
+//
+//                $.getJSON('profile/getaddress/' + addressId, function (data) {
+//                    $('#address').val(data[0].address);
+//                    $('#city').val(data[0].city);
+//                    $('#zipcode').val(data[0].postal_code);
+//                    $('#country').val(data[0].country);
+//                    $('#company').val(data[0].company);
+//                    $('#comment').val(data[0].comment);
+//                })
+//            }
+//        })
 
         function cities_handler(cities){
             $(cities).each(function(element){

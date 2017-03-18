@@ -116,7 +116,7 @@
 
                                 <!-- List group -->
                                 <ul class="list-group">
-                                    <li class="list-group-item"><b>Страна: </b>{{$address['country']}}</li>
+                                    <li class="list-group-item"><b>Регион: </b>{{$address['region']}}</li>
                                     <li class="list-group-item"><b>Город: </b>{{$address['city']}}</li>
                                     <li class="list-group-item"><b>Индекс: </b>{{$address['postal_code']}}</li>
                                     <li class="list-group-item"><b>Компания: </b>{{$address['company']}}</li>

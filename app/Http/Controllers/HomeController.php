@@ -30,7 +30,6 @@ class HomeController extends Controller
     public function index()
     {
 
-        //
         Visitor::log();
         $products = Products::orderBy('sort_id', 'asc')->take(9)->get();
         foreach ($products as $key => $product) {
