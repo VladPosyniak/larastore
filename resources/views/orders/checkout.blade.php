@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-    <title>{{trans('checkout.checkout')}}</title>
+    <title>{{trans('checkout.checkout_title')}}</title>
 @endsection
 
 @section('page')
@@ -68,7 +68,7 @@
                         </div>
 
 
-                        @if(Auth::check())
+                       {{-- @if(Auth::check())
                             <div class="callout callout-theme-color" style="border-radius: 3px">
                                 <div class="row text-center">
                                     <div class="col-md-12">
@@ -87,10 +87,10 @@
                                 </div>
                             </div>
                             <br>
-                        @endif
-
-                        <select name="region" class="form-control areas ">
-                            <option value="">Область</option>
+                        @endif --}}
+                        <label for="area">{{trans('checkout.area')}} *</label>
+                        <select name="region" class="form-control areas " id='area'>
+                            <option value="">{{trans('checkout.area')}}</option>
                             @for ($i = 1; $i < count($areas); $i++)
                                  <option value="{{$i}}">{{$areas[$i]}}</option>
                             @endfor
@@ -98,20 +98,22 @@
 
                         <div  class="city_block" hidden>
                             <br>
-                            <select name="city" class="form-control city">
-                                <option value="">Город</option>
+                            <label for="city">{{trans('checkout.city')}} *</label>
+                            <select name="city" class="form-control city" id="city">
+                                <option value="">{{trans('checkout.city')}}</option>
                             </select>
                         </div>
 
                         <div class="post_block" hidden>
                             <br>
-                            <select name="secession" class="form-control post" hidden="hidden">
-                                <option value="">Отделение</option>
+                            <label for="city">{{trans('checkout.post')}} *</label>
+                            <select name="secession" class="form-control post" id="post" hidden="hidden">
+                                <option value="">{{trans('checkout.post')}}</option>
                             </select>
                         </div>
 
                         <br>
-
+                        {{--
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="address">{{trans('checkout.address')}} *</label>
@@ -154,6 +156,8 @@
                                 <span>{{$errors->first('country')}}</span>
                             </div>
                         </div>
+
+                        --}}
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="comment">{{trans('checkout.comment')}}</label>

@@ -139,10 +139,10 @@ class OrdersController extends Controller
             'name' => 'min:6|required',
             'email' => 'required',
             'phone' => 'min:9|required',
-            'address' => 'min:10|required',
-            'city' => 'required',
-            'zipcode' => 'integer',
-            'country' => 'min:3',
+            // 'address' => 'min:10|required',
+            // 'city' => 'required',
+            // 'zipcode' => 'integer',
+            // 'country' => 'min:3',
             'payment_method' => 'integer|required',
             'coupon' => 'integer'
         ]);

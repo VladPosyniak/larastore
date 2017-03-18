@@ -41,7 +41,7 @@
                 <ul class="nav nav-tabs nav-top-border">
                     <li class="active"><a href="#info" data-toggle="tab">{{trans('settings_settings.personal')}}</a></li>
                     <li><a href="#password" data-toggle="tab">{{trans('settings_settings.password')}}</a></li>
-                    <li><a href="#address" data-toggle="tab">{{trans('settings_settings.addresses')}}</a></li>
+                    {{--<li><a href="#address" data-toggle="tab">{{trans('settings_settings.addresses')}}</a></li>--}}
                 </ul>
 
                 <div class="tab-content margin-top-20">
@@ -108,7 +108,7 @@
                     <!-- /PASSWORD TAB -->
 
                     <!-- ADDRESS TAB -->
-                    <div class="tab-pane fade" id="address">
+                    {{--<div class="tab-pane fade" id="address">
 
                         <div class="row">
 
@@ -236,7 +236,7 @@
 
                         </div>
 
-                    </div>
+                    </div>--}}
                     <!-- /ADDRESS TAB -->
 
                 </div>

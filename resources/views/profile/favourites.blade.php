@@ -98,7 +98,7 @@
                         @endforeach
                     </ul>
                 @else
-                    <h2>Nothing...</h2>
+                    <h2>{{trans('favourites.empty')}}</h2>
                 @endif
             </div>
 

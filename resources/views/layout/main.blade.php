@@ -29,7 +29,7 @@
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="{{asset('smarty/css/header-1.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('smarty/css/layout-shop.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('smarty/css/color_scheme/green.css')}}" rel="stylesheet" type="text/css" id="color_scheme"/>
+    <link href="{{asset('smarty/css/color_scheme/pink.css')}}" rel="stylesheet" type="text/css" id="color_scheme"/>
     <link rel="stylesheet" href="{{asset('smarty/css/plugin-hover-buttons.css')}}">
     <link rel="stylesheet" href="{{asset('smarty/css/other.css')}}">
 
@@ -294,14 +294,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <!-- Social Icons -->
                     <div class="clearfix">
 
-                        <a href="{{Setting::get('integration.vkontakte')}}"
+                        <a target="_blank" href="{{Setting::get('integration.vkontakte')}}"
                            class="social-icon social-icon-sm social-icon-border social-vk pull-left"
                            data-toggle="tooltip" data-placement="top" title="Вконтакте">
                             <i class="icon-vk"></i>
                             <i class="icon-vk"></i>
                         </a>
 
-                        <a href="{{Setting::get('integration.insta')}}"
+                        <a target="_blank" href="{{Setting::get('integration.insta')}}"
                            class="social-icon social-icon-sm social-icon-border social-instagram pull-left"
                            data-toggle="tooltip" data-placement="top" title="Instagram">
                             <i class="icon-instagram"></i>
@@ -337,12 +337,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="col-md-4">
                             <h4 class="letter-spacing-1">{{mb_strtoupper(trans('layout.secure_payment'))}}</h4>
                             <p>{{trans('layout.secure_payment_content')}}</p>
-                            {{--<p>    <!-- see assets/images/cc/ for more icons -->
-                                <img src="{{asset('smarty/images/cc/Visa.png')}}" alt=""/>
-                                <img src="{{asset('smarty/images/cc/Mastercard.png')}}" alt=""/>
-                                <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt=""/>
-                                <img src="{{asset('smarty/images/cc/Maestro.png')}}" alt="" />
-                            </p> --}}
                         </div>
 
                         <div class="col-md-4">
@@ -385,8 +379,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript" src="{{asset('smarty/js/scripts.js')}}"></script>
 
 <!-- jQuery UI 1.11.4 -->
-<!-- jQuery 2.1.4 -->
-{{--{!! Html::script('plugins/jQuery/jQuery-2.1.4.min.js') !!}--}}
 {!! Html::script('dist/js/jquery-ui.min.js') !!}
 <!-- Bootstrap 3.3.5 -->
 {!! Html::script('bootstrap/js/bootstrap.min.js') !!}
