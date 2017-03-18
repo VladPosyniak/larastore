@@ -124,6 +124,48 @@ class OrdersController extends Controller
         echo $result;    
     }
 
+    public function get_area_by_id($id)
+    {
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        unset($areas[0]);
+        sort($areas);
+        return $areas[$id]['DescriptionRu'];
+    }
+
+    public function get_city_by_id($id_area, $id_city)
+    {
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        unset($areas[0]);
+        sort($areas);
+        $all_cities = $np->getCities();
+        $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$id_area]['Ref']);
+
+        return $all_cities[$id_city]['DescriptionRu'];
+    }
+
+    public function get_post_by_id($id_area, $id_city, $id_post)
+    {
+        $np = new NovaPoshtaApi2(config('app.nova_poshta_api'), 'ru');
+        $areas = $np->getAreas();
+        unset($areas[0]);
+        sort($areas);
+        $all_cities = $np->getCities();
+        $all_cities =  $np->findCityByRegionRef($all_cities, $areas[$id_area]['Ref']);
+        $city = $all_cities[$id_city]['Ref'];
+        $result_array = $np->getWarehouses($city)["data"];
+
+        return $result_array[$id_post]['DescriptionRu'];
+    }
+
+    public function test()
+    {
+        echo $this->get_area_by_id(0);
+        echo $this->get_city_by_id(0,1);
+        echo $this->get_post_by_id(0,1,0);
+    }
+
    
 
 

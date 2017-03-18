@@ -503,6 +503,7 @@ class NovaPoshtaApi2 {
 	 * @return array 
 	 */
 	function findCityByRegionRef($cities, $areaRef) {
+		$data = [];
         foreach($cities['data'] as $city) {
             if ($city['Area'] == $areaRef) {
                 $data[] = $city;
