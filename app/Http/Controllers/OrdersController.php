@@ -159,14 +159,6 @@ class OrdersController extends Controller
         return $result_array[$id_post]['DescriptionRu'];
     }
 
-    public function test()
-    {
-        echo $this->get_area_by_id(0);
-        echo $this->get_city_by_id(0,1);
-        echo $this->get_post_by_id(0,1,0);
-    }
-
-   
 
 
     public function processing(Request $request)
@@ -292,14 +284,14 @@ class OrdersController extends Controller
         $order->paid = $paid;
         $order->to_pay = $to_pay - ($to_pay * $coupon_percent);
         $order->delivery_address = serialize(array(
-            'city' => $request->input('city'),
-            'secession' => $request->input('secession'),
-            'region' => $request->input('region'),
+            'city' => $this->get_city_by_id($request->input('region'),$request->input('city')),
+            'secession' => $this->get_post_by_id($request->input('region'),$request->input('city'),$request->input('secession')),
+            'region' => $this->get_area_by_id($request->input('region')),
 //            'address' => $request->input('address'),
 //            'country' => $request->input('country'),
 //            'postal_code' => $request->input('zipcode'),
 //            'company' => $request->input('company'),
-//            'comment' => $request->input('comment'),
+            'comment' => $request->input('comment'),
             'name' => $request->input('name'),            
             'phone' => $request->input('phone'),            
             'email' => $request->input('email')

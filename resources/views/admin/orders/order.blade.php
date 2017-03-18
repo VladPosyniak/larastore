@@ -2,7 +2,7 @@
 <title>Заказ №{{$order->id}}</title>
 </head>
 <style type="text/css" media="print">
-    .noprint{
+    .noprint {
         display: none;
     }
 </style>
@@ -29,7 +29,10 @@
                     <div class="flash-message">
                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)
                             @if(Session::has('alert-' . $msg))
-                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#"
+                                                                                                         class="close"
+                                                                                                         data-dismiss="alert"
+                                                                                                         aria-label="close">&times;</a>
                                 </p>
                             @endif
                         @endforeach
@@ -42,9 +45,16 @@
                                     Управление статусом
                                 </div>
                                 <div class="panel-body text-center">
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}" title="В обработку" class="btn btn-warning"><i class="fa fa-clock-o" aria-hidden="true"></i> Обрабатывается</a>
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}" title="К доставке" class="btn btn-info"><i class="fa fa-circle-o-notch fa-spin"></i> Обработан</a>
-                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}" title="Отправлен" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Доставляется</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/wait')}}"
+                                       title="В обработку" class="btn btn-warning"><i class="fa fa-clock-o"
+                                                                                      aria-hidden="true"></i>
+                                        Обрабатывается</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/processing')}}"
+                                       title="К доставке" class="btn btn-info"><i
+                                                class="fa fa-circle-o-notch fa-spin"></i> Обработан</a>
+                                    <a href="{{url('admin/orders/changestatus/'.$order->id.'/complete')}}"
+                                       title="Отправлен" class="btn btn-success"><i class="fa fa-check"
+                                                                                    aria-hidden="true"></i> Доставляется</a>
                                 </div>
                             </div>
                             <div class="row">
@@ -89,17 +99,17 @@
                                                 <button data-toggle="tooltip" data-placement="top"
                                                         title="Имя покупателя" style="margin-right: 20px"
                                                         class="btn btn-primary"><i class="fa fa-user fa-fw"></i>
-                                                </button> {{$customer->name}}</li>
+                                                </button> {{$address['name']}}}</li>
                                             <li class="list-group-item">
                                                 <button data-toggle="tooltip" data-placement="top"
                                                         title="Номер телефона" style="margin-right: 20px"
                                                         class="btn btn-primary"><i class="fa fa-phone fa-fw"></i>
-                                                </button> {{$customer->phone}}</li>
+                                                </button> {{$address['name']}}</li>
                                             <li class="list-group-item">
                                                 <button data-toggle="tooltip" data-placement="top" title="Емейл"
                                                         style="margin-right: 20px" class="btn btn-primary"><i
                                                             class="fa fa-envelope-o  fa-fw"></i>
-                                                </button> {{$customer->email}}</li>
+                                                </button> {{$address['name']}}</li>
                                             <li class="list-group-item">
                                                 <button data-toggle="tooltip" data-placement="top" title="Язык"
                                                         style="margin-right: 20px" class="btn btn-primary"><i
@@ -118,10 +128,13 @@
                                 <ul class="list-group">
                                     <li class="list-group-item"><b>Регион: </b>{{$address['region']}}</li>
                                     <li class="list-group-item"><b>Город: </b>{{$address['city']}}</li>
-                                    <li class="list-group-item"><b>Индекс: </b>{{$address['postal_code']}}</li>
-                                    <li class="list-group-item"><b>Компания: </b>{{$address['company']}}</li>
-                                    <li class="list-group-item"><b>Адрес: </b>{{$address['address']}}</li>
-                                    <li class="list-group-item"><b>Комментарий: </b>{{$address['comment']}}</li>
+                                    <li class="list-group-item"><b>Отделение: </b>{{$address['secession']}}</li>
+                                    @if(isset($address['express']))
+                                        <li class="list-group-item"><b>Накладная: </b>{{$address['express']}}</li>
+                                    @endif
+                                    @if(isset($address['comment']))
+                                        <li class="list-group-item"><b>Комментарий: </b>{{$address['comment']}}</li>
+                                    @endif
                                 </ul>
                             </div>
 
@@ -165,7 +178,8 @@
                                 </table>
                                 <ul class="list-group text-center">
                                     <li class="list-group-item"><b>Купон:</b> {{$coupon}}</li>
-                                    <li class="list-group-item"><b>Итого:</b> {{currency($order->to_pay, $order->currency)}}</li>
+                                    <li class="list-group-item">
+                                        <b>Итого:</b> {{currency($order->to_pay, $order->currency)}}</li>
                                 </ul>
                             </div>
 
