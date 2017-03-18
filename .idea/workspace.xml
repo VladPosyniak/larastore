@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387ac2bd-ff6a-4c47-955c-ae65bccc9bb9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/orders/order.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/orders/order.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dist/js/cart.js" afterPath="$PROJECT_DIR$/public/dist/js/cart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/ru/all.php" afterPath="$PROJECT_DIR$/resources/lang/ru/all.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" afterPath="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" />
     </list>
     <ignored path="larashop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +35,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="158" column="33" selection-start-line="158" selection-start-column="33" selection-end-line="158" selection-end-column="33" />
+            <state relative-caret-position="340">
+              <caret line="20" column="104" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/order.blade.php">
+      <file leaf-file-name="catalog_smarty.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765">
-              <caret line="111" column="74" selection-start-line="111" selection-start-column="74" selection-end-line="111" selection-end-column="74" />
+            <state relative-caret-position="238">
+              <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_smarty.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="155" column="69" selection-start-line="155" selection-start-column="69" selection-end-line="155" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category_smarty.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/catalog/category_smarty.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="85" column="104" selection-start-line="85" selection-start-column="101" selection-end-line="85" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/lang/ru/all.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="61" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CatalogController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CatalogController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1480">
+              <caret line="160" column="5" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -69,11 +122,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/lang/en/layout.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/home_page.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/catalog_page.php" />
         <option value="$PROJECT_DIR$/resources/views/mail/message.blade.php" />
-        <option value="$PROJECT_DIR$/public/dist/js/cart.js" />
         <option value="$PROJECT_DIR$/database/migrations/2017_02_02_163858_Images.php" />
         <option value="$PROJECT_DIR$/app/ProductImage.php" />
         <option value="$PROJECT_DIR$/resources/views/mail.blade.php" />
@@ -93,8 +144,6 @@
         <option value="$PROJECT_DIR$/resources/views/profile/settings.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/resources/views/catalog/category_smarty.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CatalogController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/content/category.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/favourites.blade.php" />
@@ -116,10 +165,14 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" />
         <option value="$PROJECT_DIR$/resources/views/catalog/product_smarty.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/main.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/orders/checkout.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/orders/order.blade.php" />
+        <option value="$PROJECT_DIR$/public/dist/js/cart.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php" />
+        <option value="$PROJECT_DIR$/resources/lang/ru/all.php" />
+        <option value="$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php" />
       </list>
     </option>
   </component>
@@ -217,7 +270,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="catalog" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -235,15 +288,29 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="larastore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="larastore" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="orders" />
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -271,7 +338,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;la&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;Locale.p&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Middleware/Locale.php&#10;esse&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/essentials.css&#10;other.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/other.css&#10;plugin-hover-buttons.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/plugin-hover-buttons.css&#10;green.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/color_scheme/green.css&#10;layout-shop&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout-shop.css&#10;header-1&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/header-1.css&#10;grayscale&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;jquery-2.1.4.min.js&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/plugins/jquery/jquery-2.1.4.min.js&#10;ma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/flowers/public/dist/js/cart.js&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php" />
+    <property name="SearchEverywhereHistoryKey" value="chec&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/orders/checkout.blade.php&#10;car&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;cart&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/dist/js/cart.js&#10;home&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/HomeController.php&#10;la&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;Locale.p&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Middleware/Locale.php&#10;esse&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/essentials.css&#10;other.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/other.css&#10;plugin-hover-buttons.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/plugin-hover-buttons.css&#10;green.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/color_scheme/green.css&#10;layout-shop&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout-shop.css&#10;header-1&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/header-1.css&#10;grayscale&#9;null&#9;null&#10;layout.css&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;jquery-2.1.4.min.js&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/plugins/jquery/jquery-2.1.4.min.js&#10;ma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;Conf&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ConfigController.php&#10;layo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/public/smarty/css/layout.css&#10;pro&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;content&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;rout&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/routes.php&#10;conte&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/ContentController.php&#10;catalog&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;helpers&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Helpers/helpers.php&#10;hel&#9;FILE&#9;file://C:/OpenServer/domains/larastore/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php&#10;prod&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;productEd&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productEdit.blade.php&#10;class&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/Admin/ClassController.php&#10;catalo&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/CatalogController.php&#10;hom&#9;null&#9;null&#10;cate&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;clas&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;cata&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/catalog_smarty.blade.php&#10;orders&#9;FILE&#9;file://C:/OpenServer/domains/larastore/app/Http/Controllers/OrdersController.php&#10;productc&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/productCreate.blade.php&#10;main&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/layout/main.blade.php&#10;pr&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/product_smarty.blade.php&#10;class_sma&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/class_smarty.blade.php&#10;categor&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/catalog/category_smarty.blade.php&#10;classes&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/admin/content/classes.blade.php&#10;sett&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/profile/settings.blade.php&#10;sea&#9;FILE&#9;file://C:/OpenServer/domains/larastore/resources/views/search.blade.php&#10;favou&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/profile/favourites.blade.php&#10;products&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;checkout&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/orders/checkout.blade.php&#10;produc&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/catalog/products_smarty.blade.php&#10;orde&#9;FILE&#9;file://C:/OpenServer/domains/flowers/app/Http/Controllers/OrdersController.php&#10;sli&#9;null&#9;null&#10;Filter&#9;FILE&#9;file://C:/OpenServer/domains/flowers/resources/views/admin/content/filters/filterCreate.blade.php&#10;instal&#9;FILE&#9;file://C:/OpenServer/domains/flowers/database/migrations/2015_11_23_143714_InstallStruct.php" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
@@ -283,19 +350,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\flowers\app\Http\Controllers\Admin" />
-      <recent name="C:\OpenServer\domains\flowers\resources\views\admin\settings" />
-      <recent name="C:\OpenServer\domains\flowers\resources\views\admin\orders" />
-      <recent name="C:\OpenServer\domains\flowers\app\Http" />
-      <recent name="C:\OpenServer\domains\flowers\public\plugins\jquery.cookie" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\flowers\resources\lang\en" />
       <recent name="C:\OpenServer\domains\flowers\resources\lang\ru" />
       <recent name="C:\OpenServer\domains\flowers\app" />
       <recent name="C:\OpenServer\domains\flowers\app\Http\Controllers" />
       <recent name="C:\OpenServer\domains\flowers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\flowers\app\Http\Controllers\Admin" />
+      <recent name="C:\OpenServer\domains\flowers\resources\views\admin\settings" />
+      <recent name="C:\OpenServer\domains\flowers\resources\views\admin\orders" />
+      <recent name="C:\OpenServer\domains\flowers\app\Http" />
+      <recent name="C:\OpenServer\domains\flowers\public\plugins\jquery.cookie" />
     </key>
   </component>
   <component name="RunManager">
@@ -402,7 +469,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1922" height="1047" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2717508" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -411,7 +478,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20628998" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22647703" sideWeight="0.47014925" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22647703" sideWeight="0.47014925" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -448,56 +515,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/classEdit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/categoryEdit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="105" column="46" selection-start-line="99" selection-start-column="37" selection-end-line="105" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/classes.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="39" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/catalog/category_smarty.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/content/category.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1396">
@@ -579,13 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CatalogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -758,7 +768,7 @@
         <state relative-caret-position="3060">
           <caret line="422" column="33" selection-start-line="422" selection-start-column="33" selection-end-line="422" selection-end-column="33" />
           <folding>
-            <element signature="e#44#51#0#PHP" expanded="true" />
+            <element signature="e#44#51#0#PHP" expanded="false" />
             <element signature="e#765#1012#0#PHP" expanded="false" />
             <element signature="e#1019#1212#0#PHP" expanded="false" />
             <element signature="e#1795#2054#0#PHP" expanded="false" />
@@ -771,16 +781,6 @@
             <element signature="e#6758#9119#0#PHP" expanded="false" />
             <element signature="e#9825#10101#0#PHP" expanded="false" />
             <element signature="e#19343#23138#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#53#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -809,26 +809,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/orders/checkout.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="326" column="41" selection-start-line="326" selection-start-column="41" selection-end-line="326" selection-end-column="41" />
+        <state relative-caret-position="1020">
+          <caret line="188" column="46" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/orders/order.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="111" column="74" selection-start-line="111" selection-start-column="74" selection-end-line="111" selection-end-column="74" />
+        <state relative-caret-position="245">
+          <caret line="185" column="43" selection-start-line="185" selection-start-column="43" selection-end-line="185" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrdersController.php">
+    <entry file="file://$PROJECT_DIR$/public/dist/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding>
+            <marker date="1489865623546" expanded="true" signature="3938:3950" ph="..." />
+            <marker date="1489865623546" expanded="true" signature="4054:4061" ph="×" />
+            <marker date="1489865623546" expanded="true" signature="4322:4340" ph="..." />
+            <marker date="1489865623546" expanded="true" signature="4405:4420" ph="..." />
+            <marker date="1489865623546" expanded="true" signature="4515:4522" ph="×" />
+            <marker date="1489865623546" expanded="true" signature="4642:4659" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/orders/checkout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="317" column="27" selection-start-line="317" selection-start-column="27" selection-end-line="317" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/content/classes.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="92" column="39" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="61" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CatalogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1480">
+          <caret line="160" column="5" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="104" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/catalog/catalog_smarty.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="158" column="33" selection-start-line="158" selection-start-column="33" selection-end-line="158" selection-end-column="33" />
+          <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/ru/all.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/catalog/category_smarty.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="85" column="104" selection-start-line="85" selection-start-column="101" selection-end-line="85" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/catalog/class_smarty.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="155" column="69" selection-start-line="155" selection-start-column="69" selection-end-line="155" selection-end-column="69" />
           <folding />
         </state>
       </provider>

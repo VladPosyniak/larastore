@@ -145,13 +145,13 @@ $('.quick-cart-wrapper').on('click', '.qty', function () {
             order[i].amount = cur_amount; // устанавливаем количество товара
         }
     }
-    $.cookie('basket', JSON.stringify(order));
+    $.cookie('basket', JSON.stringify(order),{ path: '/'});
     count_order();
     show_total_price();
     return false;
 });
 
-$('.quick-cart-wrapper').on('change', '.qty', function () {
+$('.quick-cart-wrapper').on('input', '.qty', function () {
     var order = $.cookie('basket'); //получаем куки
     order ? order = JSON.parse(order) : order = []; //если заказ есть, то куки переделываем в массив с объектами
 
@@ -168,7 +168,7 @@ $('.quick-cart-wrapper').on('change', '.qty', function () {
             order[i].amount = cur_amount; // устанавливаем количество товара
         }
     }
-    $.cookie('basket', JSON.stringify(order));
+    $.cookie('basket', JSON.stringify(order),{ path: '/'});
     count_order();
     show_total_price();
     return false;

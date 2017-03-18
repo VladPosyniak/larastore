@@ -36,52 +36,19 @@
                     <!-- CAROUSEL -->
                     <div class="owl-carousel buttons-autohide controlls-over margin-bottom-30 radius-4"
                          data-plugin-options='{"singleItem": true, "autoPlay": 6000, "navigation": true, "pagination": true, "transitionStyle":"fade"}'>
-                        <!-- item -->
-                        <div>
-                            <div class="caption-slider-default">
-                                <div class="display-table">
-                                    <div class="display-table-cell vertical-align-middle">
-                                        <div class="caption-container text-left">
-                                            <h2>SHOP <strong>NOW</strong> &ndash; 50% OFF</h2>
-                                            <p>
-                                                This is a category banner rotator<br/>
-                                                for any category of your shop.
-                                            </p>
-                                        </div>
-                                    </div>
+                        @if(isset($sliders['catalog_&_class']))
+                            @foreach($sliders['catalog_&_class']->data as $slide)
+                                <div>
+                                    <a href="{{$slide['link']}}">
+                                        <img class="img-responsive radius-4"
+                                             src="{{asset('files/sliders/'.$slide['image'])}}"
+                                             width="851" height="335"
+                                             alt="">
+                                    </a>
                                 </div>
-                            </div>
+                            @endforeach
+                        @endif
 
-                            <img class="img-responsive radius-4"
-                                 src="{{asset('http://wpapers.ru/wallpapers/Plants/Flowers/12086/1500x1000_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B5-%D1%80%D0%BE%D0%B7%D1%8B.jpg')}}"
-                                 width="851" height="335"
-                                 alt="">
-                        </div>
-                        <!-- /item -->
-
-                        <!-- item -->
-                        <div>
-
-                            <div class="caption-slider-default">
-                                <div class="display-table">
-                                    <div class="display-table-cell vertical-align-middle">
-                                        <div class="caption-container text-left">
-                                            <h2>LOREM IPSUM <strong>DOLOR</strong></h2>
-                                            <p>
-                                                Unlimited designs, unlimited combinations <br/>
-                                                imagination is the limit!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img class="img-responsive radius-4"
-                                 src="{{asset('http://ogorodsadovod.com/sites/default/files/u46/2013/12/tsveti.jpg')}}"
-                                 width="851" height="335"
-                                 alt="">
-                        </div>
-                        <!-- /item -->
 
                     </div>
                     <!-- /CAROUSEL -->
