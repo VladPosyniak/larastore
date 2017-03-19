@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-
+    <title>Войти в аккаунт Shmot.top</title>
 @endsection
 
 @section('page')

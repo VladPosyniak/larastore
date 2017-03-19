@@ -181,6 +181,7 @@
                         <p>{{trans('catalog_page.newsletter_body')}}</p>
 
                         <form action="\newsletter-add" role="form" method="post">
+                            {{csrf_field()}}
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" name="email" class="form-control required"

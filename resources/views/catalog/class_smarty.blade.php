@@ -136,7 +136,7 @@
 
                     {{--FILTERS--}}
 
-                    <h4>FILTERS</h4>
+                    <h4>{{trans('catalog_page.filters')}}</h4>
                     <form id="filter" action="">
                         <label class="size-12 margin-top-10"><b>Диапозон цены</b></label>
                         <div class="input-group">
@@ -166,7 +166,7 @@
 
                         <p></p>
                         <button type="submit"
-                                class="btn btn-default btn-md btn-block btn-primary btn-hvr hvr-icon-spin">Search
+                                class="btn btn-default btn-md btn-block btn-primary btn-hvr hvr-icon-spin">{{trans('catalog_page.search')}}
                         </button>
                     </form>
                     <hr/>
@@ -179,6 +179,7 @@
                         <p>{{trans('catalog_page.newsletter_body')}}</p>
 
                         <form action="\newsletter-add" role="form" method="post">
+                        {{csrf_field()}}
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                 <input type="email" id="email" name="email" class="form-control required"

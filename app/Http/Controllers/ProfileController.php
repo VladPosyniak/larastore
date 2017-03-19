@@ -8,6 +8,7 @@ use larashop\Coupons;
 use larashop\Favourite;
 use larashop\Order;
 use larashop\User;
+use larashop\Newsletter;
 use Validator;
 use larashop\UserAddress;
 use Jenssegers\Date\Date;
@@ -141,6 +142,23 @@ class ProfileController extends Controller
             return view('profile.message',['message' => 'Something wrong! Try again.']);
         }
 
+    }
+
+    public function newsletter(Request $request){
+         $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()){
+            $link = redirect()->getUrlGenerator()->previous();
+            header('Location: '.$link);
+        }
+        $newsletter = new Newsletter;
+        $newsletter->email = $request->email;
+        $newsletter->save();
+
+        $link = redirect()->getUrlGenerator()->previous();
+        header('Location: '.$link);
     }
 
     public function getAddress($id){

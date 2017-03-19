@@ -40,6 +40,8 @@ Route::get('/mail',function(){
 
 Route::get('/', ['uses' => 'HomeController@index']);
 
+Route::post('/newsletter-add', ['uses' => 'ProfileController@newsletter']);
+
 Route::get('/test', ['uses' => 'PurchaseController@showMail']);
 
 Route::get('/np_sync', ['uses' => 'PurchaseController@npSync']);

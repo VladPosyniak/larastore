@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('seo')
-
+    <title>Избранные товары пользователя Shmot.top</title>
 @endsection
 
 @section('page')
