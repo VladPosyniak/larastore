@@ -1,4 +1,5 @@
 User-agent: *
+
 Disallow: /mail/
 Disallow: /test
 Disallow: /liqpay
@@ -12,3 +13,6 @@ Disallow: /registration
 Disallow: /socialite/
 Disallow: /forgot
 Disallow: /password/
+sitemap: https://shmot.top/sitemap.xml
+sitemap: https://shmot.top/sitemap-image.xml
+Host: shmot.top

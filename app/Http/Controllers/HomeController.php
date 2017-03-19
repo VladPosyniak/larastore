@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
 
         Visitor::log();
-        $products = Products::orderBy('sort_id', 'asc')->take(9)->get();
+        $products = Products::orderBy('sort_id', 'desc')->take(12)->get();
         foreach ($products as $key => $product) {
             $products[$key]['name'] = Products::find($product->id)->description->name;
         }

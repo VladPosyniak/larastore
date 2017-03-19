@@ -463,7 +463,7 @@ class ContentController extends Controller
                 });
 
                 // save image
-                $img_medium->save('files/products/img/medium'.$string.'.'.$extension);
+                $img_medium->save('files/products/img/medium/'.$string.'.'.$extension);
                 $img_small->save('files/products/img/small/' . $string . '.' . $extension);
                 $coverdb = $string . '.' . $extension;
             }
@@ -506,7 +506,7 @@ class ContentController extends Controller
                         $constraint->upsize();
                     });
                     $string = str_random(40);
-
+                    $image->save('files/products/img/' . $string . '.' . $extension);
 
                     $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
                         $constraint->aspectRatio();
@@ -518,7 +518,7 @@ class ContentController extends Controller
                     });
 
                     // save image
-                    $image->save('files/products/img/' . $string . '.' . $extension);
+
                     $image_small->save('files/products/img/small/' . $string . '.' . $extension);
                     $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
 
@@ -865,6 +865,8 @@ class ContentController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
+                    $string = str_random(40);
+                    $image->save('files/products/img/' . $string . '.' . $extension);
                     $image_small = Image::make($image)->fit(100, 100, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
@@ -873,9 +875,9 @@ class ContentController extends Controller
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
-                    $string = str_random(40);
+
                     // save image
-                    $image->save('files/products/img/' . $string . '.' . $extension);
+
                     $image_small->save('files/products/img/small/' . $string . '.' . $extension);
                     $img_medium->save('files/products/img/medium/' . $string . '.' . $extension);
 
