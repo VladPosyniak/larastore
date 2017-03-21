@@ -278,9 +278,9 @@ class OrdersController extends Controller
         $order->paid = $paid;
         $order->to_pay = $to_pay - ($to_pay * $coupon_percent);
         $order->delivery_address = serialize(array(
-            'city' => $this->get_city_by_id($request->input('region'),$request->input('city')),
-            'secession' => $this->get_post_by_id($request->input('region'),$request->input('city'),$request->input('secession')),
-            'region' => $this->get_area_by_id($request->input('region')),
+            'city' => $this->get_city_by_id($request->region,$request->city),
+            'secession' => $this->get_post_by_id($request->region,$request->city,$request->secession),
+            'region' => $this->get_area_by_id($request->region),
 //            'address' => $request->input('address'),
 //            'country' => $request->input('country'),
 //            'postal_code' => $request->input('zipcode'),
@@ -332,7 +332,8 @@ class OrdersController extends Controller
                 return view('orders.ordered', ['message' => 'Заказ успешно оформлен! Данные о заказе отправлены вам на почту.', 'payment' => 'Ожидайте звонка!']);
                 break;
             case 2:
-                return view('orders.ordered', ['message' => 'Заказ будет обработан после оплаты!', 'payment' => $this->liqpay($total - $total * $coupon_percent, currentCurrency(), $uniqCode)]);
+//                return view('orders.ordered', ['message' => 'Заказ будет обработан после оплаты!', 'payment' => $this->liqpay($total - $total * $coupon_percent, currentCurrency(), $uniqCode)]);
+                return view('orders.ordered', ['message' => 'Заказ будет обработан после оплаты!', 'payment' => 'Данные для оплаты: <ul><li>Номер карты: <b>5168 7559 3792 3544</b>.</li><li>Имя владельца карты: <b>Посыняк Владислав Юрьевич</b>.</li><li>В комментарие к денежнему переводу укажите данный код: <b>'.$order->code.'</b></li></ul>']);
 
                 break;
             case 3:
@@ -355,7 +356,7 @@ class OrdersController extends Controller
     private function uniqCode()
     {
         $accept = '';
-        for ($code = str_random(5); $accept === false; $code = str_random(5)) {
+        for ($code = str_random(10); $accept === false; $code = str_random(10)) {
             if (Order::where('code', '=', strtoupper($code))->get() == null) {
                 $accept = true;
             } else {

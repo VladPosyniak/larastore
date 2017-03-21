@@ -80,7 +80,7 @@
 
                             <!-- buttons -->
                             <div class="pull-right">
-                                <a class="btn btn-default add-wishlist" href="#" data-added="{{$favourite}}"
+                                <a class="btn btn-default @if(Auth::check()) add-wishlist @endif" href="{{url('/login')}}" data-added="{{$favourite}}"
                                    data-id="{{$currentProd->id}}" {{--data-toggle="tooltip"--}}
                                    @if($favourite)
                                    title="{{trans('product_page.del_wish')}}"
@@ -172,7 +172,7 @@
                                     <h3><i class="fa fa-credit-card" aria-hidden="true"></i> Оплата</h3>
                                 </div>
                                 <ul class="list-unstyled list-icons">
-                                    <li><i class="fa fa-check text-success"></i> <b>Банковской картой</b></li>
+                                    <li><i class="fa fa-check text-success"></i> <b>На карту Приватбанка</b></li>
                                     <li><i class="fa fa-check text-success"></i> <b>При получении</b></li>
                                 </ul>
                             </div>
