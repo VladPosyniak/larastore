@@ -322,8 +322,7 @@
                 $('.post_block').hide();
                 $('.city').empty();
                 $('.city').append('<option value="">Город</option>');
-                $('.post').empty();
-                $('.post').append('<option value="">Отделение</option>');
+                
                 $.ajax({
                   method: "GET",
                   url: "/ship/get_cities/",
@@ -373,6 +372,8 @@
                       data:{area:area, city:city}
                     })
                   .done(function( msg ) {
+                    $('.post').empty();
+                    $('.post').append('<option value="">Отделение</option>');
                     posts = JSON.parse(msg);
                     post_handler(posts);
                   });

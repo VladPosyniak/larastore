@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{asset('smarty/css/plugin-hover-buttons.css')}}">
     <link rel="stylesheet" href="{{asset('smarty/css/other.css')}}">
 
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?142"></script>
+
     <meta name="yandex-verification" content="5be6705cc9de7de0" />
 </head>
 
@@ -42,7 +44,12 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-
+<!-- VK Widget -->
+<div id="vk_community_messages"></div>
+<script type="text/javascript">
+VK.Widgets.CommunityMessages("vk_community_messages", 87459155, {widgetPosition: "left",disableExpandChatSound: "1",tooltipButtonText: "Есть вопросы?"});
+</script>
+<!-- VK Widget -->
 
 <!-- wrapper -->
 <div id="wrapper">
