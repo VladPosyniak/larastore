@@ -4,6 +4,7 @@ namespace larashop\Exceptions;
 
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -48,14 +49,12 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof ModelNotFoundException) {
             //$e = new NotFoundHttpException($e->getMessage(), $e);
-            return redirect('/');
+            return response()->view('errors.404', [], 404);
         }
-        else
-                if($e instanceof NotFoundHttpException)
+        elseif($e instanceof NotFoundHttpException)
     {
-        return redirect('/');
+        return response()->view('errors.404', [], 404);
     }
-
         return parent::render($request, $e);
     }
 }
