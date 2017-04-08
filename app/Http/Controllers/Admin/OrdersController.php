@@ -196,42 +196,33 @@ class OrdersController extends Controller
         $request->session()->flash('alert-success', 'Cтатус обновлен!');
         return redirect()->back();
     }
-    public function processingStatus(Request $request, $id){
+     public function processingStatus(Request $request, $id){
         $order = Order::findOrFail($id);
         $order->status = 'Обработан';
         $order->to_processing = 1;
         $order->save();
         $request->session()->flash('alert-success', 'Cтатус обновлен!');
-
         $products = OrderedProducts::where('order_id','=',$order->id)->get();
-
         $products_mail = [];
-
         foreach ($products as $key=>$item){
-            $products[$key]->data = Products::find($item->product_id)
-                    ->join('products_description', 'products_description.product_id', '=', 'products.id')
-                    ->where('products_description.language_id', '=', currentLanguageId())->get();
+            $products[$key] = Products::find($item->product_id);
+            $products[$key]->amount = $item->amount;
+        }
+        foreach ($products as $product){
             $product_mail = [
-                'title' => $products[$key]->data[$key]->name,
-                'amount' => $products[$key]->amount,
-                'price' => currencyWithoutPrefix($products[$key]->data[$key]->price)
+                'title' => $product->description->name,
+                'amount' => $product->amount,
+                'price' => currencyWithoutPrefix($product->price)
             ];
-
             $product_mail['total_price'] = $product_mail['price'] * $product_mail['amount'];
             $products_mail[] = $product_mail;
-
         }
-
         $order_info = unserialize($order->delivery_address);
         $total = currencyWithoutPrefix($order->to_pay);
-
-        Mail::send('mail/order_processed', ['total'=>$total, 'products' => $products_mail], function($message) use($request, $order_info)
-        {
-            $message->to( $order_info['email'] , $order_info['name'])->subject('Ваш заказ обработан!');
-        });
-
+        mail_send('mail/order_processed', ['total'=>$total, 'products' => $products_mail], $order_info['email'], 'Ваш заказ обработан!');
         return redirect()->back();
     }
+
     public function completeStatus(Request $request, $id){
         $order = Order::findOrFail($id);
         $order->status = 'Отправлен';
@@ -244,32 +235,25 @@ class OrdersController extends Controller
         $request->session()->flash('alert-success', 'Cтатус обновлен!');
 
         $products = OrderedProducts::where('order_id','=',$order->id)->get();
-
         $products_mail = [];
-
         foreach ($products as $key=>$item){
-            $products[$key]->data = Products::find($item->product_id)
-                    ->join('products_description', 'products_description.product_id', '=', 'products.id')
-                    ->where('products_description.language_id', '=', currentLanguageId())->get();
+            $products[$key] = Products::find($item->product_id);
+            $products[$key]->amount = $item->amount;
+        }
+        foreach ($products as $product){
             $product_mail = [
-                'title' => $products[$key]->data[$key]->name,
-                'amount' => $products[$key]->amount,
-                'price' => currencyWithoutPrefix($products[$key]->data[$key]->price)
+                'title' => $product->description->name,
+                'amount' => $product->amount,
+                'price' => currencyWithoutPrefix($product->price)
             ];
-
             $product_mail['total_price'] = $product_mail['price'] * $product_mail['amount'];
             $products_mail[] = $product_mail;
-
         }
-
         $order_info = unserialize($order->delivery_address);
         $express = $order_info['express'];
         $total = currencyWithoutPrefix($order->to_pay);
 
-        Mail::send('mail/order_ship', ['total'=>$total, 'products' => $products_mail, 'express'=>$express], function($message) use($request, $order_info)
-        {
-            $message->to( $order_info['email'] , $order_info['name'])->subject('Ваш заказ успешно отправлен!');
-        });
+        mail_send('mail/order_ship', ['total'=>$total, 'products' => $products_mail, 'express'=>$express],$order_info['email'],  'Ваш заказ успешно отправлен!');
 
         return redirect()->back();
     }

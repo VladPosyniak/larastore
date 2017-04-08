@@ -12,37 +12,12 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('/mail',function(){
-    $data = 
-    [
-        'appURL'=>'asdf',
-        'orderCode'=>'asdfasdf',
-        'order'=>
-        [
-            'delivery_city' => 'Kiev',
-            'delivery_np' => 'hz shto',
-            'delivery_adr' => 'Улица Хрещатика'
-        ],
-        'client' =>
-        [
-            'name' => 'test',
-            'tel' => '124124124sa'
-        ],
-        'delivery_type' => 'post',
-        'pay_type' => 'post',
-
-    ];
-    Mail::send('mail', ['dump'=>var_export($data, true)], function($message)
-    {
-        $message->to('teyn.k@mail.ru', 'Тест Тест');
-    });
-});
 
 Route::get('/', ['uses' => 'HomeController@index']);
 
 Route::post('/newsletter-add', ['uses' => 'ProfileController@newsletter']);
 
-Route::get('/test', ['uses' => 'PurchaseController@showMail']);
+Route::get('/test', ['uses' => 'PurchaseController@test']);
 
 Route::get('/np_sync', ['uses' => 'PurchaseController@npSync']);
 

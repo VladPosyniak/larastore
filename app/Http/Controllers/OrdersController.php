@@ -322,11 +322,10 @@ class OrdersController extends Controller
                 foreach ($products as $product){
                     $products_arr[] = Products::find($product->id);
                 }
+                mail_send('mail/order_in_process', [], $request->input('email'), 'Ваш заказ в обработке!');
 
-                Mail::send('mail/order_in_process', [], function($message) use($request)
-                {
-                    $message->to($request->input('email'), $request->input('name'))->subject('Ваш заказ в обработке!');
-                });
+                date_default_timezone_set ( 'Europe/Kiev' );
+                mail_send('mail/admin_send', [], 'patch4mee@gmail.com', 'Shmot.top Новый заказ!');
                 //todo
 
                 return view('orders.ordered', ['message' => 'Заказ успешно оформлен! Данные о заказе отправлены вам на почту.', 'payment' => 'Ожидайте звонка!']);

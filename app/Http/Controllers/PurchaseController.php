@@ -20,6 +20,7 @@ use Mail;
 use Setting;
 use Input;
 use Visitor;
+use View;
 
 //namespace NovaPoshta;
 Use NovaPoshta\Config;
@@ -55,6 +56,12 @@ class PurchaseController extends Controller
         foreach ($unitArr->data as $value) {
             NPUnit::create(['name' => $value->DescriptionRu, 'ref' => $value->CityRef]);
         }
+    }
+
+    public function test()
+    {
+        
+        
     }
     
     public function index() {

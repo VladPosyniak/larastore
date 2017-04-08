@@ -176,56 +176,6 @@
 			</table>  
 			<img border="0" src="https://shmot.top/files/mail/spacer.gif" width="1" height="15" class="divider"><br>
 			</layout>
-			<!-- <layout label="Gallery highlights">
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#2588fc" nowrap><img border="0" src="https://shmot.top/files/mail/spacer.gif" width="5" height="1"></td>
-				<td width="100%" bgcolor="#ffffff">
-
-					<table width="100%" cellpadding="20" cellspacing="0" border="0">
-					<tr>
-						<td bgcolor="#ffffff" class="contentblock">
-
-							<h4 class="secondary"><strong><singleline label="Gallery title">Title of gallery summary</singleline></strong></h4>
-							<multiline label="Gallery description"><p>Description of this month's gallery entries</p></multiline>
-
-						</td>
-					</tr>
-					</table>
-
-				</td>
-			</tr>
-			</table>
-
-			<table width="100%" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td bgcolor="#2588fc" nowrap><img border="0" src="https://shmot.top/files/mail/spacer.gif" width="5" height="1"></td>
-				<td bgcolor="#ffffff" nowrap><img border="0" src="https://shmot.top/files/mail/spacer.gif" width="5" height="1"></td> 
-				<td width="100%" bgcolor="#ffffff">
-
-					<table cellpadding="5" cellspacing="0" border="0">
-					<tr>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-					</tr>
-					<tr>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-						<td><a href="https://shmot.top"><img border="0" src="https://shmot.top/files/mail/gallery.png" width="107" height="107" editable="true" class="galleryimage" label="Image 1"></a></td>
-					</tr>
-					</table>
-
-					<img border="0" src="https://shmot.top/files/mail/spacer.gif" width="1" height="5"><br>
-
-				</td>
-			</tr>
-			</table>  
-			</layout> -->
 		</repeater>           
 		
 		</td>

@@ -150,3 +150,15 @@ function currentLanguageId(){
     $language = Language::where('code','=',App::getLocale())->first();
     return $language->id;
 }
+
+function mail_send($view, $data, $email, $subject){
+    $message = (string)View::make($view, $data);
+
+    $headers = 'From: noreply@shmot.top' . "\r\n" .
+        'Reply-To: patch4mee@gmail.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion(). "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    mail($email, $subject, $message, $headers);
+}
